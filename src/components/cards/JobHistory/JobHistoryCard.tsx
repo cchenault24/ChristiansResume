@@ -10,6 +10,7 @@ import '../../../App.css';
 import { Pages } from '../../../model/enum';
 import { useAppContext } from '../../../hooks/useAppContext';
 import { useGetData } from '../../../data/data';
+import { useBreakpoints } from '../../../hooks/useBreakpoints';
 
 type SectionCardProps = {
     company: string;
@@ -18,8 +19,13 @@ type SectionCardProps = {
 export default function JobHistoryCard({ company }: SectionCardProps) {
     const { setActivePage } = useAppContext();
     const { jobExperience } = useGetData();
+    const { isMobile, isTablet } = useBreakpoints();
 
+    const isSmall = isMobile || isTablet;
+    const cardSize = isSmall ? 'w-64 h-64' : ' w-96 h-96';
+    
     const jobHistoryData = jobExperience[company.toLowerCase()];
+    const jobHistoryImage = isSmall ? jobHistoryData.mobile : jobHistoryData.logo
 
     const handleClick = () => {
         const activePage = company === 'Amazon' ? Pages.AMAZON : Pages.LEIDOS;
@@ -29,7 +35,7 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
     return (
         <Card
             id={`JobHistoryCard-${jobHistoryData.company}`}
-            className='flex w-96 h-96 shrink-0'
+            className={`flex ${cardSize} shrink-0`}
             isHoverable
             isPressable
             shadow='lg'
@@ -43,7 +49,7 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
                     src={jobHistoryData.icon}
                     width={40}
                 />
-                <div className='flex items-start flex-col'>
+                <div className='flex items-start flex-col text-left'>
                     <h2 className='text-md'>{jobHistoryData.title}</h2>
                     <h3 className='text-sm text-default-500'>
                         {jobHistoryData.company}
@@ -55,7 +61,7 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
                 <Image
                     alt='Card background'
                     className='object-cover rounded-xl'
-                    src={jobHistoryData.logo}
+                    src={jobHistoryImage}
                     width={270}
                 />
             </CardBody>

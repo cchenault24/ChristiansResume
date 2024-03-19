@@ -6,6 +6,7 @@ type JobHistory = {
     end: string;
     icon: string;
     logo: string;
+    mobile: string;
     description: string[];
 };
 type EducationHistory = {
@@ -36,6 +37,7 @@ export const useGetData = (): ResumeData => ({
             end: 'Present',
             icon: '/amazon-logo.png',
             logo: '/amazon-square.png',
+            mobile: '/amazon-mobile.png',
             description: [
                 'Collaborated with stakeholders during development processes to confirm creative proposals and design best practices.',
                 'Improved tools to boost user interaction and deliver design versatility.',
@@ -55,6 +57,7 @@ export const useGetData = (): ResumeData => ({
             end: '06/2022',
             icon: '/leidos-logo.png',
             logo: '/leidos-square.png',
+            mobile: '/leidos-mobile.png',
             description: [
                 'Led development efforts for U.S. Air Force defense contracts, delivering full-stack software solutions and introducing process improvements.',
                 'Managed substantial test suite of 300+ tests and streamlined pipelines, reviews, and CI/CD processes, ensuring application and team scalability.',

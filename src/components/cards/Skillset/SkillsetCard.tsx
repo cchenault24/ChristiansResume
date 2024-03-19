@@ -10,10 +10,14 @@ import { Pages } from '../../../model/enum';
 import { useAppContext } from '../../../hooks/useAppContext';
 import { useGetData } from '../../../data/data';
 import Header from '../../Header';
+import { useBreakpoints } from '../../../hooks/useBreakpoints';
 
 export default function SkillsetCard() {
     const { setActivePage } = useAppContext();
     const { skills } = useGetData();
+    const { isMobile, isTablet } = useBreakpoints();
+
+    const isSmall = isMobile || isTablet;
 
     const handleClick = () => {
         setActivePage(Pages.HOME);
@@ -24,7 +28,7 @@ export default function SkillsetCard() {
             <Header hideBack={true}>My Skillset</Header>
             <Card
                 id={`SkillsetCard`}
-                className='flex max-w-screen-md'
+                className={`flex max-w-screen-md`}
                 isHoverable
                 isPressable
                 fullWidth={true}
@@ -32,7 +36,7 @@ export default function SkillsetCard() {
                 onClick={handleClick}
             >
                 <CardBody>
-                    <ScrollShadow hideScrollBar className='w-full h-[500px]'>
+                    <ScrollShadow hideScrollBar={!isSmall} className='w-full h-[500px]'>
                         <p className='text-default-400 text-center text-sm'>
                             Scroll to see all skills
                         </p>
