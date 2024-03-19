@@ -55,7 +55,7 @@ export default function JobHistoryDetailsCard({ company }: SectionCardProps) {
                             </h3>
                             <object
                                 className='mt-0.5'
-                                data='/src/assets/location.svg'
+                                data='/public/assets/location.svg'
                                 width='18'
                                 height='18'
                             />
@@ -71,7 +71,7 @@ export default function JobHistoryDetailsCard({ company }: SectionCardProps) {
                             </h3>
                             <object
                                 className='mt-0.5'
-                                data='/src/assets/calendar.svg'
+                                data='/public/assets/calendar.svg'
                                 width='18'
                                 height='18'
                             />

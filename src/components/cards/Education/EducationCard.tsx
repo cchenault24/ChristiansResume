@@ -51,7 +51,7 @@ export default function EducationCard() {
                                 </p>
                                 <object
                                     className='mt-0.5 ml-2'
-                                    data='/src/assets/location.svg'
+                                    data='/public/assets/location.svg'
                                     width='18'
                                     height='18'
                                 />
@@ -67,7 +67,7 @@ export default function EducationCard() {
                                 </p>
                                 <object
                                     className='mb-1 ml-2'
-                                    data='/src/assets/calendar.svg'
+                                    data='/public/assets/calendar.svg'
                                     width='18'
                                     height='18'
                                 />
