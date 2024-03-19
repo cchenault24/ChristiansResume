@@ -1,0 +1,66 @@
+import {
+    Card,
+    CardBody,
+    CardFooter,
+    Divider,
+    ScrollShadow,
+} from '@nextui-org/react';
+import '../../../App.css';
+import { Pages } from '../../../model/enum';
+import { useAppContext } from '../../../hooks/useAppContext';
+import { useGetData } from '../../../data/data';
+import Header from '../../Header';
+
+export default function SkillsetCard() {
+    const { setActivePage } = useAppContext();
+    const { skills } = useGetData();
+
+    const handleClick = () => {
+        setActivePage(Pages.HOME);
+    };
+
+    return (
+        <>
+            <Header hideBack={true}>My Skillset</Header>
+            <Card
+                id={`SkillsetCard`}
+                className='flex max-w-screen-md'
+                isHoverable
+                isPressable
+                fullWidth={true}
+                shadow='lg'
+                onClick={handleClick}
+            >
+                <CardBody>
+                    <ScrollShadow hideScrollBar className='w-full h-[500px]'>
+                        <p className='text-default-400 text-center text-sm'>
+                            Scroll to see all skills
+                        </p>
+                        <ul className='list-disc list-inside'>
+                            {skills.map((skill, index) => {
+                                const bgColor =
+                                    index % 2 === 0
+                                        ? 'bg-inherit'
+                                        : 'bg-gray-300';
+                                return (
+                                    <li
+                                        className={`${bgColor} px-4 select-text`}
+                                        key={index}
+                                    >
+                                        <b>{skill.skill}</b>: {skill.descriptor}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </ScrollShadow>
+                </CardBody>
+                <Divider />
+                <CardFooter className='flex justify-center'>
+                    <p className='text-default-400 text-center text-sm'>
+                        Click anywhere on the Card to return back
+                    </p>
+                </CardFooter>
+            </Card>
+        </>
+    );
+}
