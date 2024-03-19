@@ -779,6 +779,11 @@ video {
   margin-bottom: 4rem;
 }
 
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .my-\[calc\(\(theme\(spacing\.5\)-theme\(spacing\.1\)\)\/2\)\] {
   margin-top: calc((1.25rem - 0.25rem) / 2);
   margin-bottom: calc((1.25rem - 0.25rem) / 2);
@@ -985,8 +990,8 @@ video {
   height: 2px;
 }
 
-.h-\[400px\] {
-  height: 400px;
+.h-\[500px\] {
+  height: 500px;
 }
 
 .h-\[calc\(100dvh_-_var\(--navbar-height\)_-_1px\)\] {
@@ -1164,6 +1169,10 @@ video {
 
 .w-96 {
   width: 24rem;
+}
+
+.w-\[600px\] {
+  width: 600px;
 }
 
 .w-\[80\%\] {
@@ -1590,6 +1599,12 @@ video {
           user-select: none;
 }
 
+.select-text {
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
+}
+
 .resize-none {
   resize: none;
 }
@@ -1599,8 +1614,8 @@ video {
   scroll-padding-bottom: 1.5rem;
 }
 
-.list-decimal {
-  list-style-type: decimal;
+.list-inside {
+  list-style-position: inside;
 }
 
 .list-disc {
@@ -2266,12 +2281,31 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
 .bg-stripe-gradient {
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
 }
 
+.from-default-500 {
+  --tw-gradient-from: hsl(var(--nextui-default-500) / var(--nextui-default-500-opacity, 1)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--nextui-default-500) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-indigo-400 {
+  --tw-gradient-to: #818cf8 var(--tw-gradient-to-position);
+}
+
 .bg-\[length\:1\.25rem_1\.25rem\] {
   background-size: 1.25rem 1.25rem;
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+          background-clip: text;
 }
 
 .stroke-current {
@@ -2709,6 +2743,10 @@ video {
 
 .text-success\/80 {
   color: hsl(var(--nextui-success) / 0.8);
+}
+
+.text-transparent {
+  color: transparent;
 }
 
 .text-warning {

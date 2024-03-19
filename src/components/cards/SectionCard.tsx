@@ -12,13 +12,13 @@ export default function SectionCard({ title }: SectionCardProps) {
     let iconSrc;
     switch (title) {
         case Pages.JOBS:
-            iconSrc = '/public/assets/jobhistory-icon.png';
+            iconSrc = '/jobhistory-icon.png';
             break;
         case Pages.SKILLS:
-            iconSrc = '/public/assets/skillset-icon.png';
+            iconSrc = '/skillset-icon.png';
             break;
         case Pages.EDUCATION:
-            iconSrc = '/public/assets/education-icon.png';
+            iconSrc = '/education-icon.png';
             break;
     }
     const handleClick = () => {

@@ -16,7 +16,7 @@ export default function HomePage() {
     // Function will execute on click of button
     const handleDownloadResume = () => {
         // using Java Script method to get PDF file
-        fetch("/public/assets/Resume.pdf").then((response) => {
+        fetch("/Resume.pdf").then((response) => {
             response.blob().then((blob) => {
              
                 // Creating new object of PDF file
@@ -50,7 +50,7 @@ export default function HomePage() {
                             description='Front End Engineer'
                             avatarProps={{
                                 size: 'lg',
-                                src: '/public/assets/profile.png',
+                                src: '/profile.png',
                             }}
                         />
                     </CardBody>

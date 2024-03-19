@@ -34,8 +34,8 @@ export const useGetData = (): ResumeData => ({
             location: 'Arlington, VA',
             start: '06/2022',
             end: 'Present',
-            icon: '/public/assets/amazon-logo.png',
-            logo: '/public/assets/amazon-square.png',
+            icon: '/amazon-logo.png',
+            logo: '/amazon-square.png',
             description: [
                 'Collaborated with stakeholders during development processes to confirm creative proposals and design best practices.',
                 'Improved tools to boost user interaction and deliver design versatility.',
@@ -53,8 +53,8 @@ export const useGetData = (): ResumeData => ({
             location: 'Remote',
             start: '05/2018',
             end: '06/2022',
-            icon: '/public/assets/leidos-logo.png',
-            logo: '/public/assets/leidos-square.png',
+            icon: '/leidos-logo.png',
+            logo: '/leidos-square.png',
             description: [
                 'Led development efforts for U.S. Air Force defense contracts, delivering full-stack software solutions and introducing process improvements.',
                 'Managed substantial test suite of 300+ tests and streamlined pipelines, reviews, and CI/CD processes, ensuring application and team scalability.',
@@ -73,7 +73,7 @@ export const useGetData = (): ResumeData => ({
             location: 'Harrisonburg, VA',
             start: '08/2014',
             end: '05/2018',
-            icon: '/public/assets/jmu-logo.png',
+            icon: '/jmu-logo.png',
         },
     },
     skills: [

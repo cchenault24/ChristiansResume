@@ -41,7 +41,7 @@ export default function AboutMeCard() {
                         alt='profile logo'
                         height={100}
                         radius='sm'
-                        src='/public/assets/profile.png'
+                        src='/profile.png'
                         width={100}
                     />
                     <div className='flex grow items-start flex-col'>
@@ -61,7 +61,7 @@ export default function AboutMeCard() {
                                 </h3>
                                 <object
                                     className='mb-1 mx-2'
-                                    data='/public/assets/phone.svg'
+                                    data='/phone.svg'
                                     width='18'
                                     height='18'
                                 />
@@ -80,7 +80,7 @@ export default function AboutMeCard() {
                                 </h3>
                                 <object
                                     className='mb-1 mx-2'
-                                    data='/public/assets/phone.svg'
+                                    data='/phone.svg'
                                     width='18'
                                     height='18'
                                 />
@@ -102,7 +102,7 @@ export default function AboutMeCard() {
                                 </h3>
                                 <object
                                     className='mb-1 mx-2'
-                                    data='/public/assets/location.svg'
+                                    data='/location.svg'
                                     width='18'
                                     height='18'
                                 />
@@ -124,7 +124,7 @@ export default function AboutMeCard() {
                                 </h3>
                                 <object
                                     className='mb-1 mx-2'
-                                    data='/public/assets/linkedin.svg'
+                                    data='/linkedin.svg'
                                     width='18'
                                     height='18'
                                 />
