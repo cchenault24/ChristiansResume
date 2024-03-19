@@ -25,12 +25,12 @@ export default function SkillsetCard() {
 
     return (
         <>
-            <Header hideBack={true}>My Skillset</Header>
+            <Header hideBack={!isSmall}>My Skillset</Header>
             <Card
                 id={`SkillsetCard`}
                 className={`flex max-w-screen-md`}
                 isHoverable
-                isPressable
+                isPressable={!isSmall}
                 fullWidth={true}
                 shadow='lg'
                 onClick={handleClick}
