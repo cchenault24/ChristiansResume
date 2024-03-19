@@ -59,11 +59,11 @@ export default function SkillsetCard() {
                     </ScrollShadow>
                 </CardBody>
                 <Divider />
-                <CardFooter className='flex justify-center'>
+                {!isSmall && <CardFooter className='flex justify-center'>
                     <p className='text-default-400 text-center text-sm'>
                         Click anywhere on the Card to return back
                     </p>
-                </CardFooter>
+                </CardFooter>}
             </Card>
         </>
     );
