@@ -38,6 +38,7 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
             className={`flex ${cardSize} shrink-0`}
             isHoverable
             isPressable
+            fullWidth={isSmall}
             shadow='lg'
             onPress={handleClick}
         >
