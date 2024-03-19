@@ -40,7 +40,7 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
             isPressable
             fullWidth={isSmall}
             shadow='lg'
-            onPress={handleClick}
+            onClick={handleClick}
         >
             <CardHeader className='flex gap-3'>
                 <Image

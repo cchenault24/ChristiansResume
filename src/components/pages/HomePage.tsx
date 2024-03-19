@@ -42,7 +42,7 @@ export default function HomePage() {
                     className='flex w-fit p-4 align-self-center justify-center mb-4 shrink-0'
                     isHoverable
                     isPressable
-                    onPress={handleClick}
+                    onClick={handleClick}
                 >
                     <CardBody>
                         <User
