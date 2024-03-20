@@ -86,6 +86,11 @@ export const useGetData = (): ResumeData => ({
                 'I apply iterative development methods for flexible project management and adaptation to changes.',
         },
         {
+            skill: 'Amazon Web Services (AWS)',
+            descriptor:
+                'I utilize Amazon Web Services to deploy, manage, and scale cloud-based applications and services efficiently.',
+        },
+        {
             skill: 'Browser Developer Tools and debugging techniques',
             descriptor:
                 'I use browser developer tools to identify and fix issues in my web applications during development.',
