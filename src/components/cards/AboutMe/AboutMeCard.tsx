@@ -6,7 +6,6 @@ import {
     Divider,
     Image,
     Link,
-    Spacer,
 } from '@nextui-org/react';
 import '../../../App.css';
 import { Pages } from '../../../model/enum';
