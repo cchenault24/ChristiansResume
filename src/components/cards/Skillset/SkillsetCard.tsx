@@ -16,9 +16,7 @@ import BackButton from '../../BackButton';
 export default function SkillsetCard() {
     const { setActivePage } = useAppContext();
     const { skills } = useGetData();
-    const { isMobile, isTablet } = useBreakpoints();
-
-    const isSmall = isMobile || isTablet;
+    const { isSmall } = useBreakpoints();
 
     const handleClick = () => {
         setActivePage(Pages.HOME);

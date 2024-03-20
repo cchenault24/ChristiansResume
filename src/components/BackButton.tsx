@@ -10,9 +10,8 @@ type BackProps = {
 
 export default function BackButton({ ySpacer }: BackProps) {
     const { setActivePage } = useAppContext();
-    const { isMobile, isTablet } = useBreakpoints();
+    const { isSmall } = useBreakpoints();
 
-    const isSmall = isMobile || isTablet;
     const buttonSize = isSmall ? 'sm' : 'lg';
 
     const onBackClicked = () => setActivePage(Pages.HOME);

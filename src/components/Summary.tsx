@@ -2,9 +2,8 @@ import '../App.css';
 import { useBreakpoints } from '../hooks/useBreakpoints';
 
 export default function Summary() {
-    const { isMobile, isTablet } = useBreakpoints();
+    const { isSmall } = useBreakpoints();
 
-    const isSmall = isMobile || isTablet;
     const alignment = isSmall ? 'text-center' : 'text-left';
     return (
         <p className={`max-w-3xl ${alignment}`}>

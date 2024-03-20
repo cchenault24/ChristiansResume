@@ -19,9 +19,8 @@ type SectionCardProps = {
 export default function JobHistoryCard({ company }: SectionCardProps) {
     const { setActivePage } = useAppContext();
     const { jobExperience } = useGetData();
-    const { isMobile, isTablet } = useBreakpoints();
+    const { isSmall } = useBreakpoints();
 
-    const isSmall = isMobile || isTablet;
     const cardSize = isSmall ? 'w-64 h-64' : ' w-96 h-96';
     
     const jobHistoryData = jobExperience[company.toLowerCase()];

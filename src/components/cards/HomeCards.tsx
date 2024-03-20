@@ -4,12 +4,12 @@ import { Pages } from '../../model/enum';
 import SectionCard from './SectionCard';
 
 export default function HomeCards() {
-    const { isMobile, isTablet } = useBreakpoints();
+    const { isSmall } = useBreakpoints();
 
-    const flexDirection = isMobile || isTablet ? 'flex-col items-center' : 'flex-row';
+    const flexDirection = isSmall ? 'flex-col items-center' : 'flex-row';
     return (
         <div className={`flex ${flexDirection} gap-4 flex-auto justify-center`}>
-            <SectionCard title={Pages.JOBS}/>
+            <SectionCard title={Pages.JOBS} />
             <SectionCard title={Pages.SKILLS} />
             <SectionCard title={Pages.EDUCATION} />
         </div>

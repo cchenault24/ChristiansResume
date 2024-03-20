@@ -16,10 +16,9 @@ import { useBreakpoints } from '../../../hooks/useBreakpoints';
 export default function EducationCard() {
     const { setActivePage } = useAppContext();
     const { education } = useGetData();
-    const { isMobile, isTablet } = useBreakpoints();
+    const { isSmall } = useBreakpoints();
 
     const { jmu } = education;
-    const isSmall = isMobile || isTablet;
     const direction = isSmall ? 'flex-col' : 'flex-row';
 
     const handleClick = () => {

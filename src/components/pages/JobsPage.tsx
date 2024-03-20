@@ -5,9 +5,8 @@ import JobHistoryCard from '../cards/JobHistory/JobHistoryCard';
 import BackButton from '../BackButton';
 
 export default function JobsPage() {
-    const { isMobile, isTablet } = useBreakpoints();
+    const { isSmall } = useBreakpoints();
 
-    const isSmall = isMobile || isTablet;
     const flexDirection = isSmall ? 'flex-col items-center' : 'flex-row';
 
     return (

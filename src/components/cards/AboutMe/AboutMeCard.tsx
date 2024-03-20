@@ -18,9 +18,8 @@ import Summary from '../../Summary';
 export default function AboutMeCard() {
     const { setActivePage } = useAppContext();
     const { education } = useGetData();
-    const { isMobile, isTablet } = useBreakpoints();
+    const { isSmall } = useBreakpoints();
 
-    const isSmall = isMobile || isTablet;
     const { jmu } = education;
 
     const handleClick = () => {
