@@ -241,6 +241,11 @@ export const useGetData = (): ResumeData => ({
                 'I utilize Vite as a fast build tooling framework for modern web development.',
         },
         {
+            skill: 'Web Accessibility (WCAG)',
+            descriptor:
+                'I ensure that my digital content complies with Web Content Accessibility Guidelines (WCAG) to make it accessible to users with disabilities.',
+        },
+        {
             skill: 'Web Performance Optimization',
             descriptor:
                 'I improve website speed and efficiency for better user experience and search engine rankings.',
