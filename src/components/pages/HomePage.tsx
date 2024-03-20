@@ -39,29 +39,6 @@ export default function HomePage() {
     return (
         <>
             <Header>Welcome to My Interactive Resume</Header>
-            <div className='flex w-full justify-center'>
-                <Card
-                    className='flex w-fit p-4 align-self-center justify-center mb-4 shrink-0'
-                    isHoverable
-                    isPressable
-                    onClick={handleClick}
-                >
-                    <CardBody>
-                        <User
-                            name='Christian Chenault'
-                            description='Front End Engineer'
-                            avatarProps={{
-                                size: 'lg',
-                                src: '/profile.png',
-                            }}
-                        />
-                    </CardBody>
-                    <Divider />
-                    <CardFooter className='py-1 text-xs flex justify-center'>
-                        Click to learn more about me
-                    </CardFooter>
-                </Card>
-            </div>
             <HomeCards />
             <Link
                 className='my-6 text-xs cursor-pointer text-current'
