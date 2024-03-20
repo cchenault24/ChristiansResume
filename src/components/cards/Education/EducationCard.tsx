@@ -20,8 +20,8 @@ export default function EducationCard() {
 
     const { jmu } = education;
     const isSmall = isMobile || isTablet;
-    const direction = isSmall ? 'flex-col' : 'flex-row'
-    
+    const direction = isSmall ? 'flex-col' : 'flex-row';
+
     const handleClick = () => {
         setActivePage(Pages.HOME);
     };
@@ -72,7 +72,7 @@ export default function EducationCard() {
 
     return (
         <>
-            <Header hideBack={true}>My Education</Header>
+            <Header>My Education</Header>
             <Card
                 id={`EducationCard-${jmu.university}`}
                 className='flex'

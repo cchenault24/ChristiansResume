@@ -130,11 +130,11 @@ export default function AboutMeCard() {
         );
     };
 
-    const direction = isSmall ? 'flex-col' : 'flex-row'
+    const direction = isSmall ? 'flex-col' : 'flex-row';
 
     return (
         <>
-            <Header hideBack={true}>About Me</Header>
+            <Header>About Me</Header>
             <Card
                 id={`EducationCard-${jmu.university}`}
                 className='flex max-w-screen-md'
@@ -144,7 +144,6 @@ export default function AboutMeCard() {
                 shadow='lg'
                 onClick={handleClick}
             >
-
                 <CardHeader className={`flex gap-3 ${direction}`}>
                     <ProfileIcon />
                     <LeftText />
@@ -155,7 +154,7 @@ export default function AboutMeCard() {
                     <Summary />
                     {isSmall && (
                         <>
-                            <Divider className='my-3'/>
+                            <Divider className='my-3' />
                             <RightText />
                         </>
                     )}

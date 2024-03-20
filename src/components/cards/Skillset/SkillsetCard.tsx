@@ -11,6 +11,7 @@ import { useAppContext } from '../../../hooks/useAppContext';
 import { useGetData } from '../../../data/data';
 import Header from '../../Header';
 import { useBreakpoints } from '../../../hooks/useBreakpoints';
+import BackButton from '../../BackButton';
 
 export default function SkillsetCard() {
     const { setActivePage } = useAppContext();
@@ -25,7 +26,7 @@ export default function SkillsetCard() {
 
     return (
         <>
-            <Header hideBack={!isSmall}>My Skillset</Header>
+            <Header>My Skillset</Header>
             <Card
                 id={`SkillsetCard`}
                 className={`flex max-w-screen-md`}
@@ -36,7 +37,10 @@ export default function SkillsetCard() {
                 onClick={handleClick}
             >
                 <CardBody>
-                    <ScrollShadow hideScrollBar={!isSmall} className='w-full h-[500px]'>
+                    <ScrollShadow
+                        hideScrollBar={!isSmall}
+                        className='w-full h-[500px]'
+                    >
                         <p className='text-default-400 text-center text-sm'>
                             Scroll to see all skills
                         </p>
@@ -59,12 +63,15 @@ export default function SkillsetCard() {
                     </ScrollShadow>
                 </CardBody>
                 <Divider />
-                {!isSmall && <CardFooter className='flex justify-center'>
-                    <p className='text-default-400 text-center text-sm'>
-                        Click anywhere on the Card to return back
-                    </p>
-                </CardFooter>}
+                {!isSmall && (
+                    <CardFooter className='flex justify-center'>
+                        <p className='text-default-400 text-center text-sm'>
+                            Click anywhere on the Card to return back
+                        </p>
+                    </CardFooter>
+                )}
             </Card>
+            {isSmall && <BackButton ySpacer />}
         </>
     );
 }
