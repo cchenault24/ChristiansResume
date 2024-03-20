@@ -16,7 +16,7 @@ type SectionCardProps = {
 
 export default function SectionCard({ title }: SectionCardProps) {
     const { setActivePage } = useAppContext();
-    let iconSrc;
+    let iconSrc: string | undefined;
     switch (title) {
         case Pages.JOBS:
             iconSrc = '/jobhistory-icon.png';
