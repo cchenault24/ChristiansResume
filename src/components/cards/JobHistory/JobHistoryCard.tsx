@@ -35,7 +35,7 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
     return (
         <Card
             id={`JobHistoryCard-${jobHistoryData.company}`}
-            className={`flex ${cardSize} shrink-0`}
+            className={`flex ${cardSize} shrink-0 overflow-hidden`}
             isHoverable
             isPressable
             fullWidth={isSmall}
@@ -58,7 +58,7 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
                 </div>
             </CardHeader>
             <Divider />
-            <CardBody className='flex items-center py-2'>
+            <CardBody className='flex items-center py-2 overflow-hidden'>
                 <Image
                     alt='Card background'
                     className='object-cover rounded-xl'
