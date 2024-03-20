@@ -62,7 +62,11 @@ export default function AboutMeCard() {
                 <div className='flex justify-between'>
                     <div className='flex justify-end items-end'>
                         <h3 className='text-sm text-end text-default-500'>
-                            <Link href='mailto:cchenault24@yahoo.com' size='sm'>
+                            <Link
+                                href='mailto:cchenault24@yahoo.com'
+                                size='sm'
+                                target='_blank'
+                            >
                                 cchenault24@yahoo.com
                             </Link>
                         </h3>
@@ -77,7 +81,11 @@ export default function AboutMeCard() {
                 <div className='flex justify-between'>
                     <div className='flex justify-end items-end'>
                         <h3 className='text-sm text-end text-default-500'>
-                            <Link href='tel:+1804+291+8744' size='sm'>
+                            <Link
+                                href='tel:+1804+291+8744'
+                                size='sm'
+                                target='_blank'
+                            >
                                 (804) 291-8744
                             </Link>
                         </h3>
@@ -95,6 +103,7 @@ export default function AboutMeCard() {
                             <Link
                                 href='https://www.google.com/maps?q=Alexandria+VA'
                                 size='sm'
+                                target='_blank'
                             >
                                 Alexandria, VA
                             </Link>
@@ -113,6 +122,7 @@ export default function AboutMeCard() {
                             <Link
                                 href='https://www.linkedin.com/in/christianchenault/'
                                 size='sm'
+                                target='_blank'
                             >
                                 LinkedIn
                             </Link>
