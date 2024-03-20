@@ -1,24 +1,11 @@
 import {
-    Card,
-    CardBody,
-    CardFooter,
-    Divider,
     Link,
-    User,
 } from '@nextui-org/react';
 import '../../App.css';
-import { useAppContext } from '../../hooks/useAppContext';
-import { Pages } from '../../model/enum';
 import HomeCards from '../cards/HomeCards';
 import Header from '../Header';
 
 export default function HomePage() {
-    const { setActivePage } = useAppContext();
-
-    const handleClick = () => {
-        setActivePage(Pages.ABOUT);
-    };
-
     // Function will execute on click of button
     const handleDownloadResume = () => {
         // using Java Script method to get PDF file
