@@ -6,11 +6,12 @@ import {
     Divider,
     Image,
     Link,
+    Spacer,
 } from '@nextui-org/react';
 import '../../../App.css';
 import { Pages } from '../../../model/enum';
 import { useAppContext } from '../../../hooks/useAppContext';
-import { useGetData } from '../../../data/data';
+import { useGetData } from '../../data/data';
 import Header from '../../Header';
 import { useBreakpoints } from '../../../hooks/useBreakpoints';
 import Summary from '../../Summary';
@@ -159,8 +160,16 @@ export default function AboutMeCard() {
                     {!isSmall && <RightText />}
                 </CardHeader>
                 <Divider />
-                <CardBody>
+                <CardBody className='flex items-center'>
                     <Summary />
+                    <Spacer y={4} />
+                    <Image
+                        alt='selection logo'
+                        height={300}
+                        radius='sm'
+                        src='/family.png'
+                        loading='lazy'
+                    />
                     {isSmall && (
                         <>
                             <Divider className='my-3' />

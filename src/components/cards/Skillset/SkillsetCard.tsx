@@ -8,7 +8,7 @@ import {
 import '../../../App.css';
 import { Pages } from '../../../model/enum';
 import { useAppContext } from '../../../hooks/useAppContext';
-import { useGetData } from '../../../data/data';
+import { useGetData } from '../../data/data';
 import Header from '../../Header';
 import { useBreakpoints } from '../../../hooks/useBreakpoints';
 import BackButton from '../../BackButton';
