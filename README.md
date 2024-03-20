@@ -1,6 +1,6 @@
 # Interactive Resume Website
 
-This repository contains the code for my Interactive Resume website, built using a Single Page App in React with Vite, NextUI, and Tailwind CSS. The app was deployed using AWS Amplify and hosted using AWS Route53. The website showcases information about myself, my job history, skillset, and education.
+This repository contains the code for my Interactive Resume website, built using a Single Page App in React with Vite, NextUI, and Tailwind CSS. The app was deployed using AWS Amplify and hosted using AWS Route 53. The website showcases information about myself, my job history, skillset, and education.
 
 ## Table of Contents
 
