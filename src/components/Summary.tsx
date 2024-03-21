@@ -20,21 +20,11 @@ export default function Summary() {
                 Recently, significant life changes have led me to prioritize
                 seeking a new job as a remote, mid to senior level Front End
                 Engineer. The arrival of my first child has emphasized the
-                importance of being present to support my family, particularly
-                my girlfriend, who can easily feel overwhelmed. Having family
+                importance of being present to support my family. Having family
                 nearby has become a crucial factor in our lives, prompting me to
                 seek opportunities that offer greater flexibility and alignment
                 with my evolving personal and professional needs.
-            </p>
-            {isSmall && <Spacer y={1} />}
-            <p className={`max-w-3xl text-left indent-8`}>
-                Although my current role is hybrid, rumors suggest a potential
-                shift towards return-to-office, which may not align with my
-                desired work environment. Moreover, the lack of advancement
-                opportunities and scarcity of front-end development projects
-                within my current role have fueled a sense of stagnation and
-                undervaluation.
-            </p>
+            </p
             {isSmall && <Spacer y={1} />}
             <p className={`max-w-3xl text-left indent-8`}>
                 My expertise lies in leveraging modern web technologies to
