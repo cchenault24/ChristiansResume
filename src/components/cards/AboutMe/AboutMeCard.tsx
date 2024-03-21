@@ -4,7 +4,6 @@ import {
     CardFooter,
     CardHeader,
     Divider,
-    Image,
     Link,
     Spacer,
 } from '@nextui-org/react';
@@ -163,13 +162,6 @@ export default function AboutMeCard() {
                 <CardBody className='flex items-center'>
                     <Summary />
                     <Spacer y={4} />
-                    <Image
-                        alt='selection logo'
-                        height={300}
-                        radius='sm'
-                        src='/family.png'
-                        loading='lazy'
-                    />
                     {isSmall && (
                         <>
                             <Divider className='my-3' />
