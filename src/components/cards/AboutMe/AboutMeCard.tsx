@@ -5,6 +5,7 @@ import {
     CardHeader,
     Divider,
     Link,
+    Image,
     Spacer,
 } from '@nextui-org/react';
 import '../../../App.css';
