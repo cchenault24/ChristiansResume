@@ -24,7 +24,7 @@ export default function Summary() {
                 nearby has become a crucial factor in our lives, prompting me to
                 seek opportunities that offer greater flexibility and alignment
                 with my evolving personal and professional needs.
-            </p
+            </p>
             {isSmall && <Spacer y={1} />}
             <p className={`max-w-3xl text-left indent-8`}>
                 My expertise lies in leveraging modern web technologies to
