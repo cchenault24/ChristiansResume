@@ -47,7 +47,7 @@ export default function AboutMeCard() {
                     Front End Engineer
                 </h3>
                 <h3 className='text-sm text-center text-default-500'>
-                    Expertise: TypeScript, React, UI/UX Design
+                    Expertise: TypeScript, React, UI/UX Development
                 </h3>
                 <h3 className='text-sm text-start text-default-500'>
                     Experience: 5+ years
