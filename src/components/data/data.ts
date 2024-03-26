@@ -41,7 +41,7 @@ export const useGetData = (): ResumeData => ({
             description: [
                 'Collaborated with stakeholders during development processes to confirm creative proposals and design best practices.',
                 'Improved tools to boost user interaction and deliver design versatility.',
-                'Coded using HTML, CSS and JavaScript/Typescript to develop features for both mobile and desktop platforms.',
+                'Coded using HTML, CSS, JavaScript/Typescript and React to develop features for both mobile and desktop platforms.',
                 'Translated UX and business requirements into elegant code solutions.',
                 'Optimized web applications for performance and ensured cross-browser compatibility.',
                 'Implemented web a11y standards for inclusive design.',
