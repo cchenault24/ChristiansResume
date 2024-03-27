@@ -17,12 +17,23 @@ type EducationHistory = {
     end: string;
     icon: string;
 };
+type CertificateData = {
+    title: string;
+    company: string;
+    platform: string;
+    type: string;
+    certificate: string;
+    completionDate: string;
+    icon: string;
+    courses: string[];
+};
 type ResumeData = {
     jobExperience: {
         [key: string]: JobHistory;
     };
     education: {
-        [key: string]: EducationHistory;
+        degree: EducationHistory;
+        certificates: CertificateData[];
     };
     skills: { skill: string; descriptor: string }[];
 };
@@ -70,7 +81,7 @@ export const useGetData = (): ResumeData => ({
         },
     },
     education: {
-        jmu: {
+        degree: {
             university: 'James Madison University',
             degree: 'Bachelor of Computer Science',
             location: 'Harrisonburg, VA',
@@ -78,6 +89,28 @@ export const useGetData = (): ResumeData => ({
             end: '05/2018',
             icon: '/jmu-logo.png',
         },
+        certificates: [
+            {
+                title: 'Meta Front-End Developer',
+                company: 'Meta',
+                type: 'Professional Certificate',
+                platform: 'Coursera',
+                courses: [
+                    'Introduction to Front-End Development',
+                    'Programming with JavaScript',
+                    'Version Control',
+                    'HTML and CSS in depth',
+                    'React Basics',
+                    'Advanced React',
+                    'Principles of UX/UI Design',
+                    'Front-End Developer Capstone',
+                    'Coding Interview Preparation',
+                ],
+                completionDate: '03/2024',
+                icon: '/certificate-icon.png',
+                certificate: "meta-fee-certificate.pdf",
+            },
+        ],
     },
     skills: [
         {
