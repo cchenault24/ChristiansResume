@@ -9,6 +9,7 @@ import {
 import '../../App.css';
 import { Pages } from '../../model/enum';
 import { useAppContext } from '../../hooks/useAppContext';
+import { useBreakpoints } from '../../hooks/useBreakpoints';
 
 type SectionCardProps = {
     title: string;
@@ -16,6 +17,10 @@ type SectionCardProps = {
 
 export default function SectionCard({ title }: SectionCardProps) {
     const { setActivePage } = useAppContext();
+    const { isSmall } = useBreakpoints();
+
+    const cardSize = isSmall ? 'w-full h-64' : ' w-64 h-96';
+
     let iconSrc: string | undefined;
     switch (title) {
         case Pages.JOBS:
@@ -84,7 +89,7 @@ export default function SectionCard({ title }: SectionCardProps) {
     return (
         <Card
             id={`SelectionCard-${title}`}
-            className='flex w-64 h-40 shrink-0'
+            className={`flex ${cardSize} h-40 shrink-0`}
             isHoverable
             isPressable
             shadow='lg'
