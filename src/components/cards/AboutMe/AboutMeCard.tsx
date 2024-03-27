@@ -21,7 +21,7 @@ export default function AboutMeCard() {
     const { education } = useGetData();
     const { isSmall } = useBreakpoints();
 
-    const { jmu } = education;
+    const { degree } = education;
 
     const handleClick = () => {
         setActivePage(Pages.HOME);
@@ -165,7 +165,7 @@ export default function AboutMeCard() {
         <>
             <Header>About Me</Header>
             <Card
-                id={`EducationCard-${jmu.university}`}
+                id={`AboutMeCard`}
                 className='flex max-w-screen-md'
                 isHoverable
                 isPressable
