@@ -11,17 +11,13 @@ import {
 import '../../../App.css';
 import { Pages } from '../../../model/enum';
 import { useAppContext } from '../../../hooks/useAppContext';
-import { useGetData } from '../../data/data';
 import Header from '../../Header';
 import { useBreakpoints } from '../../../hooks/useBreakpoints';
 import Summary from '../../Summary';
 
 export default function AboutMeCard() {
     const { setActivePage } = useAppContext();
-    const { education } = useGetData();
     const { isSmall } = useBreakpoints();
-
-    const { degree } = education;
 
     const handleClick = () => {
         setActivePage(Pages.HOME);
