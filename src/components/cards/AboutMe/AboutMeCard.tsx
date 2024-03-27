@@ -136,6 +136,25 @@ export default function AboutMeCard() {
                         />
                     </div>
                 </div>
+                <div className='flex justify-between'>
+                    <div className='flex justify-end items-end'>
+                        <h3 className='text-sm text-end text-default-500'>
+                            <Link
+                                href='https://github.com/cchenault24/ChristiansResume'
+                                size='sm'
+                                target='_blank'
+                            >
+                                GitHub
+                            </Link>
+                        </h3>
+                        <object
+                            className='mb-1 mx-2'
+                            data='/github.svg'
+                            width='18'
+                            height='18'
+                        />
+                    </div>
+                </div>
             </div>
         );
     };
