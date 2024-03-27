@@ -21,7 +21,7 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
     const { jobExperience } = useGetData();
     const { isSmall } = useBreakpoints();
 
-    const cardSize = isSmall ? 'w-64 h-64' : ' w-96 h-96';
+    const cardSize = isSmall ? 'w-full h-64' : ' w-96 h-96';
     
     const jobHistoryData = jobExperience[company.toLowerCase()];
     const jobHistoryImage = isSmall ? jobHistoryData.mobile : jobHistoryData.logo
