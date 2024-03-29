@@ -68,7 +68,6 @@ export default function SectionCard({ title }: SectionCardProps) {
             }}
         />
     );
-    const AboutFooter = () => <p>Click to learn more about me</p>;
 
     const StandardBody = () => (
         <>
@@ -84,7 +83,6 @@ export default function SectionCard({ title }: SectionCardProps) {
             </div>
         </>
     );
-    const StandardFooter = () => <p>Click to learn more about my {title}</p>;
 
     return (
         <Card
@@ -99,8 +97,12 @@ export default function SectionCard({ title }: SectionCardProps) {
                 {title === Pages.ABOUT ? <AboutBody /> : <StandardBody />}
             </CardHeader>
             <Divider />
-            <CardBody className='text-sm min-h-96'>
-            {title === Pages.ABOUT ? <AboutFooter /> : <StandardFooter />}
+            <CardBody className='text-sm min-h-96 text-center'>
+                <p>
+                    {title === Pages.ABOUT
+                        ? 'Click to learn more about me'
+                        : `Click to learn more about my ${title}`}
+                </p>
             </CardBody>
         </Card>
     );

@@ -7,16 +7,35 @@ export default function HomeCards() {
     const { isSmall } = useBreakpoints();
 
     const flexDirection1 = isSmall ? 'flex-col items-center' : 'flex-row';
-    return (
-        <div className={`flex flex-col gap-4 flex-auto items-center justify-center`}>
-            <SectionCard title={Pages.ABOUT} />
-            <div
-                className={`flex ${flexDirection1} gap-4 flex-auto justify-center`}
-            >
+    const AllCards = () => {
+        const sectionCards = (
+            <>
                 <SectionCard title={Pages.JOBS} />
                 <SectionCard title={Pages.SKILLS} />
                 <SectionCard title={Pages.EDUCATION} />
+            </>
+        );
+
+        return (
+            <div
+                className={`flex flex-col gap-4 flex-auto items-center justify-center`}
+            >
+                {!isSmall && <SectionCard title={Pages.ABOUT} />}
+                {isSmall ? (
+                    <>
+                        <SectionCard title={Pages.ABOUT} />
+                        {sectionCards}
+                    </>
+                ) : (
+                    <div
+                        className={`flex ${flexDirection1} gap-4 flex-auto justify-center`}
+                    >
+                        {sectionCards}
+                    </div>
+                )}
             </div>
-        </div>
-    );
+        );
+    };
+
+    return <AllCards />;
 }
