@@ -78,7 +78,7 @@ export default function SectionCard({ title }: SectionCardProps) {
                 src={iconSrc}
                 width={40}
             />
-            <div className='flex flex-col'>
+            <div className='flex flex-col text-left'>
                 <h2 className='text-md'>{title}</h2>
             </div>
         </>

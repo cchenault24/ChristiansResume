@@ -4,11 +4,12 @@ import {
     CardFooter,
     Divider,
     ScrollShadow,
+    Spacer,
 } from '@nextui-org/react';
 import '../../../App.css';
 import { Pages } from '../../../model/enum';
 import { useAppContext } from '../../../hooks/useAppContext';
-import { useGetData } from '../../data/data';
+import { Skill, useGetData } from '../../data/data';
 import Header from '../../Header';
 import { useBreakpoints } from '../../../hooks/useBreakpoints';
 import BackButton from '../../BackButton';
@@ -22,6 +23,24 @@ export default function SkillsetCard() {
         setActivePage(Pages.HOME);
     };
 
+    const SkillsetList = ({ skillset }: { skillset: Skill[] }) => {
+        return (
+            <ul className='list-disc list-inside'>
+                {skillset.map((skill, index) => {
+                    const bgColor =
+                        index % 2 === 0 ? 'bg-inherit' : 'bg-gray-300';
+                    return (
+                        <li
+                            className={`${bgColor} px-4 select-text`}
+                            key={index}
+                        >
+                            <b>{skill.skill}</b>: {skill.descriptor}
+                        </li>
+                    );
+                })}
+            </ul>
+        );
+    };
     return (
         <>
             <Header>My Skillset</Header>
@@ -42,22 +61,13 @@ export default function SkillsetCard() {
                         <p className='text-default-400 text-center text-sm'>
                             Scroll to see all skills
                         </p>
-                        <ul className='list-disc list-inside'>
-                            {skills.map((skill, index) => {
-                                const bgColor =
-                                    index % 2 === 0
-                                        ? 'bg-inherit'
-                                        : 'bg-gray-300';
-                                return (
-                                    <li
-                                        className={`${bgColor} px-4 select-text`}
-                                        key={index}
-                                    >
-                                        <b>{skill.skill}</b>: {skill.descriptor}
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                        <Spacer y={2} />
+                        <h2 className='text-xl font-bold'>Technical Skills</h2>
+                        <SkillsetList skillset={skills.technical} />
+                        <Spacer y={6} />
+                        <h2 className='text-xl font-bold'>Soft Skills</h2>
+                        <SkillsetList skillset={skills.soft} />
+                        <Spacer y={2} />
                     </ScrollShadow>
                 </CardBody>
                 <Divider />

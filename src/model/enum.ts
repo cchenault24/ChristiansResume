@@ -3,7 +3,7 @@ export enum Pages {
     HOME = "Home",
     JOBS = "Job History",
     SKILLS = "Skillset",
-    EDUCATION = "Education",
+    EDUCATION = "Education and Certificates",
     AMAZON = "Amazon",
     LEIDOS = "Leidos",
 }

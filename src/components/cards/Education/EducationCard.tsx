@@ -24,7 +24,6 @@ export default function EducationCard() {
 
     const { degree, certificates } = education;
     const direction = isSmall ? 'flex-col' : 'flex-row';
-    const columns = isSmall ? 'columns-1' : 'columns-2';
 
     const handleClick = () => {
         setActivePage(Pages.HOME);
@@ -124,9 +123,11 @@ export default function EducationCard() {
                     </p>
                 </CardFooter>
             </Card>
-            <Spacer y={4} />
+            <Spacer y={8} />
+            <Header>My Certificates</Header>
             {certificates.map((cert, i) => (
                 <React.Fragment key={`EducationCard-${i}`}>
+                    <Spacer y={4} />
                     <Card
                         id={`EducationCard-${degree.university}`}
                         className='flex'
@@ -150,29 +151,37 @@ export default function EducationCard() {
                                 {isSmall ? <Spacer y={4} /> : <Spacer x={4} />}
                                 <LeftTitle
                                     title={cert.title}
-                                    subtitle={`${cert.company} - ${cert.type}`}
+                                    subtitle={cert.type}
                                 />
                                 {!isSmall && <Spacer x={8} />}
                                 <RightMetadata
-                                    location={cert.platform}
+                                    location={cert.company}
                                     date={cert.completionDate}
                                 />
                             </div>
                         </CardHeader>
                         <CardBody>
                             <div className={`flex grow items-center flex-col`}>
-                                <ul className={`${columns} list-disc`}>
-                                    {/* <div className='columns-2'> */}
-                                    {cert.courses.map((course) => (
-                                        <li
-                                            key={course}
-                                            className='text-default-400 text-left text-sm mx-6'
-                                        >
-                                            {course}
-                                        </li>
-                                    ))}
-                                    {/* </div> */}
-                                </ul>
+                                {cert.description}
+                                {cert.certificate && (
+                                    <Link
+                                        className='py-2 text-xs cursor-pointer text-current'
+                                        onClick={() =>
+                                            handleDownload(cert.certificate)
+                                        }
+                                        isBlock
+                                    >
+                                        <div className='flex'>
+                                            Download PDF Certificate
+                                            <object
+                                                className='flex mt-0.5 ml-2 align-top'
+                                                data='/download.svg'
+                                                width='18'
+                                                height='18'
+                                            />
+                                        </div>
+                                    </Link>
+                                )}
                             </div>
                         </CardBody>
                         <Divider />
@@ -182,13 +191,6 @@ export default function EducationCard() {
                             </p>
                         </CardFooter>
                     </Card>
-                    <Link
-                        className='my-6 text-xs cursor-pointer text-current'
-                        onClick={() => handleDownload(cert.certificate)}
-                        isBlock
-                    >
-                        Download PDF Certificate
-                    </Link>
                 </React.Fragment>
             ))}
         </>
