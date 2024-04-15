@@ -58,10 +58,12 @@ export const useGetData = (): ResumeData => ({
             logo: '/amazon-square.png',
             mobile: '/amazon-mobile.png',
             description: [
-                'Partnered with stakeholders to integrate solutions and design best practices, enhancing UX outcomes.',
-                'Refined UI elements for 100+ pages, using React, HTML, CSS, and TypeScript, significantly improving overall user experience and visual appeal.',
-                'Advocated for and led discussion around site accessibility, meeting WCAG 2.1 standards, broadening user base. Collaborated in cross-functional teams to deliver 5+ major feature releases on schedule.',
-                'Mentored 4 junior developers, improving team productivity and project delivery times.',
+                "Advanced the application's state management by enhancing and maintaining the React Context API and Provider pattern, streamlining component communication and reusability, which led to a more efficient development process and improved application scalability.",
+                'Effectively employed React Query to manage fetching, caching, and synchronization of server state from REST APIs, improving application performance and user experience with streamlined data handling and updates.',
+                'Led the development of 20+ UI components and pages tailored for micro front-end features, employing React, HTML, CSS, and TypeScript. This effort resulted in a 35% increase in user engagement, significantly improving the overall user experience across the application.',
+                "Advocated for and integrated WCAG 2.1 accessibility standards within the development process, utilizing React to extend the application's reach and inclusivity, thus broadening the user base.",
+                "Mentored 4 junior engineers in mastering specific front-end technologies, including React's component lifecycle, TypeScript type safety practices, and Jest for unit testing, while also guiding their participation in on-call rotations, significantly improving their technical skills and operational response efficiency.",
+                'Conducted thorough code reviews for over 300+ pull requests, enhancing code quality and performance standards, leading to a 50% decrease in code revision rates and significantly boosting the efficiency of front-end development processes.',
             ],
         },
         leidos: {
@@ -74,12 +76,11 @@ export const useGetData = (): ResumeData => ({
             logo: '/leidos-square.png',
             mobile: '/leidos-mobile.png',
             description: [
-                'Led the creation of front-end features for defense projects, enhancing UI and workflows.',
-                'Spearheaded UI/UX design initiatives, improving application usability and engagement.',
-                'Streamlined front-end development processes, enhancing productivity and feature scalability.',
-                'Contributed strategic insights to refine UI design, aligning with user needs and objectives.',
-                'Mentored junior engineers, enhancing team skills and project outcomes.',
-                'Initiated a peer code review initiative that increased team productivity and reduced bug rates by 25%.',
+                "Spearheaded the front-end architecture of a key defense project, conducting in-depth research to select the React framework, then leading the team's successful refactor and development from an older implementation, markedly enhancing UI workflows and operational efficiency.",
+                "Leveraged Axios for efficient REST API calls and React Redux for state management, streamlining data flow and enhancing responsiveness in the project's user interface.",
+                'Implemented streamlined front-end development processes by introducing new code review practices and fostering enhanced communication during team meetings, significantly boosting team productivity and project agility.',
+                "Directed a team of 5 engineers in mastering React and adapting to front-end development, broadening our project's capabilities. Additionally, stepping in as Scrum Master, I fine-tuned our Agile workflows, leading to a 40% increase in sprint completions and facilitated sprint meetings, showcasing my leadership and adaptability.",
+                'Initiated a peer code review initiative that increased team productivity and reduced bug rates by 25%, fostering a culture of quality and collaboration.',
             ],
         },
     },
@@ -100,7 +101,7 @@ export const useGetData = (): ResumeData => ({
                 company: 'Meta',
                 type: 'Professional Certificate',
                 description:
-                    'Acquired comprehensive knowledge in front-end development, including React.js, responsive design, and state management, through hands-on projects and assessments.',
+                    'In this Professional Certificate course, I mastered a wide range of front-end development skills through practical projects and assessments. My studies encompassed JavaScript programming, version control, comprehensive HTML and CSS, and responsive design. I specialized in React.js, focusing on higher-order components, state management, and the advanced use of React hooks. Additionally, I delved into UX/UI design principles using Figma and applied all these skills in a capstone project. ',
                 completionDate: 'Mar 2024',
                 icon: '/certificate-icon.png',
                 certificate: 'meta-fee-certificate.pdf',
@@ -110,7 +111,7 @@ export const useGetData = (): ResumeData => ({
                 company: 'Leidos',
                 type: 'Professional Certificate',
                 description:
-                    'Enhanced team collaboration and project management skills, emphasizing agile methodologies and scrum practices to improve project delivery times and team dynamics.',
+                    'This certificate program honed my skills in agile methodologies and scrum practices, preparing me to become a certified scrum master. I learned key techniques such as sprint planning, conducting daily stand-ups, and leading sprint reviews and retrospectives. This training sharpened my ability to improve project timelines, enhance team dynamics, and effectively manage projects.',
                 completionDate: 'Nov 2021',
                 icon: '/csm.png',
                 certificate: '',
@@ -120,17 +121,17 @@ export const useGetData = (): ResumeData => ({
                 company: 'Scrimba',
                 type: 'Professional Certificate',
                 description:
-                    'Completed intensive training on advanced React concepts, including hooks, context API, and state management, demonstrating a deeper mastery of React development practices.',
+                    'In this course, I mastered component reusability with advanced props manipulation, React hooks, and context. I integrated routing solutions using React Router and optimized application performance through code splitting and the strategic use of useMemo and useCallback. This intensive training enabled me to build highly responsive and efficient web applications.',
                 completionDate: 'Apr 2024',
                 icon: '/react.png',
-                certificate: '',
+                certificate: 'scrimba_adv_react.pdf',
             },
             {
                 title: 'Application Development Using Microservices and Serverless',
                 company: 'IBM',
                 type: 'Professional Certificate',
                 description:
-                    'Gained expertise in developing scalable applications using microservices and serverless architectures, focusing on deployment and management in cloud environments.',
+                    'In this certificate program, I mastered microservices and serverless architectures, starting with an introduction to microservices and progressing to in-depth learning of Web API essentials like REST API and GraphQL. I gained hands-on experience with serverless computing, focusing on using IBM Cloud Code Engine to build and deploy container-based applications using Docker. This practical training taught me to efficiently manage application deployment tasks, enabling rapid and scalable software development in a cloud environment.',
                 completionDate: 'Apr 2024',
                 icon: '/ibm.png',
                 certificate: 'ibm-certificate.pdf',
@@ -157,7 +158,7 @@ export const useGetData = (): ResumeData => ({
             {
                 skill: 'State Management',
                 descriptor:
-                    'Skilled in Redux and React Context/Provider for optimal application state management.API Integration: Experienced with GraphQL and REST APIs for dynamic data integration.',
+                    'Skilled in Redux and React Context/Provider for optimal application state management. API Integration: Experienced with GraphQL and REST APIs for dynamic data integration.',
             },
             {
                 skill: 'Performance Optimization',
