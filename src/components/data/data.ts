@@ -107,6 +107,16 @@ export const useGetData = (): ResumeData => ({
                 certificate: 'meta-fee-certificate.pdf',
             },
             {
+                title: 'Become a Professional React Developer',
+                company: 'Scrimba',
+                type: 'Specialization',
+                description:
+                    'In this course, I learned React development from the ground up. This foundational phase helped me grasp the essentials of building dynamic web applications with modern React. As I progressed to the advanced course, I delved deeper into React’s sophisticated patterns and internal mechanisms, particularly focusing on complex applications using React Router, which significantly enhanced my JavaScript proficiency and prepared me for the competitive tech job market. The course also included over 40 practical challenges that sharpened my problem-solving skills by putting core React concepts to the test in real-world scenarios. Additionally, a concise module on React interview questions equipped me with the knowledge and confidence to tackle common interview challenges effectively. This comprehensive learning experience not only solidified my technical skills but also prepared me thoroughly for real-world applications and job interviews in the tech industry.',
+                completionDate: 'Apr 2024',
+                icon: '/react.png',
+                certificate: 'scrimba_adv_react.pdf',
+            },
+            {
                 title: 'Certified Scrum Master (CSM)',
                 company: 'Leidos',
                 type: 'Professional Certificate',
@@ -117,14 +127,14 @@ export const useGetData = (): ResumeData => ({
                 certificate: '',
             },
             {
-                title: 'Advanced React',
-                company: 'Scrimba',
+                title: 'Developing Back-End Apps with Node.js and Express',
+                company: 'IBM',
                 type: 'Professional Certificate',
                 description:
-                    'In this course, I mastered component reusability with advanced props manipulation, React hooks, and context. I integrated routing solutions using React Router and optimized application performance through code splitting and the strategic use of useMemo and useCallback. This intensive training enabled me to build highly responsive and efficient web applications.',
+                    'In this course, I deepened my expertise in Node.js and Express, learning to develop server-side applications using asynchronous operations, REST APIs, CRUD operations, and advanced authentication methods. Through extensive hands-on labs, I mastered asynchronous I/O and extended Node.js capabilities using the Express framework to manage routing, middleware, and dynamic content. The culmination of my learning was a final project where I built an application to manage book ratings and reviews, significantly enhancing my portfolio.',
                 completionDate: 'Apr 2024',
-                icon: '/react.png',
-                certificate: 'scrimba_adv_react.pdf',
+                icon: '/ibm-2.png',
+                certificate: 'ibm-certificate-2.pdf',
             },
             {
                 title: 'Application Development Using Microservices and Serverless',
