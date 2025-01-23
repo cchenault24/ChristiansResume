@@ -61,7 +61,7 @@ export default function SectionCard({ title }: SectionCardProps) {
     const AboutBody = () => (
         <User
             name='Christian Chenault'
-            description='Front End Engineer'
+            description='Sr Front End Engineer'
             avatarProps={{
                 size: 'lg',
                 src: '/profile.png',

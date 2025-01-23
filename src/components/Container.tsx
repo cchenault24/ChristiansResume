@@ -31,6 +31,9 @@ export default function Container() {
         case Pages.LEIDOS:
             PageToShow = <JobHistoryDetailsCard company='Leidos' />;
             break;
+        case Pages.PEPPER:
+            PageToShow = <JobHistoryDetailsCard company='Pepper' />;
+            break;
         default:
             PageToShow = <HomePage />;
             break;

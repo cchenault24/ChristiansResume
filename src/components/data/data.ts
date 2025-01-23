@@ -53,17 +53,15 @@ export const useGetData = (): ResumeData => ({
             title: 'Front End Engineer',
             location: 'Arlington, VA',
             start: 'Jun 2022',
-            end: 'Present',
+            end: 'Jun 2024',
             icon: '/amazon-logo.png',
             logo: '/amazon-square.png',
             mobile: '/amazon-mobile.png',
             description: [
-                "Advanced the application's state management by enhancing and maintaining the React Context API and Provider pattern, streamlining component communication and reusability, which led to a more efficient development process and improved application scalability.",
-                'Effectively employed React Query to manage fetching, caching, and synchronization of server state from REST APIs, improving application performance and user experience with streamlined data handling and updates.',
-                'Led the development of 20+ UI components and pages tailored for micro front-end features, employing React, HTML, CSS, and TypeScript. This effort resulted in a 35% increase in user engagement, significantly improving the overall user experience across the application.',
-                "Advocated for and integrated WCAG 2.1 accessibility standards within the development process, utilizing React to extend the application's reach and inclusivity, thus broadening the user base.",
-                "Mentored 4 junior engineers in mastering specific front-end technologies, including React's component lifecycle, TypeScript type safety practices, and Jest for unit testing, while also guiding their participation in on-call rotations, significantly improving their technical skills and operational response efficiency.",
-                'Conducted thorough code reviews for over 300+ pull requests, enhancing code quality and performance standards, leading to a 50% decrease in code revision rates and significantly boosting the efficiency of front-end development processes.',
+                "Led the development and optimization of 20+ modular UI components for large-scale web applications, improving user experience and engagement by 35%.",
+                "Enhanced application scalability and performance by redesigning the React Context API and implementing advanced state management techniques, reducing latency in data handling.",
+                "Collaborated with backend engineers, UX designers, and stakeholders to deliver high-impact features aligned with business objectives.",
+                "Conducted over 300 code reviews, mentoring 4 junior engineers and improving overall code quality by 5%."
             ],
         },
         leidos: {
@@ -76,11 +74,26 @@ export const useGetData = (): ResumeData => ({
             logo: '/leidos-square.png',
             mobile: '/leidos-mobile.png',
             description: [
-                "Spearheaded the front-end architecture of a key defense project, conducting in-depth research to select the React framework, then leading the team's successful refactor and development from an older implementation, markedly enhancing UI workflows and operational efficiency.",
-                "Leveraged Axios for efficient REST API calls and React Redux for state management, streamlining data flow and enhancing responsiveness in the project's user interface.",
-                'Implemented streamlined front-end development processes by introducing new code review practices and fostering enhanced communication during team meetings, significantly boosting team productivity and project agility.',
-                "Directed a team of 5 engineers in mastering React and adapting to front-end development, broadening our project's capabilities. Additionally, stepping in as Scrum Master, I fine-tuned our Agile workflows, leading to a 40% increase in sprint completions and facilitated sprint meetings, showcasing my leadership and adaptability.",
-                'Initiated a peer code review initiative that increased team productivity and reduced bug rates by 25%, fostering a culture of quality and collaboration.',
+                "Directed a team of 5 engineers to transition legacy systems to React, improving project efficiency and increasing sprint completion rates by 40%.",
+                "Established and implemented a peer-driven code review process, reducing bug rates by 25% and fostering collaboration across the team.",
+                "Utilized Axios and React Redux for seamless API integration, improving system responsiveness and reliability.",
+                "Led the development of a mission-critical defense project, ensuring compliance with stringent requirements while enhancing system usability.",
+            ]
+        },
+        pepper: {
+            company: 'Pepper',
+            title: 'Senior Front-End Engineer',
+            location: 'Remote',
+            start: 'Jun 2024',
+            end: 'Jan 2025',
+            icon: '/pepper-logo.png',
+            logo: '/pepper-square.png',
+            mobile: '/pepper-mobile.png',
+            description: [
+                "Engineered scalable web applications using React, TypeScript, and GraphQL, delivering features that contributed to a 15% increase in userfeature adoption.",
+                "Authored comprehensive frontend technical plans to streamline development, reducing delivery timelines by 20% through optimized architecture design and state management strategies",
+                "Spearheaded team-wide quality improvements by introducing an AI-powered code reviewer, cutting bug-related revisions by 30%.",
+                "Partnered with UX designers and sales teams to ensure product features met user needs and business goals",
             ],
         },
     },
@@ -151,51 +164,51 @@ export const useGetData = (): ResumeData => ({
     skills: {
         technical: [
             {
-                skill: 'Programming Languages & Libraries',
+                skill: 'Programming Languages & Frameworks',
                 descriptor:
-                    'Proficient in JavaScript, TypeScript, and React.js; experienced with Material-UI, Next UI, and adept at leveraging React Router for SPA development.',
+                    'Proficient in JavaScript, TypeScript, React.js, and React Native. Experienced with component libraries (e.g., Material-UI, NextUI) and utility libraries (e.g., date-fns, lodash, React Router).',
             },
             {
                 skill: 'Web Development Tools & Techniques',
                 descriptor:
-                    'Advanced with Vite, Git, and Agile methodologies for fast development and effective team collaboration. Familiar with deploying, maintaining, and monitoring applications using different AWS Services, enhancing scalability and reliability.',
+                    'Skilled in Git, Webpack, and CI/CD pipelines. Familiar with AWS services, including but not limited to Amplify, S3, CloudWatch, and Lambda, for deploying and managing serverless architectures.',
             },
             {
                 skill: 'Styling & Design',
                 descriptor:
-                    'Adept in modern CSS, Tailwind CSS, CSS-in-JSX; proficient in responsive and accessible design.',
+                    'Expertise in using Figma and CSS, with proficiency in modern CSS frameworks (e.g., Tailwind CSS) to create responsive and user-friendly interfaces.',
             },
             {
-                skill: 'State Management',
+                skill: 'State Management & APIs',
                 descriptor:
-                    'Skilled in Redux and React Context/Provider for optimal application state management. API Integration: Experienced with GraphQL and REST APIs for dynamic data integration.',
+                    'Strong experience with Redux, React Context API, GraphQL, and REST APIs for data handling and dynamic integration.',
             },
             {
                 skill: 'Performance Optimization',
                 descriptor:
-                    'Knowledgeable in techniques like code splitting and lazy loading for improved application performance.',
+                    'Skilled in memoization, code splitting, lazy loading, and optimizing component architecture to improve application performance and scalability',
             },
             {
-                skill: 'Quality Assurance',
+                skill: 'Testing & Quality Assurance',
                 descriptor:
-                    'Practiced in testing with Jest and Cypress for application reliability.',
+                    'Proficient in Jest, React Testing Library, and Cypress to ensure application reliability through automated testing.',
             },
         ],
         soft: [
             {
+                skill: 'Leadership & Mentorship',
+                descriptor:
+                    'Experienced in guiding teams, conducting code reviews, and fostering growth within Agile environments',
+            },
+            {
                 skill: 'Effective Communication',
                 descriptor:
-                    'Expertise in translating complex technical ideas for varied audiences.',
+                    'Adept at translating complex technical concepts into actionable insights for both technical and non-technical stakeholders.',
             },
             {
-                skill: 'Creative Problem-Solving',
+                skill: 'Problem-Solving & Collaboration',
                 descriptor:
-                    'Recognized for innovative solutions to complex challenges.',
-            },
-            {
-                skill: 'Team Collaboration',
-                descriptor:
-                    'Demonstrated success in both leadership and contributory roles in team settings.',
+                    'Recognized for delivering innovative solutions to technical challenges and working seamlessly with backend engineers, UX designers, and product teams.',
             },
         ],
     },

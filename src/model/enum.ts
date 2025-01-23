@@ -6,4 +6,5 @@ export enum Pages {
     EDUCATION = "Education and Certificates",
     AMAZON = "Amazon",
     LEIDOS = "Leidos",
+    PEPPER = "Pepper",
 }

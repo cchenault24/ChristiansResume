@@ -40,13 +40,13 @@ export default function AboutMeCard() {
             <div className={`flex grow ${alignment} flex-col`}>
                 <h2 className='text-lg text-start'>Christian Chenault</h2>
                 <h3 className='text-sm text-center text-default-500'>
-                    Front End Engineer
+                    Senior Front End Engineer
                 </h3>
                 <h3 className='text-sm text-center text-default-500'>
                     Expertise: TypeScript, React, UI/UX Development
                 </h3>
                 <h3 className='text-sm text-start text-default-500'>
-                    Experience: 5+ years
+                    Experience: 6+ years
                 </h3>
             </div>
         );
@@ -102,7 +102,7 @@ export default function AboutMeCard() {
                                 size='sm'
                                 target='_blank'
                             >
-                                Alexandria, VA
+                                Richmond, VA
                             </Link>
                         </h3>
                         <object

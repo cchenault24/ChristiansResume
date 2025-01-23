@@ -27,7 +27,21 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
     const jobHistoryImage = isSmall ? jobHistoryData.mobile : jobHistoryData.logo
 
     const handleClick = () => {
-        const activePage = company === 'Amazon' ? Pages.AMAZON : Pages.LEIDOS;
+        let activePage;
+        switch (company) {
+            case 'Amazon':
+                activePage = Pages.AMAZON;
+                break;
+            case 'Leidos':
+                activePage = Pages.LEIDOS;
+                break;
+            case 'Pepper':
+                activePage = Pages.PEPPER;
+                break;
+            default:
+                activePage = Pages.HOME;
+                break;
+        }
         setActivePage(activePage);
     };
 
@@ -57,10 +71,10 @@ export default function JobHistoryCard({ company }: SectionCardProps) {
                 </div>
             </CardHeader>
             <Divider />
-            <CardBody className='flex items-center py-2 overflow-hidden'>
+            <CardBody className='flex items-center justify-center p-2 overflow-hidden'>
                 <Image
                     alt='Card background'
-                    className='object-cover rounded-xl'
+                    className='object-contain rounded-xl h-full w-full'
                     src={jobHistoryImage}
                     width={270}
                 />

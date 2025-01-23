@@ -15,6 +15,7 @@ export default function JobsPage() {
             <div
                 className={`flex ${flexDirection} gap-4 flex-auto justify-center`}
             >
+                <JobHistoryCard company='Pepper' />
                 <JobHistoryCard company='Amazon' />
                 <JobHistoryCard company='Leidos' />
             </div>
