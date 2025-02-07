@@ -4,17 +4,19 @@ import SectionWrapper from "./SectionWrapper";
 import { listJobHistories } from "../graphql/queries";
 
 interface JobExperience {
+  __typename: "JobHistory";
   id: string;
-  company: string;
   title: string;
-  location: string;
-  start: string;
-  end: string;
-  description: string[];
-  icon?: string;
+  company: string;
+  location?: string | null;
+  startDate?: string | null;
+  endDate?: string | null;
+  icon?: string | null;
+  logo?: string | null;
+  mobile?: string | null;
+  description?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
-  __typename: string;
 }
 
 const client = generateClient();
@@ -50,7 +52,7 @@ const JobExperience: React.FC = () => {
     return <p className="text-center text-gray-400">No job data found.</p>;
 
   return (
-    <SectionWrapper id="job-experience" className="bg-gray-800 text-light">
+    <SectionWrapper id="work-history" className="bg-gray-800 text-light">
       <h2 className="text-4xl font-bold text-center mb-12">Work Experience</h2>
       {jobs.map((job) => (
         <div
@@ -69,12 +71,12 @@ const JobExperience: React.FC = () => {
                 {job.company} • {job.location}
               </p>
               <p className="text-gray-400">
-                {job.start} - {job.end}
+                {job.startDate} - {job.endDate}
               </p>
             </div>
           </div>
           <ul className="text-gray-400 list-disc list-inside">
-            {job.description.map((desc, index) => (
+            {job.description?.map((desc, index) => (
               <li key={index}>{desc}</li>
             ))}
           </ul>
