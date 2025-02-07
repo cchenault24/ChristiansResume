@@ -10,11 +10,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Space Grotesk"', "sans-serif"],
+      },
       colors: {
-        dark: "#0f172a",
-        accent: "#22c55e", // Neon green
-        secondary: "#eab308", // Yellow
-        light: "#f8fafc",
+        dark: "#0A0A0A", // Deep black
+        light: "#F5F5F5", // Soft white
+        accent: "#FF6B6B", // Vibrant red/pink
+        secondary: "#4ECDC4", // Teal for contrast
+        gray: {
+          800: "#1F1F1F", // Dark gray for backgrounds
+          700: "#2D2D2D", // Slightly lighter gray
+          400: "#A3A3A3", // Light gray for text
+        },
       },
       boxShadow: {
         neon: "0 0 15px #22c55e",

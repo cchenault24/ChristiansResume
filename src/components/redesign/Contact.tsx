@@ -2,7 +2,10 @@ import React from "react";
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="w-full bg-gray-900 text-light py-16 px-6">
+    <section
+      id="contact"
+      className="w-full bg-gradient-to-br from-dark to-gray-900 text-light py-16 px-6"
+    >
       <div className="w-full max-w-5xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">Get In Touch</h2>
         <form className="flex flex-col gap-4">
@@ -23,7 +26,7 @@ const Contact: React.FC = () => {
           ></textarea>
           <button
             type="submit"
-            className="bg-accent text-dark py-3 px-6 rounded-lg font-medium shadow-neon hover:bg-secondary transition"
+            className="bg-accent text-dark py-3 px-6 rounded-lg font-medium hover-scale"
           >
             Send Message
           </button>
