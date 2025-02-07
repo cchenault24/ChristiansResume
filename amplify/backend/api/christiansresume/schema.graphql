@@ -1,0 +1,36 @@
+type JobHistory @model {
+  id: ID!
+  company: String!
+  title: String!
+  location: String!
+  start: String!
+  end: String!
+  description: [String!]!
+}
+
+type Education @model {
+  id: ID!
+  university: String!
+  degree: String!
+  location: String!
+  start: String!
+  end: String!
+  description: String!
+}
+
+type Certificate @model {
+  id: ID!
+  title: String!
+  company: String!
+  completionDate: String!
+  description: String!
+}
+
+type Project @model {
+  id: ID!
+  title: String!
+  description: String!
+  technologies: [String!]!
+  link: String
+  github: String
+}
