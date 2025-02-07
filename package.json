@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-amplify/api": "^6.2.3",
     "@nextui-org/react": "^2.2.10",
     "@tailwindcss/cli": "^4.0.4",
+    "aws-amplify": "^6.12.3",
     "framer-motion": "^12.4.1",
+    "graphql": "^16.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.4.0",

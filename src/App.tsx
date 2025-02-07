@@ -8,6 +8,10 @@ import WorkHistory from "./components/redesign/WorkHistory";
 import Education from "./components/redesign/Education";
 import Certificates from "./components/redesign/Certificates";
 import Contact from "./components/redesign/Contact";
+import { Amplify } from "aws-amplify";
+import awsExports from "./aws-exports";
+
+Amplify.configure(awsExports);
 
 const App: React.FC = () => {
   return (
