@@ -154,8 +154,11 @@ export const createCertificate = /* GraphQL */ `mutation CreateCertificate(
     id
     title
     company
-    completionDate
+    type
     description
+    completionDate
+    icon
+    certificate
     createdAt
     updatedAt
     __typename
@@ -173,8 +176,11 @@ export const updateCertificate = /* GraphQL */ `mutation UpdateCertificate(
     id
     title
     company
-    completionDate
+    type
     description
+    completionDate
+    icon
+    certificate
     createdAt
     updatedAt
     __typename
@@ -192,8 +198,11 @@ export const deleteCertificate = /* GraphQL */ `mutation DeleteCertificate(
     id
     title
     company
-    completionDate
+    type
     description
+    completionDate
+    icon
+    certificate
     createdAt
     updatedAt
     __typename

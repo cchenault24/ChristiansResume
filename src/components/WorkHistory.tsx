@@ -14,7 +14,7 @@ interface JobExperience {
   icon: string;
   logo: string;
   mobile: string;
-  description: Array<string>;
+  description: (string | null)[];
   createdAt: string;
   updatedAt: string;
 }

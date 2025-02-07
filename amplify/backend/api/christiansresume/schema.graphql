@@ -32,8 +32,11 @@ type Certificate
   id: ID!
   title: String!
   company: String!
-  completionDate: String!
+  type: String
   description: String!
+  completionDate: String!
+  icon: String!
+  certificate: String!
 }
 
 type Project

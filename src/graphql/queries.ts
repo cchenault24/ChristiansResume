@@ -109,8 +109,11 @@ export const getCertificate = /* GraphQL */ `query GetCertificate($id: ID!) {
     id
     title
     company
-    completionDate
+    type
     description
+    completionDate
+    icon
+    certificate
     createdAt
     updatedAt
     __typename
@@ -130,8 +133,11 @@ export const listCertificates = /* GraphQL */ `query ListCertificates(
       id
       title
       company
-      completionDate
+      type
       description
+      completionDate
+      icon
+      certificate
       createdAt
       updatedAt
       __typename

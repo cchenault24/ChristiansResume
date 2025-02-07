@@ -141,8 +141,11 @@ export const onCreateCertificate = /* GraphQL */ `subscription OnCreateCertifica
     id
     title
     company
-    completionDate
+    type
     description
+    completionDate
+    icon
+    certificate
     createdAt
     updatedAt
     __typename
@@ -159,8 +162,11 @@ export const onUpdateCertificate = /* GraphQL */ `subscription OnUpdateCertifica
     id
     title
     company
-    completionDate
+    type
     description
+    completionDate
+    icon
+    certificate
     createdAt
     updatedAt
     __typename
@@ -177,8 +183,11 @@ export const onDeleteCertificate = /* GraphQL */ `subscription OnDeleteCertifica
     id
     title
     company
-    completionDate
+    type
     description
+    completionDate
+    icon
+    certificate
     createdAt
     updatedAt
     __typename
