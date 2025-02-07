@@ -1,4 +1,6 @@
-type JobHistory @model {
+type JobHistory
+  @model
+  @auth(rules: [{ allow: public, operations: [read, create] }]) {
   id: ID!
   company: String!
   title: String!
@@ -8,7 +10,9 @@ type JobHistory @model {
   description: [String!]!
 }
 
-type Education @model {
+type Education
+  @model
+  @auth(rules: [{ allow: public, operations: [read, create] }]) {
   id: ID!
   university: String!
   degree: String!
@@ -18,7 +22,9 @@ type Education @model {
   description: String!
 }
 
-type Certificate @model {
+type Certificate
+  @model
+  @auth(rules: [{ allow: public, operations: [read, create] }]) {
   id: ID!
   title: String!
   company: String!
@@ -26,7 +32,9 @@ type Certificate @model {
   description: String!
 }
 
-type Project @model {
+type Project
+  @model
+  @auth(rules: [{ allow: public, operations: [read, create] }]) {
   id: ID!
   title: String!
   description: String!
