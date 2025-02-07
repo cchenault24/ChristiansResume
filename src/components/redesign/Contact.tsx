@@ -1,12 +1,13 @@
 import React from "react";
+import SectionWrapper from "./SectionWrapper";
 
 const Contact: React.FC = () => {
   return (
-    <section
+    <SectionWrapper
       id="contact"
-      className="w-full bg-gradient-to-br from-dark to-gray-900 text-light py-16 px-6"
+      className="bg-gradient-to-br from-dark to-gray-900 text-light"
     >
-      <div className="w-full max-w-5xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">Get In Touch</h2>
         <form className="flex flex-col gap-4">
           <input
@@ -32,7 +33,7 @@ const Contact: React.FC = () => {
           </button>
         </form>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

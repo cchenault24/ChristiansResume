@@ -1,32 +1,49 @@
-import { FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTypescript, SiTailwindcss, SiGraphql } from "react-icons/si";
-
-const skills = [
-  { name: "React", icon: <FaReact /> },
-  { name: "TypeScript", icon: <SiTypescript /> },
-  { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-  { name: "Node.js", icon: <FaNodeJs /> },
-  { name: "GraphQL", icon: <SiGraphql /> },
-];
+import SectionWrapper from "./SectionWrapper";
+import { useGetData } from "../data/data";
 
 const Skills: React.FC = () => {
+  const { skills } = useGetData();
+
   return (
-    <section id="skills" className="w-full bg-dark text-light py-16 px-6">
-      <div className="w-full max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">Skills</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 py-6 px-4 rounded-lg shadow-subtle hover-scale flex flex-col items-center justify-center"
-            >
-              <span className="text-3xl mb-2">{skill.icon}</span>
-              <p className="text-xl font-medium">{skill.name}</p>
-            </div>
-          ))}
+    <SectionWrapper id="skills" className="bg-dark text-light">
+      <h2 className="text-4xl font-bold text-center mb-12">Skills</h2>
+
+      <div className="space-y-12">
+        <div>
+          <h3 className="text-2xl font-bold mb-6 text-accent">
+            Technical Skills
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {skills.technical.map((skill, index) => (
+              <div
+                key={index}
+                className="bg-gray-800 p-6 rounded-lg shadow-subtle hover-scale"
+              >
+                <h4 className="text-xl font-bold mb-2">{skill.skill}</h4>
+                <p className="text-gray-400">{skill.descriptor}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-2xl font-bold mb-6 text-secondary">
+            Soft Skills
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {skills.soft.map((skill, index) => (
+              <div
+                key={index}
+                className="bg-gray-800 p-6 rounded-lg shadow-subtle hover-scale"
+              >
+                <h4 className="text-xl font-bold mb-2">{skill.skill}</h4>
+                <p className="text-gray-400">{skill.descriptor}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 
