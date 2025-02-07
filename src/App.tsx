@@ -1,14 +1,26 @@
-import { NextUIProvider } from '@nextui-org/react';
-import './App.css';
-import { AppProvider } from './context/AppContext';
-import Container from './components/Container';
+import React from "react";
+import HeroSection from "./components/redesign/HeroSection";
+import AboutMe from "./components/redesign/AboutMe";
+import Projects from "./components/redesign/Projects";
+import Skills from "./components/redesign/Skills";
+import WorkHistory from "./components/redesign/WorkHistory";
+import Education from "./components/redesign/Education";
+import Certificates from "./components/redesign/Certificates";
+import Contact from "./components/redesign/Contact";
 
-function App() {
-    return (
-        <NextUIProvider>
-            <AppProvider>{<Container />}</AppProvider>
-        </NextUIProvider>
-    );
-}
+const App: React.FC = () => {
+  return (
+    <div>
+      <HeroSection />
+      <AboutMe />
+      <Projects />
+      <Skills />
+      <WorkHistory />
+      <Education />
+      <Certificates />
+      <Contact />
+    </div>
+  );
+};
 
 export default App;
