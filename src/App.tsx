@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./components/redesign/Navbar";
 import HeroSection from "./components/redesign/HeroSection";
 import AboutMe from "./components/redesign/AboutMe";
 import Projects from "./components/redesign/Projects";
@@ -10,7 +11,8 @@ import Contact from "./components/redesign/Contact";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-dark">
+      <Navbar />
       <HeroSection />
       <AboutMe />
       <Projects />

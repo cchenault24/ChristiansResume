@@ -28,6 +28,12 @@ module.exports = {
         neon: "0 0 15px #22c55e",
         subtle: "0 5px 20px rgba(0, 0, 0, 0.3)",
       },
+      backdropBlur: {
+        md: "12px",
+      },
+      backgroundColor: {
+        "black/30": "rgba(0, 0, 0, 0.3)",
+      },
     },
   },
   darkMode: "class",
