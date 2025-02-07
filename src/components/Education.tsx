@@ -4,6 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 import { listEducations } from "../graphql/queries";
 
 interface EducationEntry {
+  __typename: "Education";
   id: string;
   university: string;
   degree: string;
@@ -11,10 +12,9 @@ interface EducationEntry {
   start: string;
   end: string;
   description: string;
-  icon?: string;
+  icon: string;
   createdAt: string;
   updatedAt: string;
-  __typename: string;
 }
 
 const client = generateClient();
@@ -56,7 +56,7 @@ const Education: React.FC = () => {
       <div className="bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon transition">
         <div className="flex items-center gap-4 mb-4">
           <img
-            src={"/jmu-logo.png"}
+            src={education.icon}
             alt={education.university}
             className="w-16 h-16"
           />

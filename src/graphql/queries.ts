@@ -66,6 +66,7 @@ export const getEducation = /* GraphQL */ `query GetEducation($id: ID!) {
     location
     start
     end
+    icon
     description
     createdAt
     updatedAt
@@ -89,6 +90,7 @@ export const listEducations = /* GraphQL */ `query ListEducations(
       location
       start
       end
+      icon
       description
       createdAt
       updatedAt

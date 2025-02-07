@@ -91,6 +91,7 @@ export const createEducation = /* GraphQL */ `mutation CreateEducation(
     location
     start
     end
+    icon
     description
     createdAt
     updatedAt
@@ -112,6 +113,7 @@ export const updateEducation = /* GraphQL */ `mutation UpdateEducation(
     location
     start
     end
+    icon
     description
     createdAt
     updatedAt
@@ -133,6 +135,7 @@ export const deleteEducation = /* GraphQL */ `mutation DeleteEducation(
     location
     start
     end
+    icon
     description
     createdAt
     updatedAt
