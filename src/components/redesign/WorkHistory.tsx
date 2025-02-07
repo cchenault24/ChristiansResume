@@ -4,12 +4,17 @@ import { useGetData } from "../data/data";
 
 const WorkHistory: React.FC = () => {
   const { jobExperience } = useGetData();
-  const jobs = Object.values(jobExperience).sort((a, b) => {
-    // Convert dates to timestamps for comparison
-    const dateA = new Date(a.end === "Present" ? Date.now() : a.end).getTime();
-    const dateB = new Date(b.end === "Present" ? Date.now() : b.end).getTime();
-    return dateB - dateA; // Sort in descending order (most recent first)
-  });
+  const jobs = React.useMemo(() => {
+    return Object.values(jobExperience).sort((a, b) => {
+      const dateA = new Date(
+        a.end === "Present" ? Date.now() : a.end
+      ).getTime();
+      const dateB = new Date(
+        b.end === "Present" ? Date.now() : b.end
+      ).getTime();
+      return dateB - dateA;
+    });
+  }, [jobExperience]);
 
   return (
     <SectionWrapper id="work-history" className="bg-gray-900 text-light">
