@@ -61,77 +61,15 @@ export const schema = {
     Certificate: {
       name: "Certificate",
       fields: {
-        id: {
-          name: "id",
-          isArray: false,
-          type: "ID",
-          isRequired: true,
-          attributes: [],
-        },
-        title: {
-          name: "title",
-          isArray: false,
-          type: "String",
-          isRequired: true,
-          attributes: [],
-        },
-        company: {
-          name: "company",
-          isArray: false,
-          type: "String",
-          isRequired: true,
-          attributes: [],
-        },
-        completionDate: {
-          name: "completionDate",
-          isArray: false,
-          type: "String",
-          isRequired: true,
-          attributes: [],
-        },
-        description: {
-          name: "description",
-          isArray: false,
-          type: "String",
-          isRequired: true,
-          attributes: [],
-        },
-        createdAt: {
-          name: "createdAt",
-          isArray: false,
-          type: "AWSDateTime",
-          isRequired: false,
-          attributes: [],
-          isReadOnly: true,
-        },
-        updatedAt: {
-          name: "updatedAt",
-          isArray: false,
-          type: "AWSDateTime",
-          isRequired: false,
-          attributes: [],
-          isReadOnly: true,
-        },
+        id: { type: "ID", isRequired: true },
+        title: { type: "String", isRequired: true },
+        company: { type: "String", isRequired: true },
+        type: { type: "String", isRequired: true },
+        description: { type: "String", isRequired: true },
+        completionDate: { type: "String", isRequired: true },
+        icon: { type: "String", isRequired: true },
+        certificate: { type: "String", isRequired: true },
       },
-      syncable: true,
-      pluralName: "Certificates",
-      attributes: [
-        {
-          type: "model",
-          properties: {},
-        },
-        {
-          type: "auth",
-          properties: {
-            rules: [
-              {
-                allow: "public",
-                operations: ["read"],
-              },
-            ],
-          },
-        },
-      ],
     },
     Project: {
       name: "Project",
