@@ -2,12 +2,8 @@
 const { nextui } = require("@nextui-org/react");
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -38,4 +34,17 @@ module.exports = {
   },
   darkMode: "class",
   plugins: [nextui()],
+  // This will ensure unused styles are purged in production
+  purge: {
+    enabled: process.env.NODE_ENV === "production",
+    content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
+    options: {
+      safelist: [
+        // Add any classes that are dynamically created here
+        /^bg-/,
+        /^text-/,
+        /^hover:/,
+      ],
+    },
+  },
 };

@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "./components/redesign/Navbar";
-import HeroSection from "./components/redesign/HeroSection";
-import AboutMe from "./components/redesign/AboutMe";
-import Projects from "./components/redesign/Projects";
-import Skills from "./components/redesign/Skills";
-import WorkHistory from "./components/redesign/WorkHistory";
-import Education from "./components/redesign/Education";
-import Certificates from "./components/redesign/Certificates";
-import Contact from "./components/redesign/Contact";
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection";
+import AboutMe from "./components/AboutMe";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import WorkHistory from "./components/WorkHistory";
+import Education from "./components/Education";
+import Certificates from "./components/Certificates";
+import Contact from "./components/Contact";
 import { Amplify } from "aws-amplify";
 import awsExports from "./aws-exports";
 

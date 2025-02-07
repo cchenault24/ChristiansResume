@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
-import { listJobHistories } from "../../graphql/queries";
+import { listJobHistories } from "../graphql/queries";
 
 interface JobExperience {
   id: string;

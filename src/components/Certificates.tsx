@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
-import { listCertificates } from "../../graphql/queries";
+import { listCertificates } from "../graphql/queries";
 
 interface Certificate {
   __typename: "Certificate";
@@ -47,13 +47,11 @@ const certificateMappings: CertificateMapping = {
   },
 };
 
-const getCertificateIcon = (company: string): string => {
-  return certificateMappings[company]?.icon || "/default-icon.png";
-};
+const getCertificateIcon = (company: string): string =>
+  certificateMappings[company]?.icon || "/default-icon.png";
 
-const getCertificatePdf = (company: string): string => {
-  return certificateMappings[company]?.certificate || "";
-};
+const getCertificatePdf = (company: string): string =>
+  certificateMappings[company]?.certificate || "";
 
 const Certificates: React.FC = () => {
   const [certificates, setCertificates] = useState<Certificate[]>([]);

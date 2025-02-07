@@ -1,5 +1,5 @@
 import SectionWrapper from "./SectionWrapper";
-import { useGetData } from "../data/data";
+import { useGetData } from "./data/data";
 
 const Skills: React.FC = () => {
   const { skills } = useGetData();
