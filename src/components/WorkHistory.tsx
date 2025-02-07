@@ -52,7 +52,7 @@ const JobExperience: React.FC = () => {
     return <p className="text-center text-gray-400">No job data found.</p>;
 
   return (
-    <SectionWrapper id="work-history" className="bg-gray-800 text-light">
+    <SectionWrapper id="work-history" className="bg-gray-900 text-light">
       <h2 className="text-4xl font-bold text-center mb-12">Work Experience</h2>
       {jobs.map((job) => (
         <div
