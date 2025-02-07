@@ -17,31 +17,31 @@ export const schema = {
         },
         location: {
           type: "String",
-          isRequired: false,
+          isRequired: true,
         },
         startDate: {
           type: "String",
-          isRequired: false,
+          isRequired: true,
         },
         endDate: {
           type: "String",
-          isRequired: false,
+          isRequired: true,
         },
         icon: {
           type: "String",
-          isRequired: false,
+          isRequired: true,
         },
         logo: {
           type: "String",
-          isRequired: false,
+          isRequired: true,
         },
         mobile: {
           type: "String",
-          isRequired: false,
+          isRequired: true,
         },
         description: {
           type: "[String]",
-          isRequired: false,
+          isRequired: true,
         },
       },
     },
