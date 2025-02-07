@@ -85,6 +85,7 @@ export const onCreateEducation = /* GraphQL */ `subscription OnCreateEducation($
     location
     start
     end
+    icon
     description
     createdAt
     updatedAt
@@ -103,6 +104,7 @@ export const onUpdateEducation = /* GraphQL */ `subscription OnUpdateEducation($
     location
     start
     end
+    icon
     description
     createdAt
     updatedAt
@@ -121,6 +123,7 @@ export const onDeleteEducation = /* GraphQL */ `subscription OnDeleteEducation($
     location
     start
     end
+    icon
     description
     createdAt
     updatedAt
