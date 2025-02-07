@@ -1,11 +1,14 @@
 type JobHistory @model @auth(rules: [{ allow: public, operations: [read] }]) {
   id: ID!
-  company: String!
   title: String!
-  location: String!
-  start: String!
-  end: String!
-  description: [String!]!
+  company: String!
+  location: String
+  startDate: String
+  endDate: String
+  icon: String
+  logo: String
+  mobile: String
+  description: [String]
 }
 
 type Education @model @auth(rules: [{ allow: public, operations: [read] }]) {

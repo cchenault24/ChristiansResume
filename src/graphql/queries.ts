@@ -11,11 +11,14 @@ type GeneratedQuery<InputType, OutputType> = string & {
 export const getJobHistory = /* GraphQL */ `query GetJobHistory($id: ID!) {
   getJobHistory(id: $id) {
     id
-    company
     title
+    company
     location
-    start
-    end
+    startDate
+    endDate
+    icon
+    logo
+    mobile
     description
     createdAt
     updatedAt
@@ -34,11 +37,14 @@ export const listJobHistories = /* GraphQL */ `query ListJobHistories(
   listJobHistories(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      company
       title
+      company
       location
-      start
-      end
+      startDate
+      endDate
+      icon
+      logo
+      mobile
       description
       createdAt
       updatedAt
