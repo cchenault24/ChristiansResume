@@ -17,13 +17,6 @@ interface Certificate {
   updatedAt: string;
 }
 
-type CertificateMapping = {
-  [key: string]: {
-    icon: string;
-    certificate: string;
-  };
-};
-
 const client = generateClient();
 
 const Certificates: React.FC = () => {
