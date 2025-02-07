@@ -8,13 +8,13 @@ interface JobExperience {
   id: string;
   title: string;
   company: string;
-  location?: string | null;
-  startDate?: string | null;
-  endDate?: string | null;
-  icon?: string | null;
-  logo?: string | null;
-  mobile?: string | null;
-  description?: Array<string | null> | null;
+  location: string;
+  startDate: string;
+  endDate: string;
+  icon: string;
+  logo: string;
+  mobile: string;
+  description: Array<string>;
   createdAt: string;
   updatedAt: string;
 }
@@ -76,7 +76,7 @@ const JobExperience: React.FC = () => {
             </div>
           </div>
           <ul className="text-gray-400 list-disc list-inside">
-            {job.description?.map((desc, index) => (
+            {job.description.map((desc, index) => (
               <li key={index}>{desc}</li>
             ))}
           </ul>
