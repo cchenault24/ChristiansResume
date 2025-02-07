@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
           className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4"
         >
           <nav className="backdrop-blur-md bg-black/30 rounded-full px-6 py-4 border border-white/10">
-            <div className="flex justify-center items-center gap-6">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-center">
               <NavLink to="about">About</NavLink>
               <NavLink to="projects">Projects</NavLink>
               <NavLink to="skills">Skills</NavLink>
