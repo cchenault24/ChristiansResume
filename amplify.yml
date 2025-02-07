@@ -5,7 +5,7 @@ frontend:
       commands:
         - corepack enable
         - yarn set version stable
-        - yarn install --immutable
+        - yarn install --check-cache || yarn install --immutable --refresh-lockfile
     build:
       commands:
         - yarn build
