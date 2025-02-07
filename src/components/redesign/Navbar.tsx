@@ -1,91 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
+
+interface NavLinkProps {
+  to: string;
+  children: string;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ to, children }) => (
+  // @ts-ignore - react-scroll Link component props are not fully typed
+  <Link
+    to={to}
+    spy={true}
+    smooth={true}
+    duration={500}
+    className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
+    activeClass="text-accent"
+  >
+    {children}
+  </Link>
+);
 
 const Navbar: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById("hero");
+      const heroHeight = heroSection?.offsetHeight || 0;
+      const scrollPosition = window.scrollY;
+      setIsVisible(scrollPosition < heroHeight - 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4">
-      <nav className="backdrop-blur-md bg-black/30 rounded-full px-6 py-4 border border-white/10">
-        <div className="flex justify-center items-center gap-6">
-          <Link
-            to="about"
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
-            activeClass="text-accent"
-          >
-            About
-          </Link>
-          <Link
-            to="projects"
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
-            activeClass="text-accent"
-          >
-            Projects
-          </Link>
-          <Link
-            to="skills"
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
-            activeClass="text-accent"
-          >
-            Skills
-          </Link>
-          <Link
-            to="work-history"
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
-            activeClass="text-accent"
-          >
-            Experience
-          </Link>
-          <Link
-            to="education"
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
-            activeClass="text-accent"
-          >
-            Education
-          </Link>
-          <Link
-            to="certificates"
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
-            activeClass="text-accent"
-          >
-            Certificates
-          </Link>
-          <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
-            activeClass="text-accent"
-          >
-            Contact
-          </Link>
-        </div>
-      </nav>
-    </div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4"
+        >
+          <nav className="backdrop-blur-md bg-black/30 rounded-full px-6 py-4 border border-white/10">
+            <div className="flex justify-center items-center gap-6">
+              <NavLink to="about">About</NavLink>
+              <NavLink to="projects">Projects</NavLink>
+              <NavLink to="skills">Skills</NavLink>
+              <NavLink to="work-history">Experience</NavLink>
+              <NavLink to="education">Education</NavLink>
+              <NavLink to="certificates">Certificates</NavLink>
+              <NavLink to="contact">Contact</NavLink>
+            </div>
+          </nav>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 
 const HeroSection: React.FC = () => {
   return (
@@ -32,16 +32,16 @@ const HeroSection: React.FC = () => {
           <motion.a
             href="#projects"
             className="bg-accent text-dark py-3 px-6 rounded-lg font-medium shadow-neon hover:bg-secondary hover:shadow-secondary transition"
-            whileHover={{ scale: 1.05 }} // Hover animation
-            whileTap={{ scale: 0.95 }} // Tap animation
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             View Projects
           </motion.a>
           <motion.a
             href="#contact"
             className="border border-accent text-accent py-3 px-6 rounded-lg font-medium hover:bg-accent hover:text-dark transition"
-            whileHover={{ scale: 1.05 }} // Hover animation
-            whileTap={{ scale: 0.95 }} // Tap animation
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Contact Me
           </motion.a>
