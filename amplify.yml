@@ -4,13 +4,12 @@ frontend:
     preBuild:
       commands:
         - corepack enable
-        - yarn set version stable
-        - yarn install --check-cache || yarn install --immutable --refresh-lockfile
+        - yarn install --immutable
     build:
       commands:
         - yarn build
   artifacts:
-    baseDirectory: dist
+    baseDirectory: dist # Change to 'build' if using React
     files:
       - "**/*"
   cache:
