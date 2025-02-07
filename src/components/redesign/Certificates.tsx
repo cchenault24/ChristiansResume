@@ -30,10 +30,10 @@ const Certificates: React.FC = () => {
           {certificates.map((cert, index) => (
             <div
               key={index}
-              className="bg-dark p-6 rounded-lg shadow-subtle hover:shadow-neon transition"
+              className="bg-gray-800 p-6 rounded-lg shadow-subtle hover-scale glassmorphism"
             >
-              <h3 className="text-2xl font-bold">{cert.title}</h3>
-              <p className="text-gray-400">{cert.provider}</p>
+              <h3 className="text-2xl font-bold mb-2">{cert.title}</h3>
+              <p className="text-gray-400 mb-1">{cert.provider}</p>
               <p className="text-gray-400">{cert.date}</p>
             </div>
           ))}
