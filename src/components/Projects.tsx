@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
-import { listProjects } from "../../graphql/queries";
+import { listProjects } from "../graphql/queries";
 
 interface Project {
   id: string;

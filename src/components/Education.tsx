@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
-import { listEducations } from "../../graphql/queries";
+import { listEducations } from "../graphql/queries";
 
 interface EducationEntry {
   id: string;
