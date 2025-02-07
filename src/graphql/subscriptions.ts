@@ -13,11 +13,14 @@ export const onCreateJobHistory = /* GraphQL */ `subscription OnCreateJobHistory
 ) {
   onCreateJobHistory(filter: $filter) {
     id
-    company
     title
+    company
     location
-    start
-    end
+    startDate
+    endDate
+    icon
+    logo
+    mobile
     description
     createdAt
     updatedAt
@@ -33,11 +36,14 @@ export const onUpdateJobHistory = /* GraphQL */ `subscription OnUpdateJobHistory
 ) {
   onUpdateJobHistory(filter: $filter) {
     id
-    company
     title
+    company
     location
-    start
-    end
+    startDate
+    endDate
+    icon
+    logo
+    mobile
     description
     createdAt
     updatedAt
@@ -53,11 +59,14 @@ export const onDeleteJobHistory = /* GraphQL */ `subscription OnDeleteJobHistory
 ) {
   onDeleteJobHistory(filter: $filter) {
     id
-    company
     title
+    company
     location
-    start
-    end
+    startDate
+    endDate
+    icon
+    logo
+    mobile
     description
     createdAt
     updatedAt

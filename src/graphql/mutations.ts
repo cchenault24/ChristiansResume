@@ -14,11 +14,14 @@ export const createJobHistory = /* GraphQL */ `mutation CreateJobHistory(
 ) {
   createJobHistory(input: $input, condition: $condition) {
     id
-    company
     title
+    company
     location
-    start
-    end
+    startDate
+    endDate
+    icon
+    logo
+    mobile
     description
     createdAt
     updatedAt
@@ -35,11 +38,14 @@ export const updateJobHistory = /* GraphQL */ `mutation UpdateJobHistory(
 ) {
   updateJobHistory(input: $input, condition: $condition) {
     id
-    company
     title
+    company
     location
-    start
-    end
+    startDate
+    endDate
+    icon
+    logo
+    mobile
     description
     createdAt
     updatedAt
@@ -56,11 +62,14 @@ export const deleteJobHistory = /* GraphQL */ `mutation DeleteJobHistory(
 ) {
   deleteJobHistory(input: $input, condition: $condition) {
     id
-    company
     title
+    company
     location
-    start
-    end
+    startDate
+    endDate
+    icon
+    logo
+    mobile
     description
     createdAt
     updatedAt
