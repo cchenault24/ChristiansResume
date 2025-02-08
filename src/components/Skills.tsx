@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
 import { listSkills } from "../graphql/queries";
+import { animations } from "../utils/animations";
+import { motion } from "framer-motion";
 
 interface Skill {
   id: string;
@@ -63,25 +65,34 @@ const Skills: React.FC = () => {
   return (
     <SectionWrapper id="skills" className="bg-gray-800 text-light">
       <h2 className="text-4xl font-bold text-center mb-12">Skills</h2>
-
-      {Object.keys(orderedSkills).map((category) => (
-        <div key={category} className="mb-8">
-          <h3 className="text-2xl font-semibold text-accent mb-4">
-            {category} Skills
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {orderedSkills[category].map((skill) => (
-              <div
-                key={skill.id}
-                className="bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon hover-scale transition"
-              >
-                <h4 className="text-xl font-bold">{skill.skill}</h4>
-                <p className="text-gray-400 mt-2">{skill.descriptor}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+      <motion.div
+        variants={animations.containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {Object.keys(orderedSkills).map((category) => (
+          <motion.div
+            key={category}
+            variants={animations.itemVariants}
+            className="mb-8"
+          >
+            <h3 className="text-2xl font-semibold text-accent mb-4">
+              {category} Skills
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+              {orderedSkills[category].map((skill) => (
+                <div
+                  key={skill.id}
+                  className="bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon hover-scale transition"
+                >
+                  <h4 className="text-xl font-bold">{skill.skill}</h4>
+                  <p className="text-gray-400 mt-2">{skill.descriptor}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </SectionWrapper>
   );
 };

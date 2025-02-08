@@ -57,7 +57,7 @@ const JobExperience: React.FC = () => {
       {jobs.map((job) => (
         <div
           key={job.id}
-          className="bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon hover-scale transition mb-6"
+          className="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:scale-105 mb-6"
         >
           <div className="flex items-center gap-4 mb-4">
             <img

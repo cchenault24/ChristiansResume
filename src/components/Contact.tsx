@@ -1,34 +1,32 @@
 import React from "react";
 import SectionWrapper from "./SectionWrapper";
+import { sharedStyles } from "../styles/shared";
 
 const Contact: React.FC = () => {
   return (
     <SectionWrapper
       id="contact"
-      className="bg-gradient-to-br from-dark to-gray-900 text-light"
+      className="bg-gradient-to-br from-dark to-gray-800 text-light"
     >
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">Get In Touch</h2>
-        <form className="flex flex-col gap-4">
+      <div className={sharedStyles.container}>
+        <h2 className={sharedStyles.sectionHeading}>Get In Touch</h2>
+        <form className="flex flex-col gap-4 max-w-2xl mx-auto">
           <input
             type="text"
             placeholder="Your Name"
-            className="py-3 px-4 rounded-lg bg-gray-800 text-light border border-gray-700 focus:outline-none focus:ring-2 focus:ring-accent"
+            className={sharedStyles.inputBase}
           />
           <input
             type="email"
             placeholder="Your Email"
-            className="py-3 px-4 rounded-lg bg-gray-800 text-light border border-gray-700 focus:outline-none focus:ring-2 focus:ring-accent"
+            className={sharedStyles.inputBase}
           />
           <textarea
             placeholder="Your Message"
             rows={5}
-            className="py-3 px-4 rounded-lg bg-gray-800 text-light border border-gray-700 focus:outline-none focus:ring-2 focus:ring-accent"
+            className={sharedStyles.inputBase}
           ></textarea>
-          <button
-            type="submit"
-            className="bg-accent text-dark py-3 px-6 rounded-lg font-medium hover-scale"
-          >
+          <button type="submit" className={sharedStyles.buttonBase}>
             Send Message
           </button>
         </form>

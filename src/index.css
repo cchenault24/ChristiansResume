@@ -30,3 +30,22 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+/* Common Component Classes
+@layer components {
+  .card-base {
+    @apply bg-gray-700 p-6 rounded-lg shadow 
+           transition duration-300;
+  }
+
+  .transform-hover {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+.section-title {
+  @apply text-4xl font-bold text-center mb-12 text-light;
+} */

@@ -1,21 +1,15 @@
 import { motion } from "framer-motion";
+import { animations } from "../utils/animations";
 
 const HeroSection: React.FC = () => {
   return (
     <motion.section
       id="hero"
       className="w-full min-h-screen bg-gradient-to-br from-dark to-gray-900 text-light flex items-center justify-center px-6 relative"
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      {...animations.fadeIn}
     >
       <div className="w-full max-w-7xl text-center">
-        <motion.div
-          className="mb-8"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        <motion.div className="mb-8" {...animations.scaleIn}>
           <img
             src="/avatar.png"
             alt="Christian Chenault"
