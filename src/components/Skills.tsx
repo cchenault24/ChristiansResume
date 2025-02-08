@@ -73,7 +73,7 @@ const Skills: React.FC = () => {
             {orderedSkills[category].map((skill) => (
               <div
                 key={skill.id}
-                className="bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon transition"
+                className="bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon hover-scale transition"
               >
                 <h4 className="text-xl font-bold">{skill.skill}</h4>
                 <p className="text-gray-400 mt-2">{skill.descriptor}</p>

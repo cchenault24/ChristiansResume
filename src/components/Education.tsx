@@ -53,7 +53,7 @@ const Education: React.FC = () => {
   return (
     <SectionWrapper id="education" className="bg-gray-800 text-light">
       <h2 className="text-4xl font-bold text-center mb-12">Education</h2>
-      <div className="bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon transition">
+      <div className="bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon hover-scale transition">
         <div className="flex items-center gap-4 mb-4">
           <img
             src={education.icon}
