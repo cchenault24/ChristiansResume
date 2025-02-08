@@ -1,55 +1,57 @@
-import React, { useEffect, useState } from "react";
-import { generateClient } from "aws-amplify/api";
-import SectionWrapper from "./SectionWrapper";
-import { listProjects } from "../graphql/queries";
-import { animations } from "../utils/animations";
+import React from "react";
 import { motion } from "framer-motion";
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  technologies: string[];
-  link?: string | null;
-  github?: string | null;
-  createdAt: string;
-  updatedAt: string;
-  __typename: string;
-}
+import SectionWrapper from "./SectionWrapper";
+import { animations } from "../utils/animations";
+import { useDataFetching } from "../hooks/useDataFetching";
+import { Project } from "../types";
+import { sharedStyles } from "../styles/shared";
+import { generateClient } from "@aws-amplify/api";
+import { listProjects } from "../graphql/queries";
 
 const client = generateClient();
 
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await client.graphql({
-          query: listProjects,
-        });
-        setProjects(response.data.listProjects.items);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
+  const {
+    data: projects,
+    loading,
+    error,
+  } = useDataFetching<Project>(() =>
+    client
+      .graphql({
+        query: listProjects,
+      })
+      .then((response) => response.data.listProjects.items)
+  );
 
   if (loading)
-    return <p className="text-center text-gray-400">Loading Projects...</p>;
-  if (error) return <p className="text-center text-red-500">Error: {error}</p>;
-  if (!projects.length)
-    return <p className="text-center text-gray-400">No projects found.</p>;
+    return (
+      <SectionWrapper id="projects" className="bg-gray-900 text-light">
+        <div className="animate-pulse space-y-4">
+          <div className="h-8 bg-gray-800 rounded w-1/3 mx-auto"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="h-64 bg-gray-800 rounded-lg"></div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+    );
+
+  if (error)
+    return (
+      <SectionWrapper id="projects" className="bg-gray-900 text-light">
+        <div className="text-center text-red-500">
+          <h2 className={sharedStyles.sectionHeading}>
+            Error Loading Projects
+          </h2>
+          <p>{error}</p>
+        </div>
+      </SectionWrapper>
+    );
 
   return (
     <SectionWrapper id="projects" className="bg-gray-900 text-light">
-      <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
+      <h2 className={sharedStyles.sectionHeading}>Projects</h2>
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 gap-8"
         variants={animations.containerVariants}
@@ -60,7 +62,7 @@ const Projects: React.FC = () => {
           <motion.div
             key={project.id}
             variants={animations.itemVariants}
-            className="card-base card-hover"
+            className={sharedStyles.cardBase}
           >
             <div className="bg-dark p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:scale-105 group flex flex-col h-full">
               <h3 className="text-2xl font-bold mb-3">{project.title}</h3>

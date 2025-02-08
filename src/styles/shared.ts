@@ -11,3 +11,19 @@ export const sharedStyles = {
   skillTag: "text-xs bg-gray-800 text-accent px-2 py-1 rounded",
   link: "text-accent hover:text-secondary transition duration-300",
 };
+
+export const sectionStyles = {
+  light: "bg-gray-800 text-light",
+  dark: "bg-gray-900 text-light",
+  gradient: "bg-gradient-to-br from-dark to-gray-800 text-light",
+};
+
+export const cardStyles = {
+  base: "bg-gray-700 p-6 rounded-lg shadow-subtle transition-all duration-300",
+  hover: "hover:shadow-lg hover:scale-105",
+  glass: "backdrop-blur-md bg-black/30 border border-white/10",
+  skill:
+    "bg-gray-700 p-6 rounded-lg shadow-subtle hover:shadow-neon hover-scale transition",
+  project:
+    "bg-dark p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:scale-105",
+};

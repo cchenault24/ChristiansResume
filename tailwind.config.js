@@ -27,9 +27,21 @@ export default {
         "black/30": "rgba(0, 0, 0, 0.3)",
       },
       fontSize: {
-        heading: ["2.5rem", "3rem"],
-        subheading: ["1.5rem", "2rem"],
-        body: ["1rem", "1.5rem"],
+        heading: {
+          sm: ["2rem", "2.5rem"],
+          md: ["2.5rem", "3rem"],
+          lg: ["3rem", "3.5rem"],
+        },
+        subheading: {
+          sm: ["1.25rem", "1.75rem"],
+          md: ["1.5rem", "2rem"],
+          lg: ["1.75rem", "2.25rem"],
+        },
+        body: {
+          sm: ["0.875rem", "1.25rem"],
+          md: ["1rem", "1.5rem"],
+          lg: ["1.125rem", "1.75rem"],
+        },
       },
       fontWeight: {
         heading: "700",
