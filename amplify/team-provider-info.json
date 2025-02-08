@@ -1,15 +1,15 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-christiansresume-dev-c0254-authRole",
-      "UnauthRoleArn": "arn:aws:iam::216493730098:role/amplify-christiansresume-dev-c0254-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::216493730098:role/amplify-christiansresume-dev-c0254-authRole",
+      "AuthRoleName": "amplify-christiansresume-dev-4987e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::216493730098:role/amplify-christiansresume-dev-4987e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::216493730098:role/amplify-christiansresume-dev-4987e-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-christiansresume-dev-c0254-deployment",
-      "UnauthRoleName": "amplify-christiansresume-dev-c0254-unauthRole",
-      "StackName": "amplify-christiansresume-dev-c0254",
-      "StackId": "arn:aws:cloudformation:us-east-1:216493730098:stack/amplify-christiansresume-dev-c0254/07cf5ea0-e580-11ef-be9f-12a6ccb6e855",
-      "AmplifyAppId": "d2ouisb6ww2x36"
+      "DeploymentBucketName": "amplify-christiansresume-dev-4987e-deployment",
+      "UnauthRoleName": "amplify-christiansresume-dev-4987e-unauthRole",
+      "StackName": "amplify-christiansresume-dev-4987e",
+      "StackId": "arn:aws:cloudformation:us-east-1:216493730098:stack/amplify-christiansresume-dev-4987e/7006def0-e62d-11ef-8394-0affd2617087",
+      "AmplifyAppId": "d321f1inr3pg8l"
     },
     "categories": {
       "api": {
