@@ -1,46 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
 import { listEducations } from "../graphql/queries";
-
-interface EducationEntry {
-  __typename: "Education";
-  id: string;
-  university: string;
-  degree: string;
-  location: string;
-  start: string;
-  end: string;
-  description: string;
-  icon: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { useDataFetching } from "../hooks/useDataFetching";
+import { EducationEntry } from "../types";
 
 const client = generateClient();
 
 const Education: React.FC = () => {
-  const [education, setEducation] = useState<EducationEntry | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const {
+    data: educations,
+    loading,
+    error,
+  } = useDataFetching<EducationEntry>(() =>
+    client
+      .graphql({
+        query: listEducations,
+      })
+      .then((response) => response.data.listEducations.items)
+  );
 
-  useEffect(() => {
-    const fetchEducation = async () => {
-      try {
-        const response = await client.graphql({
-          query: listEducations,
-        });
-        const educationData = response.data.listEducations.items[0];
-        setEducation(educationData);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEducation();
-  }, []);
+  const education = educations[0];
 
   if (loading)
     return <p className="text-center text-gray-400">Loading Education...</p>;

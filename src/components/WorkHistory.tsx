@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
 import { listJobHistories } from "../graphql/queries";
+import { useDataFetching } from "../hooks/useDataFetching";
 
 interface JobExperience {
   __typename: "JobHistory";
@@ -22,26 +23,17 @@ interface JobExperience {
 const client = generateClient();
 
 const JobExperience: React.FC = () => {
-  const [jobs, setJobs] = useState<JobExperience[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await client.graphql({
-          query: listJobHistories,
-        });
-        setJobs(response.data.listJobHistories.items);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchJobs();
-  }, []);
+  const {
+    data: jobs,
+    loading,
+    error,
+  } = useDataFetching<JobExperience>(() =>
+    client
+      .graphql({
+        query: listJobHistories,
+      })
+      .then((response) => response.data.listJobHistories.items)
+  );
 
   if (loading)
     return (
