@@ -4,7 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 import { animations } from "../utils/animations";
 import { useDataFetching } from "../hooks/useDataFetching";
 import { Project } from "../types";
-import { sharedStyles } from "../styles/shared";
+import { sharedStyles, cardStyles, sectionStyles } from "../styles/shared";
 import { generateClient } from "@aws-amplify/api";
 import { listProjects } from "../graphql/queries";
 
@@ -25,7 +25,7 @@ const Projects: React.FC = () => {
 
   if (loading)
     return (
-      <SectionWrapper id="projects" className="bg-gray-900 text-light">
+      <SectionWrapper id="projects" className={sectionStyles.secondary}>
         <div className="animate-pulse space-y-4">
           <div className="h-8 bg-gray-800 rounded w-1/3 mx-auto"></div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
 
   if (error)
     return (
-      <SectionWrapper id="projects" className="bg-gray-900 text-light">
+      <SectionWrapper id="projects" className={sectionStyles.secondary}>
         <div className="text-center text-red-500">
           <h2 className={sharedStyles.sectionHeading}>
             Error Loading Projects
@@ -50,7 +50,7 @@ const Projects: React.FC = () => {
     );
 
   return (
-    <SectionWrapper id="projects" className="bg-gray-900 text-light">
+    <SectionWrapper id="projects" className={sectionStyles.secondary}>
       <h2 className={sharedStyles.sectionHeading}>Projects</h2>
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 gap-8"
@@ -62,7 +62,7 @@ const Projects: React.FC = () => {
           <motion.div
             key={project.id}
             variants={animations.itemVariants}
-            className={sharedStyles.cardBase}
+            className={`${cardStyles.project} ${cardStyles.glass}`}
           >
             <div className="bg-dark p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:scale-105 group flex flex-col h-full">
               <h3 className="text-2xl font-bold mb-3">{project.title}</h3>

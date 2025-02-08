@@ -3,6 +3,7 @@ import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
 import { listJobHistories } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
+import { sectionStyles } from "../styles/shared";
 
 interface JobExperience {
   __typename: "JobHistory";
@@ -44,7 +45,7 @@ const JobExperience: React.FC = () => {
     return <p className="text-center text-gray-400">No job data found.</p>;
 
   return (
-    <SectionWrapper id="work-history" className="bg-gray-900 text-light">
+    <SectionWrapper id="work-history" className={sectionStyles.secondary}>
       <h2 className="text-4xl font-bold text-center mb-12">Work Experience</h2>
       {jobs.map((job) => (
         <div

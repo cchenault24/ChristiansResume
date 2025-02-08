@@ -1,13 +1,10 @@
 import React from "react";
 import SectionWrapper from "./SectionWrapper";
-import { sharedStyles } from "../styles/shared";
+import { sharedStyles, sectionStyles } from "../styles/shared";
 
 const Contact: React.FC = () => {
   return (
-    <SectionWrapper
-      id="contact"
-      className="bg-gradient-to-br from-dark to-gray-800 text-light"
-    >
+    <SectionWrapper id="contact" className={sectionStyles.gradient}>
       <div className={sharedStyles.container}>
         <h2 className={sharedStyles.sectionHeading}>Get In Touch</h2>
         <form className="flex flex-col gap-4 max-w-2xl mx-auto">

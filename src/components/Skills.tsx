@@ -4,7 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 import { animations } from "../utils/animations";
 import { useDataFetching } from "../hooks/useDataFetching";
 import { Skill } from "../types";
-import { sharedStyles } from "../styles/shared";
+import { sharedStyles, sectionStyles, cardStyles } from "../styles/shared";
 import { generateClient } from "aws-amplify/api";
 import { listSkills } from "../graphql/queries";
 
@@ -44,7 +44,7 @@ const Skills: React.FC = () => {
 
   if (loading)
     return (
-      <SectionWrapper id="skills" className="bg-gray-800 text-light">
+      <SectionWrapper id="skills" className={sectionStyles.primary}>
         <div className="animate-pulse space-y-8">
           <div className="h-8 bg-gray-700 rounded w-1/3 mx-auto"></div>
           {[1, 2, 3].map((i) => (
@@ -63,7 +63,7 @@ const Skills: React.FC = () => {
 
   if (error)
     return (
-      <SectionWrapper id="skills" className="bg-gray-800 text-light">
+      <SectionWrapper id="skills" className={sectionStyles.primary}>
         <div className="text-center text-red-500">
           <h2 className={sharedStyles.sectionHeading}>Error Loading Skills</h2>
           <p>{error}</p>
@@ -72,7 +72,7 @@ const Skills: React.FC = () => {
     );
 
   return (
-    <SectionWrapper id="skills" className="bg-gray-800 text-light">
+    <SectionWrapper id="skills" className={sectionStyles.primary}>
       <h2 className={sharedStyles.sectionHeading}>Skills</h2>
       <motion.div
         variants={animations.containerVariants}
@@ -92,10 +92,10 @@ const Skills: React.FC = () => {
               {orderedSkills[category].map((skill) => (
                 <div
                   key={skill.id}
-                  className={`${sharedStyles.cardBase} hover:shadow-neon`}
+                  className={`${cardStyles.skill} ${cardStyles.glass}`}
                 >
-                  <h4 className="text-xl font-bold">{skill.skill}</h4>
-                  <p className="text-gray-400 mt-2">{skill.descriptor}</p>
+                  <h3 className="text-xl font-bold mb-2">{skill.skill}</h3>
+                  <p className="text-gray-400">{skill.descriptor}</p>
                 </div>
               ))}
             </div>

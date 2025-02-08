@@ -1,9 +1,10 @@
 import React from "react";
 import SectionWrapper from "./SectionWrapper";
+import { sectionStyles } from "../styles/shared";
 
 const AboutMe: React.FC = () => {
   return (
-    <SectionWrapper id="about" className="bg-gray-800 text-light">
+    <SectionWrapper id="about" className={sectionStyles.primary}>
       <div className="flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2">
           <h2 className="text-4xl font-bold mb-6">About Me</h2>

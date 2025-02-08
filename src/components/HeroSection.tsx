@@ -5,7 +5,7 @@ const HeroSection: React.FC = () => {
   return (
     <motion.section
       id="hero"
-      className="w-full min-h-screen bg-gradient-to-br from-dark to-gray-900 text-light flex items-center justify-center px-6 relative"
+      className="w-full min-h-screen bg-light dark:bg-gradient-to-br dark:from-dark dark:to-gray-900 text-dark-light dark:text-light flex items-center justify-center px-6 relative"
       {...animations.fadeIn}
     >
       <div className="w-full max-w-7xl text-center">
@@ -16,16 +16,16 @@ const HeroSection: React.FC = () => {
             className="w-64 h-64 rounded-full mx-auto border-4 border-accent shadow-lg"
           />
         </motion.div>
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 text-dark dark:text-light">
           Hi, I'm <span className="text-accent">Christian Chenault</span>
         </h1>
-        <p className="text-lg md:text-2xl text-gray-400 mb-8">
+        <p className="text-lg md:text-2xl text-gray-600 dark:text-gray-400 mb-8">
           Crafting immersive, modern, and user-friendly web experiences.
         </p>
         <div className="flex gap-4 justify-center">
           <motion.a
             href="#projects"
-            className="bg-accent text-dark py-3 px-6 rounded-lg font-medium shadow-neon hover:bg-secondary hover:shadow-secondary transition"
+            className="bg-accent text-white py-3 px-6 rounded-lg font-medium shadow-neon hover:bg-secondary hover:shadow-secondary transition"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -33,7 +33,7 @@ const HeroSection: React.FC = () => {
           </motion.a>
           <motion.a
             href="#contact"
-            className="border border-accent text-accent py-3 px-6 rounded-lg font-medium hover:bg-accent hover:text-dark transition"
+            className="border border-accent text-accent py-3 px-6 rounded-lg font-medium hover:bg-accent hover:text-white transition"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
