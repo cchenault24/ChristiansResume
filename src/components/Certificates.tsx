@@ -4,7 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 import { animations } from "../utils/animations";
 import { useDataFetching } from "../hooks/useDataFetching";
 import { Certificate } from "../types";
-import { sharedStyles } from "../styles/shared";
+import { sharedStyles, sectionStyles, cardStyles } from "../styles/shared";
 import { listCertificates } from "../graphql/queries";
 import { generateClient } from "@aws-amplify/api";
 const client = generateClient();
@@ -24,7 +24,7 @@ const Certificates: React.FC = () => {
 
   if (loading)
     return (
-      <SectionWrapper id="certificates" className="bg-gray-900 text-light">
+      <SectionWrapper id="certificates" className={sectionStyles.secondary}>
         <div className="animate-pulse space-y-8">
           <div className="h-8 bg-gray-800 rounded w-1/3 mx-auto"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -38,7 +38,7 @@ const Certificates: React.FC = () => {
 
   if (error)
     return (
-      <SectionWrapper id="certificates" className="bg-gray-900 text-light">
+      <SectionWrapper id="certificates" className={sectionStyles.secondary}>
         <div className="text-center text-red-500">
           <h2 className={sharedStyles.sectionHeading}>
             Error Loading Certificates
@@ -49,7 +49,7 @@ const Certificates: React.FC = () => {
     );
 
   return (
-    <SectionWrapper id="certificates" className="bg-gray-900 text-light">
+    <SectionWrapper id="certificates" className={sectionStyles.secondary}>
       <h2 className={sharedStyles.sectionHeading}>Certificates</h2>
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -61,7 +61,7 @@ const Certificates: React.FC = () => {
           <motion.div
             key={cert.id}
             variants={animations.itemVariants}
-            className={`${sharedStyles.cardBase} glassmorphism flex flex-col min-h-[420px]`}
+            className={`${cardStyles.base} ${cardStyles.hover} ${cardStyles.glass} flex flex-col min-h-[420px]`}
           >
             <div className="flex items-center gap-4 h-20">
               <img

@@ -13,9 +13,10 @@ export const sharedStyles = {
 };
 
 export const sectionStyles = {
-  light: "bg-gray-800 text-light",
-  dark: "bg-gray-900 text-light",
-  gradient: "bg-gradient-to-br from-dark to-gray-800 text-light",
+  primary: "bg-gray-100 dark:bg-gray-800 text-dark-light dark:text-light",
+  secondary: "bg-white dark:bg-gray-900 text-dark-light dark:text-light",
+  gradient:
+    "bg-gradient-to-br from-gray-100 to-white dark:from-dark dark:to-gray-800 text-dark-light dark:text-light",
 };
 
 export const cardStyles = {

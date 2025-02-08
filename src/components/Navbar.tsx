@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
           transition={{ duration: 0.3 }}
           className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4"
         >
-          <nav className="backdrop-blur-md bg-black/30 rounded-full px-6 py-4 border border-white/10">
+          <nav className="bg-gray-800 dark:backdrop-blur-md dark:bg-black/30 rounded-full px-6 py-4 border border-gray-200 dark:border-white/10">
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-center">
               <NavLink to="about">About</NavLink>
               <NavLink to="projects">Projects</NavLink>
