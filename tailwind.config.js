@@ -1,7 +1,3 @@
-// tailwind.config.js
-const { nextui } = require("@nextui-org/react");
-
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -21,8 +17,8 @@ export default {
         },
       },
       boxShadow: {
-        neon: "0 0 15px #22c55e",
         subtle: "0 5px 20px rgba(0, 0, 0, 0.3)",
+        neon: "0 0 15px #22c55e",
       },
       backdropBlur: {
         md: "12px",
@@ -30,7 +26,18 @@ export default {
       backgroundColor: {
         "black/30": "rgba(0, 0, 0, 0.3)",
       },
+      fontSize: {
+        heading: ["2.5rem", "3rem"],
+        subheading: ["1.5rem", "2rem"],
+        body: ["1rem", "1.5rem"],
+      },
+      fontWeight: {
+        heading: "700",
+        subheading: "600",
+        body: "400",
+      },
     },
+    safelist: ["shadow-neon", "hover:shadow-neon"],
   },
   darkMode: "class",
   plugins: [nextui()],
