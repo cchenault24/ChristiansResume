@@ -13,6 +13,9 @@ const StyledCard = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   color: #ffffff;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   // Add hover effect
   transition: transform 0.2s ease-in-out;
