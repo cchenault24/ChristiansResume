@@ -54,7 +54,7 @@ const Projects: React.FC = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-dark p-6 rounded-lg shadow-subtle hover:shadow-neon transition group flex flex-col h-full"
+                className="bg-dark p-6 rounded-lg shadow-subtle hover:shadow-neon hover-scale transition group flex flex-col h-full"
               >
                 <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                 <p className="text-gray-400 mb-4">{project.description}</p>
