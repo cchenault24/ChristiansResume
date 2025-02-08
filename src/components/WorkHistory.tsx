@@ -4,6 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 import { listJobHistories } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
 import { sectionStyles } from "../styles/shared";
+import Card from "./Card";
 
 interface JobExperience {
   __typename: "JobHistory";
@@ -48,16 +49,12 @@ const JobExperience: React.FC = () => {
     <SectionWrapper id="work-history" className={sectionStyles.secondary}>
       <h2 className="text-4xl font-bold text-center mb-12">Work Experience</h2>
       {jobs.map((job) => (
-        <div
+        <Card
           key={job.id}
-          className="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:scale-105 mb-6"
+          className="hover:shadow-lg transition-all duration-300 hover:scale-105 mb-6"
         >
           <div className="flex items-center gap-4 mb-4">
-            <img
-              src={job.icon || `/${job.company.toLowerCase()}-logo.png`}
-              alt={job.company}
-              className="w-16 h-16"
-            />
+            <img src={job.icon} alt={job.company} className="w-16 h-16" />
             <div>
               <h3 className="text-2xl font-bold">{job.title}</h3>
               <p className="text-gray-400">
@@ -73,7 +70,7 @@ const JobExperience: React.FC = () => {
               <li key={index}>{desc}</li>
             ))}
           </ul>
-        </div>
+        </Card>
       ))}
     </SectionWrapper>
   );

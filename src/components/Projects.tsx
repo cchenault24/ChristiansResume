@@ -7,6 +7,7 @@ import { Project } from "../types";
 import { sharedStyles, cardStyles, sectionStyles } from "../styles/shared";
 import { generateClient } from "@aws-amplify/api";
 import { listProjects } from "../graphql/queries";
+import Card from "./Card";
 
 const client = generateClient();
 
@@ -59,12 +60,8 @@ const Projects: React.FC = () => {
         animate="visible"
       >
         {projects.map((project) => (
-          <motion.div
-            key={project.id}
-            variants={animations.itemVariants}
-            className={`${cardStyles.project} ${cardStyles.glass}`}
-          >
-            <div className="bg-dark p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:scale-105 group flex flex-col h-full">
+          <motion.div key={project.id} variants={animations.itemVariants}>
+            <Card className={`${cardStyles.project} ${cardStyles.glass}`}>
               <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
               <p className="text-gray-400 mb-4">{project.description}</p>
               <div className="flex-grow" />
@@ -100,7 +97,7 @@ const Projects: React.FC = () => {
                   </a>
                 )}
               </div>
-            </div>
+            </Card>
           </motion.div>
         ))}
       </motion.div>
