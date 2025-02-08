@@ -33,13 +33,18 @@ const Skills: React.FC = () => {
           acc[skill.category].push(skill);
           return acc;
         }, {})
-      ).sort(([a], [b]) => {
-        if (a.toLowerCase().includes("technical")) return -1;
-        if (b.toLowerCase().includes("technical")) return 1;
-        if (a.toLowerCase().includes("soft")) return 1;
-        if (b.toLowerCase().includes("soft")) return -1;
-        return a.localeCompare(b);
-      })
+      )
+        .sort(([a], [b]) => {
+          if (a.toLowerCase().includes("technical")) return -1;
+          if (b.toLowerCase().includes("technical")) return 1;
+          if (a.toLowerCase().includes("soft")) return 1;
+          if (b.toLowerCase().includes("soft")) return -1;
+          return a.localeCompare(b);
+        })
+        .map(([category, skillsArray]) => [
+          category,
+          skillsArray.sort((a, b) => a.skill.localeCompare(b.skill)),
+        ])
     );
   }, [skills]);
 

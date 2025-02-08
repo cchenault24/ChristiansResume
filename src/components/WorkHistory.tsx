@@ -34,7 +34,12 @@ const JobExperience: React.FC = () => {
       .graphql({
         query: listJobHistories,
       })
-      .then((response) => response.data.listJobHistories.items)
+      .then((response) =>
+        response.data.listJobHistories.items.sort(
+          (a, b) =>
+            new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+        )
+      )
   );
 
   if (loading)

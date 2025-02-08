@@ -20,7 +20,13 @@ const Certificates: React.FC = () => {
       .graphql({
         query: listCertificates,
       })
-      .then((response) => response.data.listCertificates.items)
+      .then((response) =>
+        response.data.listCertificates.items.sort(
+          (a, b) =>
+            new Date(b.completionDate).getTime() -
+            new Date(a.completionDate).getTime()
+        )
+      )
   );
 
   if (loading)
@@ -82,16 +88,18 @@ const Certificates: React.FC = () => {
                 </p>
                 <p className="text-gray-400 text-sm">{cert.description}</p>
               </div>
-              <div className="mt-6">
-                <a
-                  href={cert.certificate}
-                  className={sharedStyles.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Certificate →
-                </a>
-              </div>
+              {cert.certificate && (
+                <div className="mt-6">
+                  <a
+                    href={cert.certificate}
+                    className={sharedStyles.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Certificate →
+                  </a>
+                </div>
+              )}
             </Card>
           </motion.div>
         ))}
