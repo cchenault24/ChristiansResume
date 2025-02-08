@@ -69,18 +69,28 @@ const Certificates: React.FC = () => {
             <Card
               className={`${cardStyles.base} ${cardStyles.hover} ${cardStyles.glass} flex flex-col min-h-[420px] p-6`}
             >
-              <div className="flex items-center gap-4 h-20">
-                <img
-                  src={cert.icon}
-                  alt={cert.company}
-                  className="w-24 h-24 object-contain rounded-lg"
-                />
-                <div>
-                  <h3 className="text-xl font-bold text-light">{cert.title}</h3>
-                  <p className="text-gray-400">
-                    {cert.company} • {cert.type}
-                  </p>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={cert.icon}
+                    alt={cert.company}
+                    className="w-16 h-16 object-contain rounded-lg flex-shrink-0"
+                  />
+                  <div className="flex-1 overflow-hidden">
+                    <h3
+                      className="text-xl font-bold text-light break-words line-clamp-2"
+                      title={cert.title}
+                    >
+                      {cert.title}
+                    </h3>
+                  </div>
                 </div>
+                <p
+                  className="text-gray-400 line-clamp-1"
+                  title={`${cert.company} • ${cert.type}`}
+                >
+                  {cert.company} • {cert.type}
+                </p>
               </div>
               <div className="mt-8 flex flex-col flex-1">
                 <p className="text-gray-400 mb-4">
