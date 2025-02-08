@@ -272,3 +272,57 @@ export const deleteProject = /* GraphQL */ `mutation DeleteProject(
   APITypes.DeleteProjectMutationVariables,
   APITypes.DeleteProjectMutation
 >;
+export const createSkill = /* GraphQL */ `mutation CreateSkill(
+  $input: CreateSkillInput!
+  $condition: ModelSkillConditionInput
+) {
+  createSkill(input: $input, condition: $condition) {
+    id
+    skill
+    descriptor
+    category
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateSkillMutationVariables,
+  APITypes.CreateSkillMutation
+>;
+export const updateSkill = /* GraphQL */ `mutation UpdateSkill(
+  $input: UpdateSkillInput!
+  $condition: ModelSkillConditionInput
+) {
+  updateSkill(input: $input, condition: $condition) {
+    id
+    skill
+    descriptor
+    category
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateSkillMutationVariables,
+  APITypes.UpdateSkillMutation
+>;
+export const deleteSkill = /* GraphQL */ `mutation DeleteSkill(
+  $input: DeleteSkillInput!
+  $condition: ModelSkillConditionInput
+) {
+  deleteSkill(input: $input, condition: $condition) {
+    id
+    skill
+    descriptor
+    category
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteSkillMutationVariables,
+  APITypes.DeleteSkillMutation
+>;

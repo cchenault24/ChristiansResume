@@ -43,7 +43,38 @@ export const schema = {
           type: "[String]",
           isRequired: true,
         },
+        createdAt: {
+          name: "createdAt",
+          type: "AWSDateTime",
+          isRequired: false,
+          isReadOnly: true,
+        },
+        updatedAt: {
+          name: "updatedAt",
+          type: "AWSDateTime",
+          isRequired: false,
+          isReadOnly: true,
+        },
       },
+      syncable: true,
+      pluralName: "JobHistories",
+      attributes: [
+        {
+          type: "model",
+          properties: {},
+        },
+        {
+          type: "auth",
+          properties: {
+            rules: [
+              {
+                allow: "public",
+                operations: ["read"],
+              },
+            ],
+          },
+        },
+      ],
     },
     Education: {
       name: "Education",
@@ -56,7 +87,38 @@ export const schema = {
         end: { type: "String", isRequired: true },
         icon: { type: "String", isRequired: true },
         description: { type: "String", isRequired: true },
+        createdAt: {
+          name: "createdAt",
+          type: "AWSDateTime",
+          isRequired: false,
+          isReadOnly: true,
+        },
+        updatedAt: {
+          name: "updatedAt",
+          type: "AWSDateTime",
+          isRequired: false,
+          isReadOnly: true,
+        },
       },
+      syncable: true,
+      pluralName: "Education",
+      attributes: [
+        {
+          type: "model",
+          properties: {},
+        },
+        {
+          type: "auth",
+          properties: {
+            rules: [
+              {
+                allow: "public",
+                operations: ["read"],
+              },
+            ],
+          },
+        },
+      ],
     },
     Certificate: {
       name: "Certificate",
@@ -69,7 +131,38 @@ export const schema = {
         completionDate: { type: "String", isRequired: true },
         icon: { type: "String", isRequired: true },
         certificate: { type: "String", isRequired: true },
+        createdAt: {
+          name: "createdAt",
+          type: "AWSDateTime",
+          isRequired: false,
+          isReadOnly: true,
+        },
+        updatedAt: {
+          name: "updatedAt",
+          type: "AWSDateTime",
+          isRequired: false,
+          isReadOnly: true,
+        },
       },
+      syncable: true,
+      pluralName: "Certificates",
+      attributes: [
+        {
+          type: "model",
+          properties: {},
+        },
+        {
+          type: "auth",
+          properties: {
+            rules: [
+              {
+                allow: "public",
+                operations: ["read"],
+              },
+            ],
+          },
+        },
+      ],
     },
     Project: {
       name: "Project",
@@ -136,6 +229,50 @@ export const schema = {
       },
       syncable: true,
       pluralName: "Projects",
+      attributes: [
+        {
+          type: "model",
+          properties: {},
+        },
+        {
+          type: "auth",
+          properties: {
+            rules: [
+              {
+                allow: "public",
+                operations: ["read"],
+              },
+            ],
+          },
+        },
+      ],
+    },
+    Skills: {
+      name: "Skills",
+      fields: {
+        id: {
+          type: "ID",
+          isRequired: true,
+        },
+        name: {
+          type: "String",
+          isRequired: true,
+        },
+        category: {
+          type: "String",
+          isRequired: true,
+        },
+        proficiency: {
+          type: "Int",
+          isRequired: true,
+        },
+        icon: {
+          type: "String",
+          isRequired: true,
+        },
+      },
+      syncable: true,
+      pluralName: "Skills",
       attributes: [
         {
           type: "model",

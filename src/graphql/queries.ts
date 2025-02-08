@@ -192,3 +192,69 @@ export const listProjects = /* GraphQL */ `query ListProjects(
   APITypes.ListProjectsQueryVariables,
   APITypes.ListProjectsQuery
 >;
+export const getSkill = /* GraphQL */ `query GetSkill($id: ID!) {
+  getSkill(id: $id) {
+    id
+    skill
+    descriptor
+    category
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.GetSkillQueryVariables, APITypes.GetSkillQuery>;
+export const listSkills = /* GraphQL */ `query ListSkills(
+  $filter: ModelSkillFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSkills(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      skill
+      descriptor
+      category
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListSkillsQueryVariables,
+  APITypes.ListSkillsQuery
+>;
+export const listSkillsByCategory = /* GraphQL */ `query ListSkillsByCategory(
+  $category: String!
+  $sortDirection: ModelSortDirection
+  $filter: ModelSkillFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSkillsByCategory(
+    category: $category
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      skill
+      descriptor
+      category
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListSkillsByCategoryQueryVariables,
+  APITypes.ListSkillsByCategoryQuery
+>;

@@ -262,6 +262,45 @@ export type DeleteProjectInput = {
   id: string,
 };
 
+export type CreateSkillInput = {
+  id?: string | null,
+  skill: string,
+  descriptor: string,
+  category: string,
+};
+
+export type ModelSkillConditionInput = {
+  skill?: ModelStringInput | null,
+  descriptor?: ModelStringInput | null,
+  category?: ModelStringInput | null,
+  and?: Array< ModelSkillConditionInput | null > | null,
+  or?: Array< ModelSkillConditionInput | null > | null,
+  not?: ModelSkillConditionInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+};
+
+export type Skill = {
+  __typename: "Skill",
+  id: string,
+  skill: string,
+  descriptor: string,
+  category: string,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateSkillInput = {
+  id: string,
+  skill?: string | null,
+  descriptor?: string | null,
+  category?: string | null,
+};
+
+export type DeleteSkillInput = {
+  id: string,
+};
+
 export type ModelJobHistoryFilterInput = {
   id?: ModelIDInput | null,
   title?: ModelStringInput | null,
@@ -366,6 +405,30 @@ export type ModelProjectConnection = {
   nextToken?: string | null,
 };
 
+export type ModelSkillFilterInput = {
+  id?: ModelIDInput | null,
+  skill?: ModelStringInput | null,
+  descriptor?: ModelStringInput | null,
+  category?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelSkillFilterInput | null > | null,
+  or?: Array< ModelSkillFilterInput | null > | null,
+  not?: ModelSkillFilterInput | null,
+};
+
+export type ModelSkillConnection = {
+  __typename: "ModelSkillConnection",
+  items:  Array<Skill | null >,
+  nextToken?: string | null,
+};
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
 export type ModelSubscriptionJobHistoryFilterInput = {
   id?: ModelSubscriptionIDInput | null,
   title?: ModelSubscriptionStringInput | null,
@@ -454,6 +517,17 @@ export type ModelSubscriptionProjectFilterInput = {
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionProjectFilterInput | null > | null,
   or?: Array< ModelSubscriptionProjectFilterInput | null > | null,
+};
+
+export type ModelSubscriptionSkillFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  skill?: ModelSubscriptionStringInput | null,
+  descriptor?: ModelSubscriptionStringInput | null,
+  category?: ModelSubscriptionStringInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionSkillFilterInput | null > | null,
+  or?: Array< ModelSubscriptionSkillFilterInput | null > | null,
 };
 
 export type CreateJobHistoryMutationVariables = {
@@ -708,6 +782,57 @@ export type DeleteProjectMutation = {
   } | null,
 };
 
+export type CreateSkillMutationVariables = {
+  input: CreateSkillInput,
+  condition?: ModelSkillConditionInput | null,
+};
+
+export type CreateSkillMutation = {
+  createSkill?:  {
+    __typename: "Skill",
+    id: string,
+    skill: string,
+    descriptor: string,
+    category: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateSkillMutationVariables = {
+  input: UpdateSkillInput,
+  condition?: ModelSkillConditionInput | null,
+};
+
+export type UpdateSkillMutation = {
+  updateSkill?:  {
+    __typename: "Skill",
+    id: string,
+    skill: string,
+    descriptor: string,
+    category: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteSkillMutationVariables = {
+  input: DeleteSkillInput,
+  condition?: ModelSkillConditionInput | null,
+};
+
+export type DeleteSkillMutation = {
+  deleteSkill?:  {
+    __typename: "Skill",
+    id: string,
+    skill: string,
+    descriptor: string,
+    category: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type GetJobHistoryQueryVariables = {
   id: string,
 };
@@ -885,6 +1010,68 @@ export type ListProjectsQuery = {
       technologies: Array< string >,
       link?: string | null,
       github?: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetSkillQueryVariables = {
+  id: string,
+};
+
+export type GetSkillQuery = {
+  getSkill?:  {
+    __typename: "Skill",
+    id: string,
+    skill: string,
+    descriptor: string,
+    category: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListSkillsQueryVariables = {
+  filter?: ModelSkillFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListSkillsQuery = {
+  listSkills?:  {
+    __typename: "ModelSkillConnection",
+    items:  Array< {
+      __typename: "Skill",
+      id: string,
+      skill: string,
+      descriptor: string,
+      category: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type ListSkillsByCategoryQueryVariables = {
+  category: string,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelSkillFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListSkillsByCategoryQuery = {
+  listSkillsByCategory?:  {
+    __typename: "ModelSkillConnection",
+    items:  Array< {
+      __typename: "Skill",
+      id: string,
+      skill: string,
+      descriptor: string,
+      category: string,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -1127,6 +1314,54 @@ export type OnDeleteProjectSubscription = {
     technologies: Array< string >,
     link?: string | null,
     github?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateSkillSubscriptionVariables = {
+  filter?: ModelSubscriptionSkillFilterInput | null,
+};
+
+export type OnCreateSkillSubscription = {
+  onCreateSkill?:  {
+    __typename: "Skill",
+    id: string,
+    skill: string,
+    descriptor: string,
+    category: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateSkillSubscriptionVariables = {
+  filter?: ModelSubscriptionSkillFilterInput | null,
+};
+
+export type OnUpdateSkillSubscription = {
+  onUpdateSkill?:  {
+    __typename: "Skill",
+    id: string,
+    skill: string,
+    descriptor: string,
+    category: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteSkillSubscriptionVariables = {
+  filter?: ModelSubscriptionSkillFilterInput | null,
+};
+
+export type OnDeleteSkillSubscription = {
+  onDeleteSkill?:  {
+    __typename: "Skill",
+    id: string,
+    skill: string,
+    descriptor: string,
+    category: string,
     createdAt: string,
     updatedAt: string,
   } | null,
