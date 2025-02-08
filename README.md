@@ -1,52 +1,99 @@
 # Interactive Resume Website
 
-This repository contains the code for my Interactive Resume website, built using a Single Page App in React with Vite, NextUI, and Tailwind CSS. The app was deployed using AWS Amplify and hosted using AWS Route 53. The website showcases information about myself, my job history, skillset, and education.
+Welcome to my Interactive Resume website repository! This modern, single-page application serves as a dynamic showcase of my professional journey, skills, and accomplishments. Built with cutting-edge technologies and best practices in web development, this project demonstrates both my technical capabilities and professional experience.
 
-## Table of Contents
+## 🌐 Live Demo
 
-- [Demo](#demo)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+Visit my interactive resume at [christianchenault.com](https://www.christianchenault.com/)
 
-## Demo
+## ✨ Features
 
-You can view a live demo of the website [here](<https://www.christianchenault.com/>).
+- **Modern UI/UX**: Clean, intuitive interface with smooth animations and transitions
+- **Responsive Design**: Seamlessly adapts to all devices and screen sizes
+- **Interactive Components**: Dynamic sections for better user engagement
+- **Performance Optimized**: Fast loading times and optimal resource management
+- **SEO Friendly**: Structured content for better search engine visibility
 
-## Features
+### Key Sections
 
-- **Interactive Design:** The website has a modern and interactive design to engage visitors.
-- **Responsive:** It is fully responsive and optimized for various screen sizes and devices.
-- **About Me:** Provides a brief introduction about myself, highlighting my expertise, experience, and contact information.
-- **Job History:** Provides detailed information about my professional experience and past employment.
-- **Skillset:** Highlights my skills and areas of expertise.
-- **Education:** Includes information about my educational background and qualifications.
+- 🎯 About Me
+- 💼 Professional Experience
+- 🛠️ Technical Skills
+- 🎓 Education
+- 📜 Certifications
+- 📱 Contact Information
 
-## Technologies Used
+## 🚀 Tech Stack
 
-- HTML/CSS: Fundamental technologies for structuring and styling web pages.
-- React.js: JavaScript library for building user interfaces.
-- TypeScript: A superset of JavaScript that adds static typing and other features to the language.
-- Vite: Fast build tool that focuses on speed and simplicity.
-- NextUI: UI library for React applications.
-- Tailwind CSS: Utility-first CSS framework for building custom designs quickly.
-- AWS Amplify: AWS Service used for Deployment and CI/CD platform.
-- AWS Route 53: AWS Service used for setting up and hosting my custom domain.
+### Frontend
 
-## Installation
+- **React 18+**: Modern UI library for building interactive interfaces
+- **TypeScript**: Enhanced code reliability and developer experience
+- **Vite**: Lightning-fast build tool and development server
+- **NextUI**: Modern, beautiful, and customizable UI components
+- **Tailwind CSS**: Utility-first CSS framework for rapid styling
 
-To run this project locally, follow these steps:
+### Cloud Infrastructure
 
-1. Clone the repository: `git clone https://github.com/cchenault24/ChristiansResume.git`
-2. Install dependencies: `npm install`
+- **AWS Amplify**: Full-stack development and hosting platform
+- **AWS Route 53**: Domain management and DNS routing
+- **GraphQL**: Efficient data querying and management
 
-## Usage
+## 🛠️ Installation
 
-After installing dependencies, you can start the development server by running:
+1. **Clone the repository**
 
-`npm run dev`
+   ```bash
+   git clone https://github.com/cchenault24/ChristiansResume.git
+   cd ChristiansResume
+   ```
 
-This will start the development server and you can view the website in your browser at `http://localhost:5173`.
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Configure the necessary environment variables in the `.env` file
+
+## 💻 Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### Available Scripts
+
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run preview`: Preview production build
+- `npm run lint`: Run ESLint
+- `npm run test`: Run tests
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+Christian Chenault - [LinkedIn](https://www.linkedin.com/in/christian-chenault/)
+
+Project Link: [https://github.com/cchenault24/ChristiansResume](https://github.com/cchenault24/ChristiansResume)
