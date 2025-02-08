@@ -7,6 +7,7 @@ import { Certificate } from "../types";
 import { sharedStyles, sectionStyles, cardStyles } from "../styles/shared";
 import { listCertificates } from "../graphql/queries";
 import { generateClient } from "@aws-amplify/api";
+import Card from "./Card";
 const client = generateClient();
 
 const Certificates: React.FC = () => {
@@ -58,40 +59,40 @@ const Certificates: React.FC = () => {
         animate="visible"
       >
         {certificates.map((cert) => (
-          <motion.div
-            key={cert.id}
-            variants={animations.itemVariants}
-            className={`${cardStyles.base} ${cardStyles.hover} ${cardStyles.glass} flex flex-col min-h-[420px]`}
-          >
-            <div className="flex items-center gap-4 h-20">
-              <img
-                src={cert.icon}
-                alt={cert.company}
-                className="w-24 h-24 object-contain rounded-lg"
-              />
-              <div>
-                <h3 className="text-xl font-bold text-light">{cert.title}</h3>
-                <p className="text-gray-400">
-                  {cert.company} • {cert.type}
-                </p>
+          <motion.div key={cert.id} variants={animations.itemVariants}>
+            <Card
+              className={`${cardStyles.base} ${cardStyles.hover} ${cardStyles.glass} flex flex-col min-h-[420px] p-6`}
+            >
+              <div className="flex items-center gap-4 h-20">
+                <img
+                  src={cert.icon}
+                  alt={cert.company}
+                  className="w-24 h-24 object-contain rounded-lg"
+                />
+                <div>
+                  <h3 className="text-xl font-bold text-light">{cert.title}</h3>
+                  <p className="text-gray-400">
+                    {cert.company} • {cert.type}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="mt-8 flex flex-col flex-1">
-              <p className="text-gray-400 mb-4">
-                Completed: {cert.completionDate}
-              </p>
-              <p className="text-gray-400 text-sm">{cert.description}</p>
-            </div>
-            <div className="mt-6">
-              <a
-                href={cert.certificate}
-                className={sharedStyles.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Certificate →
-              </a>
-            </div>
+              <div className="mt-8 flex flex-col flex-1">
+                <p className="text-gray-400 mb-4">
+                  Completed: {cert.completionDate}
+                </p>
+                <p className="text-gray-400 text-sm">{cert.description}</p>
+              </div>
+              <div className="mt-6">
+                <a
+                  href={cert.certificate}
+                  className={sharedStyles.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Certificate →
+                </a>
+              </div>
+            </Card>
           </motion.div>
         ))}
       </motion.div>

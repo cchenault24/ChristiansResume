@@ -7,6 +7,7 @@ import { Skill } from "../types";
 import { sharedStyles, sectionStyles, cardStyles } from "../styles/shared";
 import { generateClient } from "aws-amplify/api";
 import { listSkills } from "../graphql/queries";
+import Card from "./Card";
 
 const client = generateClient();
 
@@ -90,13 +91,13 @@ const Skills: React.FC = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
               {orderedSkills[category].map((skill) => (
-                <div
+                <Card
                   key={skill.id}
                   className={`${cardStyles.skill} ${cardStyles.glass}`}
                 >
                   <h3 className="text-xl font-bold mb-2">{skill.skill}</h3>
                   <p className="text-gray-400">{skill.descriptor}</p>
-                </div>
+                </Card>
               ))}
             </div>
           </motion.div>
