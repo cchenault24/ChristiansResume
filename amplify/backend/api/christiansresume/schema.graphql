@@ -1,4 +1,8 @@
-type JobHistory @model @auth(rules: [{ allow: public, operations: [read] }]) {
+type JobHistory
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
   id: ID!
   title: String!
   company: String!
@@ -11,7 +15,11 @@ type JobHistory @model @auth(rules: [{ allow: public, operations: [read] }]) {
   description: [String]!
 }
 
-type Education @model @auth(rules: [{ allow: public, operations: [read] }]) {
+type Education
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
   id: ID!
   university: String!
   degree: String!
@@ -22,7 +30,11 @@ type Education @model @auth(rules: [{ allow: public, operations: [read] }]) {
   description: String!
 }
 
-type Certificate @model @auth(rules: [{ allow: public, operations: [read] }]) {
+type Certificate
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
   id: ID!
   title: String!
   company: String!
@@ -33,11 +45,27 @@ type Certificate @model @auth(rules: [{ allow: public, operations: [read] }]) {
   certificate: String!
 }
 
-type Project @model @auth(rules: [{ allow: public, operations: [read] }]) {
+type Project
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
   id: ID!
   title: String!
   description: String!
   technologies: [String!]!
   link: String
   github: String
+}
+
+type Skill
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  id: ID!
+  skill: String!
+  descriptor: String!
+  category: String!
+    @index(name: "byCategory", queryField: "listSkillsByCategory")
 }

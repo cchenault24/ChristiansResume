@@ -248,3 +248,48 @@ export const onDeleteProject = /* GraphQL */ `subscription OnDeleteProject($filt
   APITypes.OnDeleteProjectSubscriptionVariables,
   APITypes.OnDeleteProjectSubscription
 >;
+export const onCreateSkill = /* GraphQL */ `subscription OnCreateSkill($filter: ModelSubscriptionSkillFilterInput) {
+  onCreateSkill(filter: $filter) {
+    id
+    skill
+    descriptor
+    category
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateSkillSubscriptionVariables,
+  APITypes.OnCreateSkillSubscription
+>;
+export const onUpdateSkill = /* GraphQL */ `subscription OnUpdateSkill($filter: ModelSubscriptionSkillFilterInput) {
+  onUpdateSkill(filter: $filter) {
+    id
+    skill
+    descriptor
+    category
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateSkillSubscriptionVariables,
+  APITypes.OnUpdateSkillSubscription
+>;
+export const onDeleteSkill = /* GraphQL */ `subscription OnDeleteSkill($filter: ModelSubscriptionSkillFilterInput) {
+  onDeleteSkill(filter: $filter) {
+    id
+    skill
+    descriptor
+    category
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteSkillSubscriptionVariables,
+  APITypes.OnDeleteSkillSubscription
+>;
