@@ -35,10 +35,20 @@ const JobExperience: React.FC = () => {
         query: listJobHistories,
       })
       .then((response) =>
-        response.data.listJobHistories.items.sort(
-          (a, b) =>
-            new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
-        )
+        response.data.listJobHistories.items.sort((a, b) => {
+          // Parse end dates and handle 'Present' case
+          const aEndDate =
+            a.endDate.toLowerCase() === "present"
+              ? new Date()
+              : new Date(a.endDate);
+          const bEndDate =
+            b.endDate.toLowerCase() === "present"
+              ? new Date()
+              : new Date(b.endDate);
+
+          // Sort by end date first (most recent first)
+          return bEndDate.getTime() - aEndDate.getTime();
+        })
       )
   );
 
