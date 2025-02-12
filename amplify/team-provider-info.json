@@ -16,5 +16,23 @@
         "christiansresume": {}
       }
     }
+  },
+  "env": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-christiansresume-env-29283-authRole",
+      "UnauthRoleArn": "arn:aws:iam::216493730098:role/amplify-christiansresume-env-29283-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::216493730098:role/amplify-christiansresume-env-29283-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-christiansresume-env-29283-deployment",
+      "UnauthRoleName": "amplify-christiansresume-env-29283-unauthRole",
+      "StackName": "amplify-christiansresume-env-29283",
+      "StackId": "arn:aws:cloudformation:us-east-1:216493730098:stack/amplify-christiansresume-env-29283/ba0b42b0-e98f-11ef-a472-127b97cfe9d5",
+      "AmplifyAppId": "d2j18vt2dubhb0"
+    },
+    "categories": {
+      "api": {
+        "christiansresume": {}
+      }
+    }
   }
 }
