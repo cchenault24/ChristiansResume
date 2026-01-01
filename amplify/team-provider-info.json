@@ -29,5 +29,23 @@
         "christiansresume": {}
       }
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-christiansresume-prod-d845e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::216493730098:role/amplify-christiansresume-prod-d845e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::216493730098:role/amplify-christiansresume-prod-d845e-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-christiansresume-prod-d845e-deployment",
+      "UnauthRoleName": "amplify-christiansresume-prod-d845e-unauthRole",
+      "StackName": "amplify-christiansresume-prod-d845e",
+      "StackId": "arn:aws:cloudformation:us-east-1:216493730098:stack/amplify-christiansresume-prod-d845e/182f49b0-e744-11f0-b8b7-126e0d020f7f",
+      "AmplifyAppId": "d2j18vt2dubhb0"
+    },
+    "categories": {
+      "api": {
+        "christiansresume": {}
+      }
+    }
   }
 }

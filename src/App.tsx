@@ -13,9 +13,11 @@ import { Amplify } from "aws-amplify";
 
 const awsConfig = {
   aws_project_region: import.meta.env.VITE_AWS_PROJECT_REGION || "us-east-1",
-  aws_appsync_graphqlEndpoint: import.meta.env.VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT,
+  aws_appsync_graphqlEndpoint: import.meta.env
+    .VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT,
   aws_appsync_region: import.meta.env.VITE_AWS_APPSYNC_REGION || "us-east-1",
-  aws_appsync_authenticationType: import.meta.env.VITE_AWS_APPSYNC_AUTHENTICATION_TYPE || "API_KEY",
+  aws_appsync_authenticationType:
+    import.meta.env.VITE_AWS_APPSYNC_AUTHENTICATION_TYPE || "API_KEY",
   aws_appsync_apiKey: import.meta.env.VITE_AWS_APPSYNC_API_KEY,
 };
 
