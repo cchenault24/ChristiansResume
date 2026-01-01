@@ -60,9 +60,20 @@ Visit my interactive resume at [christianchenault.com](https://www.christianchen
    cp .env.example .env
    ```
    Configure the necessary environment variables in the `.env` file:
+   
+   **AWS Amplify Configuration:**
+   - `VITE_AWS_PROJECT_REGION`: AWS region (e.g., `us-east-1`)
+   - `VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT`: Your AppSync GraphQL endpoint URL
+   - `VITE_AWS_APPSYNC_REGION`: AppSync region (e.g., `us-east-1`)
+   - `VITE_AWS_APPSYNC_AUTHENTICATION_TYPE`: Authentication type (typically `API_KEY`)
+   - `VITE_AWS_APPSYNC_API_KEY`: Your AppSync API key
+   
+   **EmailJS Configuration:**
    - `VITE_EMAILJS_SERVICE_ID`: Your EmailJS service ID
    - `VITE_EMAILJS_TEMPLATE_ID`: Your EmailJS template ID
    - `VITE_EMAILJS_PUBLIC_KEY`: Your EmailJS public key
+   
+   > **Note:** Never commit your `.env` file to version control. The `.env.example` file serves as a template with placeholder values.
 
 ## 💻 Development
 
