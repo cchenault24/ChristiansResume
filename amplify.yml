@@ -3,19 +3,25 @@ backend:
   phases:
     build:
       commands:
-        - '# Execute Amplify CLI with the helper script'
+        - "# Execute Amplify CLI with the helper script"
         - amplifyPush --simple
+        - "# Verify config files were generated"
+        - ls -la src/aws-exports.js || echo "aws-exports.js not found"
+        - cat src/aws-exports.js || echo "Cannot read aws-exports.js"
 frontend:
   phases:
     preBuild:
       commands:
         - corepack enable
         - yarn install --immutable
+        - "# Verify config files exist"
+        - ls -la src/aws-exports.js src/amplifyconfiguration.json || echo "Config files missing"
+        - cat src/aws-exports.js
     build:
       commands:
         - yarn build
   artifacts:
-    baseDirectory: dist # Change to 'build' if using React
+    baseDirectory: dist
     files:
       - "**/*"
   cache:
