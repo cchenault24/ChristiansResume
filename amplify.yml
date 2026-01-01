@@ -14,9 +14,14 @@ frontend:
       commands:
         - corepack enable
         - yarn install --immutable
-        - "# Verify config files exist"
-        - ls -la src/aws-exports.js src/amplifyconfiguration.json || echo "Config files missing"
-        - cat src/aws-exports.js
+        - "# Set VITE_ environment variables from Amplify Console variables"
+        - export VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT=$VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT
+        - export VITE_AWS_APPSYNC_API_KEY=$VITE_AWS_APPSYNC_API_KEY
+        - export VITE_AWS_APPSYNC_REGION=$VITE_AWS_APPSYNC_REGION
+        - export VITE_AWS_APPSYNC_AUTHENTICATION_TYPE=$VITE_AWS_APPSYNC_AUTHENTICATION_TYPE
+        - export VITE_AWS_PROJECT_REGION=$VITE_AWS_PROJECT_REGION
+        - "# Verify variables are set"
+        - echo "GraphQL Endpoint: $VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT"
     build:
       commands:
         - yarn build
