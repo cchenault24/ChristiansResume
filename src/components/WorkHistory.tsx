@@ -1,10 +1,10 @@
 import React from "react";
-import SectionWrapper from "./SectionWrapper";
 import { listJobHistories } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
+import client from "../lib/graphql";
 import { sectionStyles, sharedStyles } from "../styles/shared";
 import Card from "./Card";
-import client from "../lib/graphql";
+import SectionWrapper from "./SectionWrapper";
 
 interface JobExperience {
   __typename: "JobHistory";
@@ -33,20 +33,22 @@ const JobExperience: React.FC = () => {
         query: listJobHistories,
       })
       .then((response) =>
-        response.data.listJobHistories.items.sort((a, b) => {
-          // Parse end dates and handle 'Present' case
-          const aEndDate =
-            a.endDate.toLowerCase() === "present"
-              ? new Date()
-              : new Date(a.endDate);
-          const bEndDate =
-            b.endDate.toLowerCase() === "present"
-              ? new Date()
-              : new Date(b.endDate);
+        response.data.listJobHistories.items.sort(
+          (a: JobExperience, b: JobExperience) => {
+            // Parse end dates and handle 'Present' case
+            const aEndDate =
+              a.endDate.toLowerCase() === "present"
+                ? new Date()
+                : new Date(a.endDate);
+            const bEndDate =
+              b.endDate.toLowerCase() === "present"
+                ? new Date()
+                : new Date(b.endDate);
 
-          // Sort by end date first (most recent first)
-          return bEndDate.getTime() - aEndDate.getTime();
-        })
+            // Sort by end date first (most recent first)
+            return bEndDate.getTime() - aEndDate.getTime();
+          }
+        )
       )
   );
 

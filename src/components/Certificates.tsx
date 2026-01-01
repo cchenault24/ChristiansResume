@@ -1,13 +1,13 @@
-import React from "react";
 import { motion } from "framer-motion";
-import SectionWrapper from "./SectionWrapper";
-import { animations } from "../utils/animations";
-import { useDataFetching } from "../hooks/useDataFetching";
-import { Certificate } from "../types";
-import { sharedStyles, sectionStyles, cardStyles } from "../styles/shared";
+import React from "react";
 import { listCertificates } from "../graphql/queries";
-import Card from "./Card";
+import { useDataFetching } from "../hooks/useDataFetching";
 import client from "../lib/graphql";
+import { cardStyles, sectionStyles, sharedStyles } from "../styles/shared";
+import { Certificate } from "../types";
+import { animations } from "../utils/animations";
+import Card from "./Card";
+import SectionWrapper from "./SectionWrapper";
 
 const Certificates: React.FC = () => {
   const {
@@ -21,7 +21,7 @@ const Certificates: React.FC = () => {
       })
       .then((response) =>
         response.data.listCertificates.items.sort(
-          (a, b) =>
+          (a: Certificate, b: Certificate) =>
             new Date(b.completionDate).getTime() -
             new Date(a.completionDate).getTime()
         )
