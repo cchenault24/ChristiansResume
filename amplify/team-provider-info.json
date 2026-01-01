@@ -10,11 +10,6 @@
       "StackName": "amplify-christiansresume-env-29283",
       "StackId": "arn:aws:cloudformation:us-east-1:216493730098:stack/amplify-christiansresume-env-29283/ba0b42b0-e98f-11ef-a472-127b97cfe9d5",
       "AmplifyAppId": "d2j18vt2dubhb0"
-    },
-    "categories": {
-      "api": {
-        "christiansresume": {}
-      }
     }
   },
   "dev": {
