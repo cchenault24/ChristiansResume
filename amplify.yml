@@ -5,23 +5,13 @@ backend:
       commands:
         - "# Execute Amplify CLI with the helper script"
         - amplifyPush --simple
-        - "# Verify config files were generated"
-        - ls -la src/aws-exports.js || echo "aws-exports.js not found"
-        - cat src/aws-exports.js || echo "Cannot read aws-exports.js"
 frontend:
   phases:
     preBuild:
       commands:
         - corepack enable
         - yarn install --immutable
-        - "# Set VITE_ environment variables from Amplify Console variables"
-        - export VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT=$VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT
-        - export VITE_AWS_APPSYNC_API_KEY=$VITE_AWS_APPSYNC_API_KEY
-        - export VITE_AWS_APPSYNC_REGION=$VITE_AWS_APPSYNC_REGION
-        - export VITE_AWS_APPSYNC_AUTHENTICATION_TYPE=$VITE_AWS_APPSYNC_AUTHENTICATION_TYPE
-        - export VITE_AWS_PROJECT_REGION=$VITE_AWS_PROJECT_REGION
-        - "# Verify variables are set"
-        - echo "GraphQL Endpoint: $VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT"
+        - 'echo "GraphQL Endpoint is $VITE_AWS_APPSYNC_GRAPHQL_ENDPOINT"'
     build:
       commands:
         - yarn build
