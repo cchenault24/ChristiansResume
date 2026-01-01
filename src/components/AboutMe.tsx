@@ -35,7 +35,8 @@ const AboutMe: React.FC = () => {
         <div className="md:w-1/2">
           <img
             src="/myself.png"
-            alt="Christian Chenault"
+            alt="Christian Chenault, Senior Front-End Engineer"
+            loading="lazy"
             className="rounded-lg w-full max-w-md mx-auto shadow-lg"
           />
         </div>

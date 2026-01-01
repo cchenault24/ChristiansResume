@@ -1,13 +1,11 @@
 import React from "react";
-import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
 import { listEducations } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
 import { EducationEntry } from "../types";
-import { sectionStyles, cardStyles } from "../styles/shared";
+import { sectionStyles, cardStyles, sharedStyles } from "../styles/shared";
 import Card from "./Card";
-
-const client = generateClient();
+import client from "../lib/graphql";
 
 const Education: React.FC = () => {
   const {
@@ -25,21 +23,45 @@ const Education: React.FC = () => {
   const education = educations[0];
 
   if (loading)
-    return <p className="text-center text-gray-400">Loading Education...</p>;
-  if (error) return <p className="text-center text-red-500">Error: {error}</p>;
+    return (
+      <SectionWrapper id="education" className={sectionStyles.primary}>
+        <div className="animate-pulse space-y-4">
+          <div className="h-8 bg-gray-700 rounded w-1/3 mx-auto"></div>
+          <div className="h-48 bg-gray-700 rounded-lg"></div>
+        </div>
+      </SectionWrapper>
+    );
+
+  if (error)
+    return (
+      <SectionWrapper id="education" className={sectionStyles.primary}>
+        <div className="text-center text-red-500">
+          <h2 className={sharedStyles.sectionHeading}>
+            Error Loading Education
+          </h2>
+          <p>{error}</p>
+        </div>
+      </SectionWrapper>
+    );
+
   if (!education)
     return (
-      <p className="text-center text-gray-400">No education data found.</p>
+      <SectionWrapper id="education" className={sectionStyles.primary}>
+        <p className="text-center text-gray-400">No education data found.</p>
+      </SectionWrapper>
     );
 
   return (
     <SectionWrapper id="education" className={sectionStyles.primary}>
-      <h2 className="text-4xl font-bold text-center mb-12">Education</h2>
+      <h2 className={sharedStyles.sectionHeading}>Education</h2>
       <Card className={`${cardStyles.base} ${cardStyles.glass}`}>
         <div className="flex items-center gap-4 mb-4">
           <img
             src={education.icon}
-            alt={education.university}
+            alt={`${education.university} logo`}
+            loading="lazy"
+            width={64}
+            height={64}
             className="w-16 h-16"
           />
           <div>

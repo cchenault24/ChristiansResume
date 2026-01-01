@@ -7,19 +7,22 @@ interface NavLinkProps {
   children: string;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ to, children }) => (
-  // @ts-ignore - react-scroll Link component props are not fully typed
-  <Link
-    to={to}
-    spy={true}
-    smooth={true}
-    duration={500}
-    className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
-    activeClass="text-accent"
-  >
-    {children}
-  </Link>
-);
+const NavLink: React.FC<NavLinkProps> = ({ to, children }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const LinkComponent = Link as any;
+  return (
+    <LinkComponent
+      to={to}
+      spy={true}
+      smooth={true}
+      duration={500}
+      className="text-gray-300 hover:text-accent cursor-pointer transition text-sm"
+      activeClass="text-accent"
+    >
+      {children}
+    </LinkComponent>
+  );
+};
 
 const Navbar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);

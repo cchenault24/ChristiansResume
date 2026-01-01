@@ -5,11 +5,9 @@ import { animations } from "../utils/animations";
 import { useDataFetching } from "../hooks/useDataFetching";
 import { Project } from "../types";
 import { sharedStyles, cardStyles, sectionStyles } from "../styles/shared";
-import { generateClient } from "@aws-amplify/api";
 import { listProjects } from "../graphql/queries";
 import Card from "./Card";
-
-const client = generateClient();
+import client from "../lib/graphql";
 
 const Projects: React.FC = () => {
   const {

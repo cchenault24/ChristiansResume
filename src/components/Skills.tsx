@@ -5,11 +5,9 @@ import { animations } from "../utils/animations";
 import { useDataFetching } from "../hooks/useDataFetching";
 import { Skill } from "../types";
 import { sharedStyles, sectionStyles, cardStyles } from "../styles/shared";
-import { generateClient } from "aws-amplify/api";
 import { listSkills } from "../graphql/queries";
 import Card from "./Card";
-
-const client = generateClient();
+import client from "../lib/graphql";
 
 const Skills: React.FC = () => {
   const {

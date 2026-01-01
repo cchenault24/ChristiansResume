@@ -70,8 +70,8 @@ const ContactForm: React.FC = () => {
 
     try {
       await emailjs.send(
-        "service_7ysq1ji",
-        "template_cpzyctn",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_7ysq1ji",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_cpzyctn",
         {
           from_name: sanitizedData.name,
           from_email: sanitizedData.email,
@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
             timeZoneName: "short",
           }),
         },
-        "lczrcemOibrFoR5aW"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "lczrcemOibrFoR5aW"
       );
 
       setStatus("success");

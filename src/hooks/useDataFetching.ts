@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface FetchState<T> {
   data: T[];
@@ -13,7 +13,8 @@ export function useDataFetching<T>(fetchFn: () => Promise<T[]>) {
     error: null,
   });
 
-  const memoizedFetchFn = useCallback(fetchFn, []);
+  const fetchFnRef = useRef(fetchFn);
+  fetchFnRef.current = fetchFn;
 
   useEffect(() => {
     let mounted = true;
@@ -21,7 +22,7 @@ export function useDataFetching<T>(fetchFn: () => Promise<T[]>) {
     const fetchData = async () => {
       try {
         setState((prev) => ({ ...prev, loading: true }));
-        const result = await memoizedFetchFn();
+        const result = await fetchFnRef.current();
         if (mounted) {
           setState({ data: result, loading: false, error: null });
         }
@@ -41,7 +42,7 @@ export function useDataFetching<T>(fetchFn: () => Promise<T[]>) {
     return () => {
       mounted = false;
     };
-  }, [memoizedFetchFn]);
+  }, []);
 
   return state;
 }

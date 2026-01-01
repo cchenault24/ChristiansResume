@@ -1,10 +1,10 @@
 import React from "react";
-import { generateClient } from "aws-amplify/api";
 import SectionWrapper from "./SectionWrapper";
 import { listJobHistories } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
-import { sectionStyles } from "../styles/shared";
+import { sectionStyles, sharedStyles } from "../styles/shared";
 import Card from "./Card";
+import client from "../lib/graphql";
 
 interface JobExperience {
   __typename: "JobHistory";
@@ -21,8 +21,6 @@ interface JobExperience {
   createdAt: string;
   updatedAt: string;
 }
-
-const client = generateClient();
 
 const JobExperience: React.FC = () => {
   const {
@@ -54,22 +52,54 @@ const JobExperience: React.FC = () => {
 
   if (loading)
     return (
-      <p className="text-center text-gray-400">Loading Job Experience...</p>
+      <SectionWrapper id="work-history" className={sectionStyles.secondary}>
+        <div className="animate-pulse space-y-4">
+          <div className="h-8 bg-gray-800 rounded w-1/3 mx-auto"></div>
+          <div className="space-y-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="h-48 bg-gray-800 rounded-lg"></div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
     );
-  if (error) return <p className="text-center text-red-500">Error: {error}</p>;
+
+  if (error)
+    return (
+      <SectionWrapper id="work-history" className={sectionStyles.secondary}>
+        <div className="text-center text-red-500">
+          <h2 className={sharedStyles.sectionHeading}>
+            Error Loading Work Experience
+          </h2>
+          <p>{error}</p>
+        </div>
+      </SectionWrapper>
+    );
+
   if (!jobs.length)
-    return <p className="text-center text-gray-400">No job data found.</p>;
+    return (
+      <SectionWrapper id="work-history" className={sectionStyles.secondary}>
+        <p className="text-center text-gray-400">No job data found.</p>
+      </SectionWrapper>
+    );
 
   return (
     <SectionWrapper id="work-history" className={sectionStyles.secondary}>
-      <h2 className="text-4xl font-bold text-center mb-12">Work Experience</h2>
+      <h2 className={sharedStyles.sectionHeading}>Work Experience</h2>
       {jobs.map((job) => (
         <Card
           key={job.id}
           className="hover:shadow-lg transition-all duration-300 hover:scale-105 mb-6"
         >
           <div className="flex items-center gap-4 mb-4">
-            <img src={job.icon} alt={job.company} className="w-16 h-16" />
+            <img
+              src={job.icon}
+              alt={`${job.company} logo`}
+              loading="lazy"
+              width={64}
+              height={64}
+              className="w-16 h-16"
+            />
             <div>
               <h3 className="text-2xl font-bold">{job.title}</h3>
               <p className="text-gray-400">

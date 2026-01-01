@@ -30,8 +30,9 @@ Visit my interactive resume at [christianchenault.com](https://www.christianchen
 - **React 18+**: Modern UI library for building interactive interfaces
 - **TypeScript**: Enhanced code reliability and developer experience
 - **Vite**: Lightning-fast build tool and development server
-- **NextUI**: Modern, beautiful, and customizable UI components
 - **Tailwind CSS**: Utility-first CSS framework for rapid styling
+- **Framer Motion**: Smooth animations and transitions
+- **Styled Components**: Component-based styling
 
 ### Cloud Infrastructure
 
@@ -51,32 +52,37 @@ Visit my interactive resume at [christianchenault.com](https://www.christianchen
 2. **Install dependencies**
 
    ```bash
-   npm install
+   yarn install
    ```
 
 3. **Set up environment variables**
    ```bash
    cp .env.example .env
    ```
-   Configure the necessary environment variables in the `.env` file
+   Configure the necessary environment variables in the `.env` file:
+   - `VITE_EMAILJS_SERVICE_ID`: Your EmailJS service ID
+   - `VITE_EMAILJS_TEMPLATE_ID`: Your EmailJS template ID
+   - `VITE_EMAILJS_PUBLIC_KEY`: Your EmailJS public key
 
 ## 💻 Development
 
 Start the development server:
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 The application will be available at `http://localhost:5173`
 
 ### Available Scripts
 
-- `npm run dev`: Start development server
-- `npm run build`: Build for production
-- `npm run preview`: Preview production build
-- `npm run lint`: Run ESLint
-- `npm run test`: Run tests
+- `yarn dev`: Start development server
+- `yarn build`: Build for production
+- `yarn preview`: Preview production build
+- `yarn lint`: Run ESLint
+- `yarn lint:fix`: Auto-fix linting errors
+- `yarn format`: Format code with Prettier
+- `yarn format:check`: Check code formatting
 
 ## 🤝 Contributing
 

@@ -12,7 +12,9 @@ const HeroSection: React.FC = () => {
         <motion.div className="mb-8" {...animations.scaleIn}>
           <img
             src="/avatar.png"
-            alt="Christian Chenault"
+            alt="Christian Chenault - Senior Front-End Engineer"
+            width={256}
+            height={256}
             className="w-64 h-64 rounded-full mx-auto border-4 border-accent shadow-lg"
           />
         </motion.div>

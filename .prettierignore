@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Generated files
+amplify/
+src/models/
+amplify-codegen-temp/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

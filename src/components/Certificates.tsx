@@ -6,9 +6,8 @@ import { useDataFetching } from "../hooks/useDataFetching";
 import { Certificate } from "../types";
 import { sharedStyles, sectionStyles, cardStyles } from "../styles/shared";
 import { listCertificates } from "../graphql/queries";
-import { generateClient } from "@aws-amplify/api";
 import Card from "./Card";
-const client = generateClient();
+import client from "../lib/graphql";
 
 const Certificates: React.FC = () => {
   const {
@@ -73,7 +72,10 @@ const Certificates: React.FC = () => {
                 <div className="flex items-center gap-4">
                   <img
                     src={cert.icon}
-                    alt={cert.company}
+                    alt={`${cert.company} certificate icon`}
+                    loading="lazy"
+                    width={64}
+                    height={64}
                     className="w-16 h-16 object-contain rounded-lg flex-shrink-0"
                   />
                   <div className="flex-1 overflow-hidden">
