@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Card from "./Card";
-import { sharedStyles } from "../styles/shared";
-import { animations } from "../utils/animations";
 import emailjs from "@emailjs/browser";
 import DOMPurify from "dompurify";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { sharedStyles } from "../styles/shared";
+import { animations } from "../utils/animations";
+import Card from "./Card";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -70,8 +70,8 @@ const ContactForm: React.FC = () => {
 
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_7ysq1ji",
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_cpzyctn",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
         {
           from_name: sanitizedData.name,
           from_email: sanitizedData.email,
@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
             timeZoneName: "short",
           }),
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "lczrcemOibrFoR5aW"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
       );
 
       setStatus("success");
