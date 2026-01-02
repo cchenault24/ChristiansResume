@@ -92,15 +92,20 @@ const Skills: React.FC = () => {
             <h3 className="text-2xl font-semibold text-accent mb-4">
               {category} Skills
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {orderedSkills[category].map((skill) => (
-                <Card
+                <motion.div
                   key={skill.id}
-                  className={`${cardStyles.skill} ${cardStyles.glass}`}
+                  variants={animations.itemVariants}
+                  whileHover={animations.cardHover}
                 >
-                  <h3 className="text-xl font-bold mb-2">{skill.skill}</h3>
-                  <p className="text-gray-400">{skill.descriptor}</p>
-                </Card>
+                  <Card
+                    className={`${cardStyles.skill} ${cardStyles.glass}`}
+                  >
+                    <h3 className="text-xl font-bold mb-2">{skill.skill}</h3>
+                    <p className="text-gray-400">{skill.descriptor}</p>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </motion.div>

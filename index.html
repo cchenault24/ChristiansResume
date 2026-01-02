@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preload" href="/avatar.png" as="image" type="image/png" fetchpriority="high" />
     <link href="./src/output.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
@@ -28,6 +29,49 @@
     <meta name="twitter:image" content="https://www.christianchenault.com/avatar.png" />
     
     <title>Christian's Interactive Resume</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Christian Chenault",
+      "jobTitle": "Senior Front-End Engineer",
+      "description": "Senior Front-End Engineer with expertise in React, React Native, TypeScript, and modern web technologies. Over 8 years of experience building scalable, intuitive, and visually compelling web and mobile applications.",
+      "url": "https://www.christianchenault.com/",
+      "image": "https://www.christianchenault.com/avatar.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/christianchenault",
+        "https://github.com/cchenault24"
+      ],
+      "email": "cchenault24@yahoo.com",
+      "telephone": "+18042918744",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Richmond",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      },
+      "knowsAbout": [
+        "React",
+        "React Native",
+        "TypeScript",
+        "JavaScript",
+        "Front-End Development",
+        "Web Development",
+        "Mobile Development",
+        "User Interface Design",
+        "User Experience Design",
+        "Design Systems",
+        "Component Libraries",
+        "Performance Optimization",
+        "Accessibility"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "James Madison University"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

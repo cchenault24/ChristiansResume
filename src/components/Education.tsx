@@ -65,14 +65,14 @@ const Education: React.FC = () => {
             className="w-16 h-16"
           />
           <div>
-            <h3 className="text-2xl font-bold">{education.degree}</h3>
-            <p className="text-gray-400">{education.university}</p>
+            <h3 className="text-2xl font-bold mb-2">{education.degree}</h3>
+            <p className="text-gray-400 mb-1">{education.university}</p>
             <p className="text-gray-400">
               {education.location} • {education.start} - {education.end}
             </p>
           </div>
         </div>
-        <p className="text-gray-400 mt-4">{education.description}</p>
+        <p className="text-gray-400 mt-6">{education.description}</p>
       </Card>
     </SectionWrapper>
   );

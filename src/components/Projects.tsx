@@ -58,7 +58,11 @@ const Projects: React.FC = () => {
         animate="visible"
       >
         {projects.map((project) => (
-          <motion.div key={project.id} variants={animations.itemVariants}>
+          <motion.div
+            key={project.id}
+            variants={animations.itemVariants}
+            whileHover={animations.cardHover}
+          >
             <Card className={`${cardStyles.project} ${cardStyles.glass}`}>
               <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
               <p className="text-gray-400 mb-4">{project.description}</p>
@@ -67,7 +71,7 @@ const Projects: React.FC = () => {
                 {project.technologies.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="text-xs bg-gray-800 text-accent px-2 py-1 rounded"
+                    className="text-xs bg-gray-800 text-accent px-2 py-1 rounded transition-colors hover:bg-gray-700"
                   >
                     {tech}
                   </span>
@@ -79,7 +83,8 @@ const Projects: React.FC = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:text-secondary transition"
+                    className="text-accent hover:text-secondary transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-3 py-2 min-h-[44px] flex items-center font-medium"
+                    aria-label={`View live demo of ${project.title} (opens in new tab)`}
                   >
                     Live Demo →
                   </a>
@@ -89,7 +94,8 @@ const Projects: React.FC = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-accent transition"
+                    className="text-gray-400 hover:text-accent transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-3 py-2 min-h-[44px] flex items-center font-medium"
+                    aria-label={`View ${project.title} on GitHub (opens in new tab)`}
                   >
                     GitHub →
                   </a>

@@ -80,7 +80,7 @@ const Certificates: React.FC = () => {
                   />
                   <div className="flex-1 overflow-hidden">
                     <h3
-                      className="text-xl font-bold text-light break-words line-clamp-2"
+                      className="text-xl font-bold text-light break-words line-clamp-2 mb-1"
                       title={cert.title}
                     >
                       {cert.title}
@@ -104,9 +104,10 @@ const Certificates: React.FC = () => {
                 <div className="mt-6">
                   <a
                     href={cert.certificate}
-                    className={sharedStyles.link}
+                    className={`${sharedStyles.link} focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 py-1 min-h-[44px] inline-flex items-center`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`View ${cert.title} certificate (opens in new tab)`}
                   >
                     View Certificate →
                   </a>

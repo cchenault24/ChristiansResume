@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
         animate="visible"
       >
         <motion.h2
-          className={`${sharedStyles.sectionHeading} mb-2`}
+          className={sharedStyles.sectionHeading}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

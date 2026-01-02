@@ -5,7 +5,7 @@ const HeroSection: React.FC = () => {
   return (
     <motion.section
       id="hero"
-      className="w-full min-h-screen bg-light dark:bg-gradient-to-br dark:from-dark dark:to-gray-900 text-dark-light dark:text-light flex items-center justify-center px-6 relative"
+      className="w-full min-h-screen bg-light dark:bg-gradient-to-br dark:from-dark dark:to-gray-900 text-dark-light dark:text-light flex items-center justify-center px-6 relative pt-20 md:pt-24"
       {...animations.fadeIn}
     >
       <div className="w-full max-w-7xl text-center">
@@ -27,17 +27,19 @@ const HeroSection: React.FC = () => {
         <div className="flex gap-4 justify-center">
           <motion.a
             href="#projects"
-            className="bg-accent text-white py-3 px-6 rounded-lg font-medium shadow-neon hover:bg-secondary hover:shadow-secondary transition"
+            className="bg-accent text-white py-3 px-6 rounded-lg font-medium shadow-neon hover:bg-secondary hover:shadow-secondary transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark min-h-[44px] min-w-[140px] flex items-center justify-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="View projects section"
           >
             View Projects
           </motion.a>
           <motion.a
             href="#contact"
-            className="border border-accent text-accent py-3 px-6 rounded-lg font-medium hover:bg-accent hover:text-white transition"
+            className="border border-accent text-accent py-3 px-6 rounded-lg font-medium hover:bg-accent hover:text-white transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark min-h-[44px] min-w-[140px] flex items-center justify-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Go to contact section"
           >
             Contact Me
           </motion.a>
@@ -56,7 +58,8 @@ const HeroSection: React.FC = () => {
           onClick={() =>
             window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
           }
-          className="text-accent hover:text-secondary transition-colors flex flex-col items-center"
+          className="text-accent hover:text-secondary transition-colors flex flex-col items-center focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark rounded-lg p-2 min-h-[44px] min-w-[44px]"
+          aria-label="Scroll down to see more content"
         >
           <span className="text-sm mb-2">Scroll for more</span>
           <svg
@@ -64,6 +67,7 @@ const HeroSection: React.FC = () => {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
