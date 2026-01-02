@@ -10,8 +10,6 @@ type JobHistory
   startDate: String!
   endDate: String!
   icon: String!
-  logo: String!
-  mobile: String!
   description: [String]!
 }
 

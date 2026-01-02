@@ -35,17 +35,30 @@ const JobExperience: React.FC = () => {
       .then((response) =>
         response.data.listJobHistories.items.sort(
           (a: JobExperience, b: JobExperience) => {
-            // Parse end dates and handle 'Present' case
-            const aEndDate =
-              a.endDate.toLowerCase() === "present"
-                ? new Date()
-                : new Date(a.endDate);
-            const bEndDate =
-              b.endDate.toLowerCase() === "present"
-                ? new Date()
-                : new Date(b.endDate);
+            // Helper function to parse MM/YYYY format dates
+            const parseDate = (dateStr: string): Date => {
+              if (dateStr.toLowerCase() === "present") {
+                return new Date();
+              }
+              // Parse MM/YYYY format
+              const [month, year] = dateStr.split("/");
+              // Create date as first day of the month for consistent sorting
+              return new Date(parseInt(year), parseInt(month) - 1, 1);
+            };
 
-            // Sort by end date first (most recent first)
+            // Parse start dates
+            const aStartDate = parseDate(a.startDate);
+            const bStartDate = parseDate(b.startDate);
+
+            // Sort by start date first (most recent first)
+            const startDateDiff = bStartDate.getTime() - aStartDate.getTime();
+            if (startDateDiff !== 0) {
+              return startDateDiff;
+            }
+
+            // If start dates are equal, sort by end date (most recent first)
+            const aEndDate = parseDate(a.endDate);
+            const bEndDate = parseDate(b.endDate);
             return bEndDate.getTime() - aEndDate.getTime();
           }
         )

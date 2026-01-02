@@ -11,7 +11,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "preview": "vite preview",
-    "create-skills": "yarn ts-node src/createSkills.ts"
+    "delete-data": "tsx seed-data.ts delete",
+    "seed-data": "tsx seed-data.ts seed"
   },
   "dependencies": {
     "@aws-amplify/api": "^6.3.21",
@@ -47,6 +48,7 @@
     "prettier": "^3.7.4",
     "tailwindcss": "^4.1.18",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "^5.4.21"
   }

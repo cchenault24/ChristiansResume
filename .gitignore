@@ -50,7 +50,6 @@ yarn-error.log*
 
 # Seed data (contains API keys)
 seed-data.ts
-run-seed.sh
 
 # Others
 *.log

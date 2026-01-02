@@ -1,13 +1,13 @@
-import React from "react";
 import { motion } from "framer-motion";
-import SectionWrapper from "./SectionWrapper";
-import { animations } from "../utils/animations";
-import { useDataFetching } from "../hooks/useDataFetching";
-import { Skill } from "../types";
-import { sharedStyles, sectionStyles, cardStyles } from "../styles/shared";
+import React from "react";
 import { listSkills } from "../graphql/queries";
-import Card from "./Card";
+import { useDataFetching } from "../hooks/useDataFetching";
 import client from "../lib/graphql";
+import { cardStyles, sectionStyles, sharedStyles } from "../styles/shared";
+import { Skill } from "../types";
+import { animations } from "../utils/animations";
+import Card from "./Card";
+import SectionWrapper from "./SectionWrapper";
 
 const Skills: React.FC = () => {
   const {
