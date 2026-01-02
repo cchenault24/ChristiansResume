@@ -17,8 +17,6 @@ export const getJobHistory = /* GraphQL */ `query GetJobHistory($id: ID!) {
     startDate
     endDate
     icon
-    logo
-    mobile
     description
     createdAt
     updatedAt
@@ -43,8 +41,6 @@ export const listJobHistories = /* GraphQL */ `query ListJobHistories(
       startDate
       endDate
       icon
-      logo
-      mobile
       description
       createdAt
       updatedAt

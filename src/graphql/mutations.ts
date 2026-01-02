@@ -20,8 +20,6 @@ export const createJobHistory = /* GraphQL */ `mutation CreateJobHistory(
     startDate
     endDate
     icon
-    logo
-    mobile
     description
     createdAt
     updatedAt
@@ -44,8 +42,6 @@ export const updateJobHistory = /* GraphQL */ `mutation UpdateJobHistory(
     startDate
     endDate
     icon
-    logo
-    mobile
     description
     createdAt
     updatedAt
@@ -68,8 +64,6 @@ export const deleteJobHistory = /* GraphQL */ `mutation DeleteJobHistory(
     startDate
     endDate
     icon
-    logo
-    mobile
     description
     createdAt
     updatedAt
