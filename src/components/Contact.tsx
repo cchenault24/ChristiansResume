@@ -1,12 +1,12 @@
-import React, { memo, useState, useEffect } from "react";
-import SectionWrapper from "./SectionWrapper";
 import { motion } from "framer-motion";
-import { animations } from "../utils/animations";
-import { sharedStyles } from "../styles/shared";
-import ContactInfo from "./ContactInfo";
-import ContactForm from "./ContactForm";
+import React, { memo, useEffect, useState } from "react";
 import { scroller } from "react-scroll";
+import { sharedStyles } from "../styles/shared";
+import { animations } from "../utils/animations";
 import { rafThrottle } from "../utils/throttle";
+import ContactForm from "./ContactForm";
+import ContactInfo from "./ContactInfo";
+import SectionWrapper from "./SectionWrapper";
 
 const Contact: React.FC = memo(() => {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -17,7 +17,8 @@ const Contact: React.FC = memo(() => {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY;
       const scrollableHeight = documentHeight - windowHeight;
-      const scrollPercentage = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+      const scrollPercentage =
+        scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
 
       // Show button when user is near the bottom (within last 10% of scroll)
       setShowScrollToTop(scrollPercentage > 90);
