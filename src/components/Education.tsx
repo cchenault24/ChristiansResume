@@ -53,7 +53,7 @@ const Education: React.FC = memo(() => {
   return (
     <SectionWrapper id="education" className={sectionStyles.primary}>
       <h2 className={sharedStyles.sectionHeading}>Education</h2>
-      <Card className={`${cardStyles.base} ${cardStyles.glass}`}>
+      <Card className={`${cardStyles.base} ${cardStyles.hover} ${cardStyles.glass}`}>
         <div className="flex items-center gap-4 mb-4">
           <img
             src={education.icon}

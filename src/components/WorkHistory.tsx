@@ -107,7 +107,7 @@ const JobExperience: React.FC = memo(() => {
       >
         {sortedJobs.map((job) => (
           <motion.div key={job.id} variants={animations.itemVariants}>
-            <Card className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02] mb-6 border-l-4 border-l-transparent hover:border-l-accent">
+            <Card className="hover:shadow-[0_12px_48px_rgba(0,0,0,0.4),0_0_20px_rgba(99,102,241,0.3)] transition-all duration-300 hover:scale-[1.02] mb-6 border-l-4 border-l-transparent hover:border-l-[#6366f1]">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
                 <img
                   src={job.icon}

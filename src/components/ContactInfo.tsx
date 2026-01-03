@@ -54,8 +54,9 @@ const ContactInfo: React.FC = () => {
           backdrop-blur-lg 
           bg-opacity-20 
           border border-gray-700
-          hover:border-accent
-          transition-colors duration-300
+          hover:border-[#6366f1]/50
+          hover:shadow-[0_12px_48px_rgba(0,0,0,0.4),0_0_20px_rgba(99,102,241,0.3)]
+          transition-all duration-300
         `}
       >
         <div className="flex flex-col gap-8">

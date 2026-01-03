@@ -27,11 +27,11 @@ export const sectionStyles = {
 export const cardStyles = {
   base: "bg-gradient-to-br from-gray-800/95 to-gray-900/95 p-6 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300 border border-gray-700/50",
   hover:
-    "hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:scale-[1.02] hover:border-accent/50",
+    "hover:shadow-[0_12px_48px_rgba(0,0,0,0.4),0_0_20px_rgba(99,102,241,0.3)] hover:scale-[1.02] hover:border-[#6366f1]/50",
   glass:
     "backdrop-blur-lg bg-black/40 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]",
   skill:
-    "bg-gradient-to-br from-gray-800/95 to-gray-900/95 p-6 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300 border border-gray-700/50 hover:border-green-500/50",
+    "bg-gradient-to-br from-gray-800/95 to-gray-900/95 p-6 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] transition-all duration-300 border border-gray-700/50 hover:border-[#6366f1]/50",
   project:
-    "bg-gradient-to-br from-gray-900/95 to-dark p-6 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-[1.02] border border-gray-800/50 hover:border-accent/50",
+    "bg-gradient-to-br from-gray-900/95 to-dark p-6 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.5),0_0_20px_rgba(99,102,241,0.3)] transition-all duration-300 hover:scale-[1.02] border border-gray-800/50 hover:border-[#6366f1]/50",
 };
