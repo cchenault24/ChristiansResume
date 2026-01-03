@@ -18,7 +18,6 @@ try {
   Amplify.configure(awsConfig);
 } catch (error) {
   // Ignore if already configured
-  console.warn("Amplify configuration:", error);
 }
 
 const client = generateClient();

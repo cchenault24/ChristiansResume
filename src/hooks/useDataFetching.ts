@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { getCachedData, setCachedData, generateCacheKey } from "../utils/cache";
 
 interface FetchState<T> {
   data: T[];
@@ -15,14 +16,28 @@ export function useDataFetching<T>(fetchFn: () => Promise<T[]>) {
 
   const fetchFnRef = useRef(fetchFn);
   fetchFnRef.current = fetchFn;
+  const cacheKeyRef = useRef<string>(generateCacheKey(fetchFn));
 
   useEffect(() => {
     let mounted = true;
 
     const fetchData = async () => {
+      // Check cache first
+      const cachedData = getCachedData<T[]>(cacheKeyRef.current);
+      if (cachedData) {
+        if (mounted) {
+          setState({ data: cachedData, loading: false, error: null });
+        }
+        return;
+      }
+
       try {
         setState((prev) => ({ ...prev, loading: true }));
         const result = await fetchFnRef.current();
+
+        // Cache the result
+        setCachedData(cacheKeyRef.current, result);
+
         if (mounted) {
           setState({ data: result, loading: false, error: null });
         }

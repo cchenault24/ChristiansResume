@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useMemo, memo } from "react";
 import { listCertificates } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
 import client from "../lib/graphql";
@@ -8,8 +8,9 @@ import { Certificate } from "../types";
 import { animations } from "../utils/animations";
 import Card from "./Card";
 import SectionWrapper from "./SectionWrapper";
+import SkeletonLoader from "./SkeletonLoader";
 
-const Certificates: React.FC = () => {
+const Certificates: React.FC = memo(() => {
   const {
     data: certificates,
     loading,
@@ -19,25 +20,23 @@ const Certificates: React.FC = () => {
       .graphql({
         query: listCertificates,
       })
-      .then((response) =>
-        response.data.listCertificates.items.sort(
-          (a: Certificate, b: Certificate) =>
-            new Date(b.completionDate).getTime() -
-            new Date(a.completionDate).getTime()
-        )
-      )
+      .then((response) => response.data.listCertificates.items)
   );
+
+  const sortedCertificates = useMemo(() => {
+    return [...certificates].sort(
+      (a: Certificate, b: Certificate) =>
+        new Date(b.completionDate).getTime() -
+        new Date(a.completionDate).getTime()
+    );
+  }, [certificates]);
 
   if (loading)
     return (
       <SectionWrapper id="certificates" className={sectionStyles.secondary}>
-        <div className="animate-pulse space-y-8">
-          <div className="h-8 bg-gray-800 rounded w-1/3 mx-auto"></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="h-[420px] bg-gray-800 rounded-lg"></div>
-            ))}
-          </div>
+        <SkeletonLoader variant="text" className="h-10 w-1/3 mx-auto mb-8" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <SkeletonLoader variant="card" count={3} className="h-[420px]" />
         </div>
       </SectionWrapper>
     );
@@ -63,7 +62,7 @@ const Certificates: React.FC = () => {
         initial="hidden"
         animate="visible"
       >
-        {certificates.map((cert) => (
+        {sortedCertificates.map((cert) => (
           <motion.div key={cert.id} variants={animations.itemVariants}>
             <Card
               className={`${cardStyles.base} ${cardStyles.hover} ${cardStyles.glass} flex flex-col min-h-[420px] p-6`}
@@ -76,6 +75,7 @@ const Certificates: React.FC = () => {
                     loading="lazy"
                     width={64}
                     height={64}
+                    decoding="async"
                     className="w-16 h-16 object-contain rounded-lg flex-shrink-0"
                   />
                   <div className="flex-1 overflow-hidden">
@@ -119,6 +119,8 @@ const Certificates: React.FC = () => {
       </motion.div>
     </SectionWrapper>
   );
-};
+});
+
+Certificates.displayName = "Certificates";
 
 export default Certificates;

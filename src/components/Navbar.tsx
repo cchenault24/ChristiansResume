@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo, useMemo } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
+import { rafThrottle } from "../utils/throttle";
 
 interface NavLinkProps {
   to: string;
@@ -8,11 +9,10 @@ interface NavLinkProps {
   onClick?: () => void;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ to, children, onClick }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const LinkComponent = Link as any;
+const NavLink: React.FC<NavLinkProps> = memo(({ to, children, onClick }) => {
   return (
-    <LinkComponent
+    // @ts-expect-error - react-scroll Link type incompatibility with React 18+
+    <Link
       to={to}
       spy={true}
       smooth={true}
@@ -23,12 +23,31 @@ const NavLink: React.FC<NavLinkProps> = ({ to, children, onClick }) => {
       onClick={onClick}
     >
       {children}
-    </LinkComponent>
+    </Link>
   );
-};
+});
 
-const Navbar: React.FC = () => {
+NavLink.displayName = "NavLink";
+
+const Navbar: React.FC = memo(() => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Scroll-based navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      // Use a slightly higher threshold to prevent flickering at the top
+      setScrolled(window.scrollY > 30);
+    };
+
+    const throttledScroll = rafThrottle(handleScroll);
+    window.addEventListener("scroll", throttledScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener("scroll", throttledScroll);
+    };
+  }, []);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -61,22 +80,29 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const navLinks = [
-    { to: "about", label: "About" },
-    { to: "work-history", label: "Experience" },
-    { to: "skills", label: "Skills" },
-    { to: "projects", label: "Projects" },
-    { to: "education", label: "Education" },
-    { to: "certificates", label: "Certificates" },
-    { to: "contact", label: "Contact" },
-  ];
+  const navLinks = useMemo(
+    () => [
+      { to: "about", label: "About" },
+      { to: "work-history", label: "Experience" },
+      { to: "skills", label: "Skills" },
+      { to: "projects", label: "Projects" },
+      { to: "education", label: "Education" },
+      { to: "certificates", label: "Certificates" },
+      { to: "contact", label: "Contact" },
+    ],
+    []
+  );
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 right-0 z-50 w-full bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-200 ease-out ${
+        scrolled
+          ? "bg-gray-900/80 dark:bg-black/60 backdrop-blur-lg shadow-lg border-b border-gray-800/50"
+          : "bg-gray-900/5 backdrop-blur-sm border-b border-transparent"
+      }`}
       role="navigation"
       aria-label="Main navigation"
     >
@@ -84,7 +110,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between py-4">
           {/* Desktop Navigation */}
           <div className="hidden md:flex flex-1 justify-center">
-            <div className="bg-gray-800 dark:backdrop-blur-md dark:bg-black/30 rounded-full px-6 py-3 border border-gray-200 dark:border-white/10">
+            <div className="bg-gray-800/90 dark:backdrop-blur-md dark:bg-black/40 rounded-full px-6 py-3 border border-gray-200/20 dark:border-white/10 shadow-lg">
               <div className="flex items-center gap-4 md:gap-6">
                 {navLinks.map((link) => (
                   <NavLink key={link.to} to={link.to}>
@@ -97,7 +123,7 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden bg-gray-800 dark:bg-black/30 rounded-lg p-2 text-gray-300 hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="md:hidden bg-gray-800/90 dark:bg-black/40 backdrop-blur-md rounded-lg p-2 text-gray-300 hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center shadow-lg"
             onClick={handleMobileMenuToggle}
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
@@ -141,7 +167,7 @@ const Navbar: React.FC = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="bg-gray-800 dark:bg-black/30 backdrop-blur-md rounded-lg border border-gray-200 dark:border-white/10 mb-4">
+              <div className="bg-gray-800/95 dark:bg-black/60 backdrop-blur-lg rounded-lg border border-gray-200/20 dark:border-white/10 mb-4 shadow-xl">
                 <div className="flex flex-col py-4">
                   {navLinks.map((link) => (
                     <NavLink
@@ -160,6 +186,8 @@ const Navbar: React.FC = () => {
       </div>
     </motion.nav>
   );
-};
+});
+
+Navbar.displayName = "Navbar";
 
 export default Navbar;

@@ -21,6 +21,9 @@ export default {
       boxShadow: {
         subtle: "0 5px 20px rgba(0, 0, 0, 0.3)",
         neon: "0 0 15px #22c55e",
+        premium: "0 8px 32px rgba(0, 0, 0, 0.3)",
+        "premium-lg": "0 12px 48px rgba(0, 0, 0, 0.4)",
+        "accent-glow": "0 0 20px rgba(255, 107, 107, 0.3)",
       },
       backdropBlur: {
         md: "12px",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import { animations } from "../utils/animations";
@@ -8,8 +8,9 @@ import { sharedStyles, cardStyles, sectionStyles } from "../styles/shared";
 import { listProjects } from "../graphql/queries";
 import Card from "./Card";
 import client from "../lib/graphql";
+import SkeletonLoader from "./SkeletonLoader";
 
-const Projects: React.FC = () => {
+const Projects: React.FC = memo(() => {
   const {
     data: projects,
     loading,
@@ -25,13 +26,9 @@ const Projects: React.FC = () => {
   if (loading)
     return (
       <SectionWrapper id="projects" className={sectionStyles.secondary}>
-        <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-800 rounded w-1/3 mx-auto"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-64 bg-gray-800 rounded-lg"></div>
-            ))}
-          </div>
+        <SkeletonLoader variant="text" className="h-10 w-1/3 mx-auto mb-8" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <SkeletonLoader variant="card" count={4} className="h-64" />
         </div>
       </SectionWrapper>
     );
@@ -107,6 +104,8 @@ const Projects: React.FC = () => {
       </motion.div>
     </SectionWrapper>
   );
-};
+});
+
+Projects.displayName = "Projects";
 
 export default Projects;

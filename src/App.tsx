@@ -1,18 +1,50 @@
-import React from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import AboutMe from "./components/AboutMe";
-import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
-import Education from "./components/Education";
 import ErrorBoundary from "./components/ErrorBoundary";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
 import ScrollNavigation from "./components/ScrollNavigation";
 import ScrollProgress from "./components/ScrollProgress";
-import Skills from "./components/Skills";
-import WorkHistory from "./components/WorkHistory";
+
+// Lazy load heavy components that fetch data
+const WorkHistory = lazy(() => import("./components/WorkHistory"));
+const Skills = lazy(() => import("./components/Skills"));
+const Projects = lazy(() => import("./components/Projects"));
+const Education = lazy(() => import("./components/Education"));
+const Certificates = lazy(() => import("./components/Certificates"));
+
+import SkeletonLoader from "./components/SkeletonLoader";
+
+// Loading component for Suspense fallback
+const SectionSkeleton: React.FC = () => (
+  <div className="w-full py-12 md:py-16 px-4 md:px-6">
+    <div className="w-full max-w-7xl mx-auto">
+      <SkeletonLoader variant="text" className="h-10 w-1/3 mx-auto mb-8" />
+      <div className="space-y-6">
+        <SkeletonLoader variant="card" count={3} />
+      </div>
+    </div>
+  </div>
+);
 
 const App: React.FC = () => {
+  // Ensure page starts at top on initial load
+  useEffect(() => {
+    // Disable browser scroll restoration
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    // Only scroll to top if there's no hash in the URL
+    if (!window.location.hash) {
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+      });
+    }
+  }, []);
+
   return (
     <ErrorBoundary>
       <div className="min-h-screen bg-dark">
@@ -26,11 +58,21 @@ const App: React.FC = () => {
         <Navbar />
         <HeroSection />
         <AboutMe />
-        <WorkHistory />
-        <Skills />
-        <Projects />
-        <Education />
-        <Certificates />
+        <Suspense fallback={<SectionSkeleton />}>
+          <WorkHistory />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <Skills />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <Projects />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <Education />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <Certificates />
+        </Suspense>
         <Contact />
         <ScrollNavigation />
       </div>

@@ -134,7 +134,6 @@ const ContactForm: React.FC = () => {
       setTouched({});
       setLastSubmission(now);
     } catch (error) {
-      console.error("Error sending email:", error);
       setStatus("error");
       setErrorMessage("Failed to send message. Please try again.");
     }

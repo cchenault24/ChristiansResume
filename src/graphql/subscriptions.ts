@@ -8,7 +8,8 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateJobHistory = /* GraphQL */ `subscription OnCreateJobHistory(
+export const onCreateJobHistory =
+  /* GraphQL */ `subscription OnCreateJobHistory(
   $filter: ModelSubscriptionJobHistoryFilterInput
 ) {
   onCreateJobHistory(filter: $filter) {
@@ -26,10 +27,11 @@ export const onCreateJobHistory = /* GraphQL */ `subscription OnCreateJobHistory
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateJobHistorySubscriptionVariables,
-  APITypes.OnCreateJobHistorySubscription
->;
-export const onUpdateJobHistory = /* GraphQL */ `subscription OnUpdateJobHistory(
+    APITypes.OnCreateJobHistorySubscriptionVariables,
+    APITypes.OnCreateJobHistorySubscription
+  >;
+export const onUpdateJobHistory =
+  /* GraphQL */ `subscription OnUpdateJobHistory(
   $filter: ModelSubscriptionJobHistoryFilterInput
 ) {
   onUpdateJobHistory(filter: $filter) {
@@ -47,10 +49,11 @@ export const onUpdateJobHistory = /* GraphQL */ `subscription OnUpdateJobHistory
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateJobHistorySubscriptionVariables,
-  APITypes.OnUpdateJobHistorySubscription
->;
-export const onDeleteJobHistory = /* GraphQL */ `subscription OnDeleteJobHistory(
+    APITypes.OnUpdateJobHistorySubscriptionVariables,
+    APITypes.OnUpdateJobHistorySubscription
+  >;
+export const onDeleteJobHistory =
+  /* GraphQL */ `subscription OnDeleteJobHistory(
   $filter: ModelSubscriptionJobHistoryFilterInput
 ) {
   onDeleteJobHistory(filter: $filter) {
@@ -68,10 +71,11 @@ export const onDeleteJobHistory = /* GraphQL */ `subscription OnDeleteJobHistory
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteJobHistorySubscriptionVariables,
-  APITypes.OnDeleteJobHistorySubscription
->;
-export const onCreateEducation = /* GraphQL */ `subscription OnCreateEducation($filter: ModelSubscriptionEducationFilterInput) {
+    APITypes.OnDeleteJobHistorySubscriptionVariables,
+    APITypes.OnDeleteJobHistorySubscription
+  >;
+export const onCreateEducation =
+  /* GraphQL */ `subscription OnCreateEducation($filter: ModelSubscriptionEducationFilterInput) {
   onCreateEducation(filter: $filter) {
     id
     university
@@ -87,10 +91,11 @@ export const onCreateEducation = /* GraphQL */ `subscription OnCreateEducation($
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateEducationSubscriptionVariables,
-  APITypes.OnCreateEducationSubscription
->;
-export const onUpdateEducation = /* GraphQL */ `subscription OnUpdateEducation($filter: ModelSubscriptionEducationFilterInput) {
+    APITypes.OnCreateEducationSubscriptionVariables,
+    APITypes.OnCreateEducationSubscription
+  >;
+export const onUpdateEducation =
+  /* GraphQL */ `subscription OnUpdateEducation($filter: ModelSubscriptionEducationFilterInput) {
   onUpdateEducation(filter: $filter) {
     id
     university
@@ -106,10 +111,11 @@ export const onUpdateEducation = /* GraphQL */ `subscription OnUpdateEducation($
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateEducationSubscriptionVariables,
-  APITypes.OnUpdateEducationSubscription
->;
-export const onDeleteEducation = /* GraphQL */ `subscription OnDeleteEducation($filter: ModelSubscriptionEducationFilterInput) {
+    APITypes.OnUpdateEducationSubscriptionVariables,
+    APITypes.OnUpdateEducationSubscription
+  >;
+export const onDeleteEducation =
+  /* GraphQL */ `subscription OnDeleteEducation($filter: ModelSubscriptionEducationFilterInput) {
   onDeleteEducation(filter: $filter) {
     id
     university
@@ -125,10 +131,11 @@ export const onDeleteEducation = /* GraphQL */ `subscription OnDeleteEducation($
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteEducationSubscriptionVariables,
-  APITypes.OnDeleteEducationSubscription
->;
-export const onCreateCertificate = /* GraphQL */ `subscription OnCreateCertificate(
+    APITypes.OnDeleteEducationSubscriptionVariables,
+    APITypes.OnDeleteEducationSubscription
+  >;
+export const onCreateCertificate =
+  /* GraphQL */ `subscription OnCreateCertificate(
   $filter: ModelSubscriptionCertificateFilterInput
 ) {
   onCreateCertificate(filter: $filter) {
@@ -146,10 +153,11 @@ export const onCreateCertificate = /* GraphQL */ `subscription OnCreateCertifica
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateCertificateSubscriptionVariables,
-  APITypes.OnCreateCertificateSubscription
->;
-export const onUpdateCertificate = /* GraphQL */ `subscription OnUpdateCertificate(
+    APITypes.OnCreateCertificateSubscriptionVariables,
+    APITypes.OnCreateCertificateSubscription
+  >;
+export const onUpdateCertificate =
+  /* GraphQL */ `subscription OnUpdateCertificate(
   $filter: ModelSubscriptionCertificateFilterInput
 ) {
   onUpdateCertificate(filter: $filter) {
@@ -167,10 +175,11 @@ export const onUpdateCertificate = /* GraphQL */ `subscription OnUpdateCertifica
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateCertificateSubscriptionVariables,
-  APITypes.OnUpdateCertificateSubscription
->;
-export const onDeleteCertificate = /* GraphQL */ `subscription OnDeleteCertificate(
+    APITypes.OnUpdateCertificateSubscriptionVariables,
+    APITypes.OnUpdateCertificateSubscription
+  >;
+export const onDeleteCertificate =
+  /* GraphQL */ `subscription OnDeleteCertificate(
   $filter: ModelSubscriptionCertificateFilterInput
 ) {
   onDeleteCertificate(filter: $filter) {
@@ -188,10 +197,11 @@ export const onDeleteCertificate = /* GraphQL */ `subscription OnDeleteCertifica
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteCertificateSubscriptionVariables,
-  APITypes.OnDeleteCertificateSubscription
->;
-export const onCreateProject = /* GraphQL */ `subscription OnCreateProject($filter: ModelSubscriptionProjectFilterInput) {
+    APITypes.OnDeleteCertificateSubscriptionVariables,
+    APITypes.OnDeleteCertificateSubscription
+  >;
+export const onCreateProject =
+  /* GraphQL */ `subscription OnCreateProject($filter: ModelSubscriptionProjectFilterInput) {
   onCreateProject(filter: $filter) {
     id
     title
@@ -205,10 +215,11 @@ export const onCreateProject = /* GraphQL */ `subscription OnCreateProject($filt
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateProjectSubscriptionVariables,
-  APITypes.OnCreateProjectSubscription
->;
-export const onUpdateProject = /* GraphQL */ `subscription OnUpdateProject($filter: ModelSubscriptionProjectFilterInput) {
+    APITypes.OnCreateProjectSubscriptionVariables,
+    APITypes.OnCreateProjectSubscription
+  >;
+export const onUpdateProject =
+  /* GraphQL */ `subscription OnUpdateProject($filter: ModelSubscriptionProjectFilterInput) {
   onUpdateProject(filter: $filter) {
     id
     title
@@ -222,10 +233,11 @@ export const onUpdateProject = /* GraphQL */ `subscription OnUpdateProject($filt
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateProjectSubscriptionVariables,
-  APITypes.OnUpdateProjectSubscription
->;
-export const onDeleteProject = /* GraphQL */ `subscription OnDeleteProject($filter: ModelSubscriptionProjectFilterInput) {
+    APITypes.OnUpdateProjectSubscriptionVariables,
+    APITypes.OnUpdateProjectSubscription
+  >;
+export const onDeleteProject =
+  /* GraphQL */ `subscription OnDeleteProject($filter: ModelSubscriptionProjectFilterInput) {
   onDeleteProject(filter: $filter) {
     id
     title
@@ -239,10 +251,11 @@ export const onDeleteProject = /* GraphQL */ `subscription OnDeleteProject($filt
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteProjectSubscriptionVariables,
-  APITypes.OnDeleteProjectSubscription
->;
-export const onCreateSkill = /* GraphQL */ `subscription OnCreateSkill($filter: ModelSubscriptionSkillFilterInput) {
+    APITypes.OnDeleteProjectSubscriptionVariables,
+    APITypes.OnDeleteProjectSubscription
+  >;
+export const onCreateSkill =
+  /* GraphQL */ `subscription OnCreateSkill($filter: ModelSubscriptionSkillFilterInput) {
   onCreateSkill(filter: $filter) {
     id
     skill
@@ -254,10 +267,11 @@ export const onCreateSkill = /* GraphQL */ `subscription OnCreateSkill($filter: 
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateSkillSubscriptionVariables,
-  APITypes.OnCreateSkillSubscription
->;
-export const onUpdateSkill = /* GraphQL */ `subscription OnUpdateSkill($filter: ModelSubscriptionSkillFilterInput) {
+    APITypes.OnCreateSkillSubscriptionVariables,
+    APITypes.OnCreateSkillSubscription
+  >;
+export const onUpdateSkill =
+  /* GraphQL */ `subscription OnUpdateSkill($filter: ModelSubscriptionSkillFilterInput) {
   onUpdateSkill(filter: $filter) {
     id
     skill
@@ -269,10 +283,11 @@ export const onUpdateSkill = /* GraphQL */ `subscription OnUpdateSkill($filter: 
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateSkillSubscriptionVariables,
-  APITypes.OnUpdateSkillSubscription
->;
-export const onDeleteSkill = /* GraphQL */ `subscription OnDeleteSkill($filter: ModelSubscriptionSkillFilterInput) {
+    APITypes.OnUpdateSkillSubscriptionVariables,
+    APITypes.OnUpdateSkillSubscription
+  >;
+export const onDeleteSkill =
+  /* GraphQL */ `subscription OnDeleteSkill($filter: ModelSubscriptionSkillFilterInput) {
   onDeleteSkill(filter: $filter) {
     id
     skill
@@ -284,6 +299,6 @@ export const onDeleteSkill = /* GraphQL */ `subscription OnDeleteSkill($filter: 
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteSkillSubscriptionVariables,
-  APITypes.OnDeleteSkillSubscription
->;
+    APITypes.OnDeleteSkillSubscriptionVariables,
+    APITypes.OnDeleteSkillSubscription
+  >;

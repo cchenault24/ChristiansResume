@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { rafThrottle } from "../utils/throttle";
 
 const sectionIds = [
   "hero",
@@ -10,21 +11,21 @@ const sectionIds = [
   "education",
   "certificates",
   "contact",
-];
+] as const;
 
-const ScrollNavigation: React.FC = () => {
+const ScrollNavigation: React.FC = memo(() => {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   useEffect(() => {
     const updateCurrentSection = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
-      
+
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const section = document.getElementById(sectionIds[i]);
         if (section) {
           const sectionTop = section.offsetTop;
           const sectionBottom = sectionTop + section.offsetHeight;
-          
+
           if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
             setCurrentSectionIndex(i);
             break;
@@ -33,15 +34,19 @@ const ScrollNavigation: React.FC = () => {
       }
     };
 
-    window.addEventListener("scroll", updateCurrentSection);
+    // Use requestAnimationFrame for smooth performance
+    const throttledUpdate = rafThrottle(updateCurrentSection);
+
+    // Use passive listener for better scroll performance
+    window.addEventListener("scroll", throttledUpdate, { passive: true });
     updateCurrentSection(); // Initial check
 
-    return () => window.removeEventListener("scroll", updateCurrentSection);
+    return () => window.removeEventListener("scroll", throttledUpdate);
   }, []);
 
   const scrollToSection = (direction: "up" | "down") => {
     let targetIndex: number;
-    
+
     if (direction === "up") {
       targetIndex = Math.max(0, currentSectionIndex - 1);
     } else {
@@ -52,7 +57,7 @@ const ScrollNavigation: React.FC = () => {
     if (targetSection) {
       const offset = 80; // Account for navbar
       const targetPosition = targetSection.offsetTop - offset;
-      
+
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
@@ -61,7 +66,8 @@ const ScrollNavigation: React.FC = () => {
   };
 
   const canScrollUp = currentSectionIndex > 0;
-  const canScrollDown = currentSectionIndex < sectionIds.length - 1 && currentSectionIndex > 0;
+  const canScrollDown =
+    currentSectionIndex < sectionIds.length - 1 && currentSectionIndex > 0;
 
   return (
     <div className="fixed bottom-8 right-8 z-40 flex flex-col gap-4">
@@ -122,6 +128,8 @@ const ScrollNavigation: React.FC = () => {
       </AnimatePresence>
     </div>
   );
-};
+});
+
+ScrollNavigation.displayName = "ScrollNavigation";
 
 export default ScrollNavigation;

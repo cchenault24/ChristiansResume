@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { memo } from "react";
 import { listSkills } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
 import client from "../lib/graphql";
@@ -8,8 +8,9 @@ import { Skill } from "../types";
 import { animations } from "../utils/animations";
 import Card from "./Card";
 import SectionWrapper from "./SectionWrapper";
+import SkeletonLoader from "./SkeletonLoader";
 
-const Skills: React.FC = () => {
+const Skills: React.FC = memo(() => {
   const {
     data: skills,
     loading,
@@ -49,15 +50,13 @@ const Skills: React.FC = () => {
   if (loading)
     return (
       <SectionWrapper id="skills" className={sectionStyles.primary}>
-        <div className="animate-pulse space-y-8">
-          <div className="h-8 bg-gray-700 rounded w-1/3 mx-auto"></div>
+        <SkeletonLoader variant="text" className="h-10 w-1/3 mx-auto mb-8" />
+        <div className="space-y-8">
           {[1, 2, 3].map((i) => (
             <div key={i} className="space-y-4">
-              <div className="h-6 bg-gray-700 rounded w-1/4"></div>
+              <SkeletonLoader variant="text" className="h-6 w-1/4" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[1, 2, 3, 4].map((j) => (
-                  <div key={j} className="h-32 bg-gray-700 rounded-lg"></div>
-                ))}
+                <SkeletonLoader variant="card" count={4} className="h-32" />
               </div>
             </div>
           ))}
@@ -99,9 +98,7 @@ const Skills: React.FC = () => {
                   variants={animations.itemVariants}
                   whileHover={animations.cardHover}
                 >
-                  <Card
-                    className={`${cardStyles.skill} ${cardStyles.glass}`}
-                  >
+                  <Card className={`${cardStyles.skill} ${cardStyles.glass}`}>
                     <h3 className="text-xl font-bold mb-2">{skill.skill}</h3>
                     <p className="text-gray-400">{skill.descriptor}</p>
                   </Card>
@@ -113,6 +110,8 @@ const Skills: React.FC = () => {
       </motion.div>
     </SectionWrapper>
   );
-};
+});
+
+Skills.displayName = "Skills";
 
 export default Skills;

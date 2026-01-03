@@ -35,18 +35,10 @@ const ContactItem: React.FC<ContactItemProps> = ({
       href={href}
       target={href === "#" ? undefined : "_blank"}
       rel={href === "#" ? undefined : "noopener noreferrer"}
-      className="text-light text-xl hover:text-accent transition-colors duration-300 ml-9 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 py-1 min-h-[44px]"
+      className="text-light text-xl hover:text-accent transition-colors duration-300 ml-9 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 py-1 min-h-[44px]"
       aria-label={`${title}: ${value}${href !== "#" ? " (opens in new tab)" : ""}`}
     >
       {value}
-      <motion.span
-        initial={{ opacity: 0, x: -10 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="opacity-0 group-hover:opacity-100 transition-opacity"
-        aria-hidden="true"
-      >
-        →
-      </motion.span>
     </a>
   </motion.div>
 );

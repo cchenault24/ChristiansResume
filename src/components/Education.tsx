@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import SectionWrapper from "./SectionWrapper";
 import { listEducations } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
@@ -6,8 +6,9 @@ import { EducationEntry } from "../types";
 import { sectionStyles, cardStyles, sharedStyles } from "../styles/shared";
 import Card from "./Card";
 import client from "../lib/graphql";
+import SkeletonLoader from "./SkeletonLoader";
 
-const Education: React.FC = () => {
+const Education: React.FC = memo(() => {
   const {
     data: educations,
     loading,
@@ -25,10 +26,8 @@ const Education: React.FC = () => {
   if (loading)
     return (
       <SectionWrapper id="education" className={sectionStyles.primary}>
-        <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-700 rounded w-1/3 mx-auto"></div>
-          <div className="h-48 bg-gray-700 rounded-lg"></div>
-        </div>
+        <SkeletonLoader variant="text" className="h-10 w-1/3 mx-auto mb-8" />
+        <SkeletonLoader variant="card" className="h-48" />
       </SectionWrapper>
     );
 
@@ -62,6 +61,7 @@ const Education: React.FC = () => {
             loading="lazy"
             width={64}
             height={64}
+            decoding="async"
             className="w-16 h-16"
           />
           <div>
@@ -76,6 +76,8 @@ const Education: React.FC = () => {
       </Card>
     </SectionWrapper>
   );
-};
+});
+
+Education.displayName = "Education";
 
 export default Education;

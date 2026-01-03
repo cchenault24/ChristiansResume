@@ -1,7 +1,36 @@
 import { motion } from "framer-motion";
+import { memo } from "react";
+import { Link, scroller } from "react-scroll";
 import { animations } from "../utils/animations";
+import { shouldReduceAnimations, isMobile } from "../utils/device";
 
-const HeroSection: React.FC = () => {
+const HeroSection: React.FC = memo(() => {
+  const reduceAnimations = shouldReduceAnimations();
+  const isMobileDevice = isMobile();
+
+  // Simplified scroll button animation for mobile
+  const scrollButtonAnimation = reduceAnimations
+    ? {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { delay: 0.5, duration: 0.3 },
+      }
+    : {
+        initial: { opacity: 0 },
+        animate: { opacity: 1, y: [0, 10, 0] },
+        transition: {
+          opacity: { delay: 1, duration: 1 },
+          y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+        },
+      };
+
+  const buttonHoverProps = isMobileDevice
+    ? {}
+    : {
+        whileHover: { scale: 1.05 },
+        whileTap: { scale: 0.95 },
+      };
+
   return (
     <motion.section
       id="hero"
@@ -15,6 +44,7 @@ const HeroSection: React.FC = () => {
             alt="Christian Chenault - Senior Front-End Engineer"
             width={256}
             height={256}
+            fetchPriority="high"
             className="w-64 h-64 rounded-full mx-auto border-4 border-accent shadow-lg"
           />
         </motion.div>
@@ -25,40 +55,49 @@ const HeroSection: React.FC = () => {
           Crafting immersive, modern, and user-friendly web experiences.
         </p>
         <div className="flex gap-4 justify-center">
-          <motion.a
-            href="#projects"
-            className="bg-accent text-white py-3 px-6 rounded-lg font-medium shadow-neon hover:bg-secondary hover:shadow-secondary transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark min-h-[44px] min-w-[140px] flex items-center justify-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label="View projects section"
-          >
-            View Projects
-          </motion.a>
-          <motion.a
-            href="#contact"
-            className="border border-accent text-accent py-3 px-6 rounded-lg font-medium hover:bg-accent hover:text-white transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark min-h-[44px] min-w-[140px] flex items-center justify-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label="Go to contact section"
-          >
-            Contact Me
-          </motion.a>
+          <motion.div {...buttonHoverProps}>
+            {/* @ts-expect-error - react-scroll Link type incompatibility with React 18+ */}
+            <Link
+              to="projects"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className="bg-accent text-white py-3 px-6 rounded-lg font-medium shadow-neon hover:bg-secondary hover:shadow-secondary transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark min-h-[44px] min-w-[140px] flex items-center justify-center cursor-pointer"
+              aria-label="View projects section"
+            >
+              View Projects
+            </Link>
+          </motion.div>
+          <motion.div {...buttonHoverProps}>
+            {/* @ts-expect-error - react-scroll Link type incompatibility with React 18+ */}
+            <Link
+              to="contact"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className="border border-accent text-accent py-3 px-6 rounded-lg font-medium hover:bg-accent hover:text-white transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark min-h-[44px] min-w-[140px] flex items-center justify-center cursor-pointer"
+              aria-label="Go to contact section"
+            >
+              Contact Me
+            </Link>
+          </motion.div>
         </div>
       </div>
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{
-          opacity: { delay: 1, duration: 1 },
-          y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
-        }}
+        {...scrollButtonAnimation}
       >
         <button
-          onClick={() =>
-            window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
-          }
-          className="text-accent hover:text-secondary transition-colors flex flex-col items-center focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark rounded-lg p-2 min-h-[44px] min-w-[44px]"
+          onClick={() => {
+            scroller.scrollTo("about", {
+              smooth: true,
+              duration: 500,
+              offset: -80,
+            });
+          }}
+          className="bg-accent text-white p-4 rounded-full shadow-lg hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900 transition-colors min-w-[56px] min-h-[56px] flex flex-col items-center justify-center"
           aria-label="Scroll down to see more content"
         >
           <span className="text-sm mb-2">Scroll for more</span>
@@ -80,6 +119,8 @@ const HeroSection: React.FC = () => {
       </motion.div>
     </motion.section>
   );
-};
+});
+
+HeroSection.displayName = "HeroSection";
 
 export default HeroSection;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, memo } from "react";
 import { motion } from "framer-motion";
 import { listJobHistories } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
@@ -7,6 +7,7 @@ import { sectionStyles, sharedStyles } from "../styles/shared";
 import { animations } from "../utils/animations";
 import Card from "./Card";
 import SectionWrapper from "./SectionWrapper";
+import SkeletonLoader from "./SkeletonLoader";
 
 interface JobExperience {
   __typename: "JobHistory";
@@ -22,7 +23,7 @@ interface JobExperience {
   updatedAt: string;
 }
 
-const JobExperience: React.FC = () => {
+const JobExperience: React.FC = memo(() => {
   const {
     data: jobs,
     loading,
@@ -32,49 +33,47 @@ const JobExperience: React.FC = () => {
       .graphql({
         query: listJobHistories,
       })
-      .then((response) =>
-        response.data.listJobHistories.items.sort(
-          (a: JobExperience, b: JobExperience) => {
-            // Helper function to parse MM/YYYY format dates
-            const parseDate = (dateStr: string): Date => {
-              if (dateStr.toLowerCase() === "present") {
-                return new Date();
-              }
-              // Parse MM/YYYY format
-              const [month, year] = dateStr.split("/");
-              // Create date as first day of the month for consistent sorting
-              return new Date(parseInt(year), parseInt(month) - 1, 1);
-            };
-
-            // Parse start dates
-            const aStartDate = parseDate(a.startDate);
-            const bStartDate = parseDate(b.startDate);
-
-            // Sort by start date first (most recent first)
-            const startDateDiff = bStartDate.getTime() - aStartDate.getTime();
-            if (startDateDiff !== 0) {
-              return startDateDiff;
-            }
-
-            // If start dates are equal, sort by end date (most recent first)
-            const aEndDate = parseDate(a.endDate);
-            const bEndDate = parseDate(b.endDate);
-            return bEndDate.getTime() - aEndDate.getTime();
-          }
-        )
-      )
+      .then((response) => response.data.listJobHistories.items)
   );
+
+  const sortedJobs = useMemo(() => {
+    if (!jobs.length) return [];
+
+    // Helper function to parse MM/YYYY format dates
+    const parseDate = (dateStr: string): Date => {
+      if (dateStr.toLowerCase() === "present") {
+        return new Date();
+      }
+      // Parse MM/YYYY format
+      const [month, year] = dateStr.split("/");
+      // Create date as first day of the month for consistent sorting
+      return new Date(parseInt(year), parseInt(month) - 1, 1);
+    };
+
+    return [...jobs].sort((a: JobExperience, b: JobExperience) => {
+      // Parse start dates
+      const aStartDate = parseDate(a.startDate);
+      const bStartDate = parseDate(b.startDate);
+
+      // Sort by start date first (most recent first)
+      const startDateDiff = bStartDate.getTime() - aStartDate.getTime();
+      if (startDateDiff !== 0) {
+        return startDateDiff;
+      }
+
+      // If start dates are equal, sort by end date (most recent first)
+      const aEndDate = parseDate(a.endDate);
+      const bEndDate = parseDate(b.endDate);
+      return bEndDate.getTime() - aEndDate.getTime();
+    });
+  }, [jobs]);
 
   if (loading)
     return (
       <SectionWrapper id="work-history" className={sectionStyles.secondary}>
-        <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-800 rounded w-1/3 mx-auto"></div>
-          <div className="space-y-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="h-48 bg-gray-800 rounded-lg"></div>
-            ))}
-          </div>
+        <SkeletonLoader variant="text" className="h-10 w-1/3 mx-auto mb-8" />
+        <div className="space-y-6">
+          <SkeletonLoader variant="card" count={3} />
         </div>
       </SectionWrapper>
     );
@@ -91,7 +90,7 @@ const JobExperience: React.FC = () => {
       </SectionWrapper>
     );
 
-  if (!jobs.length)
+  if (!sortedJobs.length)
     return (
       <SectionWrapper id="work-history" className={sectionStyles.secondary}>
         <p className="text-center text-gray-400">No job data found.</p>
@@ -106,11 +105,9 @@ const JobExperience: React.FC = () => {
         initial="hidden"
         animate="visible"
       >
-        {jobs.map((job) => (
+        {sortedJobs.map((job) => (
           <motion.div key={job.id} variants={animations.itemVariants}>
-            <Card
-              className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02] mb-6 border-l-4 border-l-transparent hover:border-l-accent"
-            >
+            <Card className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02] mb-6 border-l-4 border-l-transparent hover:border-l-accent">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
                 <img
                   src={job.icon}
@@ -118,6 +115,7 @@ const JobExperience: React.FC = () => {
                   loading="lazy"
                   width={64}
                   height={64}
+                  decoding="async"
                   className="w-16 h-16 object-contain flex-shrink-0"
                 />
                 <div className="flex-1">
@@ -132,7 +130,9 @@ const JobExperience: React.FC = () => {
               </div>
               <ul className="text-gray-400 list-disc list-inside space-y-2 ml-2">
                 {job.description.map((desc, index) => (
-                  <li key={index} className="leading-relaxed">{desc}</li>
+                  <li key={index} className="leading-relaxed">
+                    {desc}
+                  </li>
                 ))}
               </ul>
             </Card>
@@ -141,6 +141,8 @@ const JobExperience: React.FC = () => {
       </motion.div>
     </SectionWrapper>
   );
-};
+});
+
+JobExperience.displayName = "JobExperience";
 
 export default JobExperience;
