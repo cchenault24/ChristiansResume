@@ -69,6 +69,9 @@ const Certificates: React.FC = memo(() => {
                     width={64}
                     height={64}
                     decoding="async"
+                    onError={(e) => {
+                      e.currentTarget.src = "/certificate-icon.png";
+                    }}
                     className="w-16 h-16 object-contain rounded-lg flex-shrink-0"
                   />
                   <div className="flex-1 overflow-hidden">

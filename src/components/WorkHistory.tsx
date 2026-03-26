@@ -106,6 +106,9 @@ const JobExperience: React.FC = memo(() => {
                   width={64}
                   height={64}
                   decoding="async"
+                  onError={(e) => {
+                    e.currentTarget.src = "/jobhistory-icon.png";
+                  }}
                   className="w-16 h-16 object-contain flex-shrink-0"
                 />
                 <div className="flex-1">

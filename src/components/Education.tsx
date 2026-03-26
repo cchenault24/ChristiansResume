@@ -57,7 +57,10 @@ const Education: React.FC = memo(() => {
             width={64}
             height={64}
             decoding="async"
-            className="w-16 h-16"
+            onError={(e) => {
+              e.currentTarget.src = "/education-icon.png";
+            }}
+            className="w-16 h-16 object-contain"
           />
           <div>
             <h3 className="text-2xl font-bold mb-2">{education.degree}</h3>
