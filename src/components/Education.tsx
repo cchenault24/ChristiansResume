@@ -1,11 +1,10 @@
 import React, { memo } from "react";
 import SectionWrapper from "./SectionWrapper";
-import { listEducations } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
+import { getEducation } from "../lib/firestore";
 import { EducationEntry } from "../types";
 import { sectionStyles, cardStyles, sharedStyles } from "../styles/shared";
 import Card from "./Card";
-import client from "../lib/graphql";
 import SkeletonLoader from "./SkeletonLoader";
 
 const Education: React.FC = memo(() => {
@@ -13,13 +12,7 @@ const Education: React.FC = memo(() => {
     data: educations,
     loading,
     error,
-  } = useDataFetching<EducationEntry>(() =>
-    client
-      .graphql({
-        query: listEducations,
-      })
-      .then((response) => response.data.listEducations.items)
-  );
+  } = useDataFetching<EducationEntry>(getEducation);
 
   const education = educations[0];
 
@@ -53,7 +46,9 @@ const Education: React.FC = memo(() => {
   return (
     <SectionWrapper id="education" className={sectionStyles.primary}>
       <h2 className={sharedStyles.sectionHeading}>Education</h2>
-      <Card className={`${cardStyles.base} ${cardStyles.hover} ${cardStyles.glass}`}>
+      <Card
+        className={`${cardStyles.base} ${cardStyles.hover} ${cardStyles.glass}`}
+      >
         <div className="flex items-center gap-4 mb-4">
           <img
             src={education.icon}

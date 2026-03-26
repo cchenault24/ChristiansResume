@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import React, { memo, useEffect } from "react";
-import { listProjects } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
-import client from "../lib/graphql";
+import { getProjects } from "../lib/firestore";
 import { cardStyles, sectionStyles, sharedStyles } from "../styles/shared";
 import { Project } from "../types";
 import { animations } from "../utils/animations";
@@ -39,13 +38,7 @@ const Projects: React.FC = memo(() => {
     data: projects,
     loading,
     error,
-  } = useDataFetching<Project>(() =>
-    client
-      .graphql({
-        query: listProjects,
-      })
-      .then((response) => response.data.listProjects.items)
-  );
+  } = useDataFetching<Project>(getProjects);
 
   if (loading)
     return (

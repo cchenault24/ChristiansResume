@@ -1,8 +1,7 @@
 import React, { useMemo, memo } from "react";
 import { motion } from "framer-motion";
-import { listJobHistories } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
-import client from "../lib/graphql";
+import { getJobHistories } from "../lib/firestore";
 import { sectionStyles, sharedStyles } from "../styles/shared";
 import { animations } from "../utils/animations";
 import Card from "./Card";
@@ -10,7 +9,6 @@ import SectionWrapper from "./SectionWrapper";
 import SkeletonLoader from "./SkeletonLoader";
 
 interface JobExperience {
-  __typename: "JobHistory";
   id: string;
   title: string;
   company: string;
@@ -19,8 +17,6 @@ interface JobExperience {
   endDate: string;
   icon: string;
   description: (string | null)[];
-  createdAt: string;
-  updatedAt: string;
 }
 
 const JobExperience: React.FC = memo(() => {
@@ -28,13 +24,7 @@ const JobExperience: React.FC = memo(() => {
     data: jobs,
     loading,
     error,
-  } = useDataFetching<JobExperience>(() =>
-    client
-      .graphql({
-        query: listJobHistories,
-      })
-      .then((response) => response.data.listJobHistories.items)
-  );
+  } = useDataFetching<JobExperience>(getJobHistories);
 
   const sortedJobs = useMemo(() => {
     if (!jobs.length) return [];

@@ -11,7 +11,6 @@ interface NavLinkProps {
 
 const NavLink: React.FC<NavLinkProps> = memo(({ to, children, onClick }) => {
   return (
-    // @ts-expect-error - react-scroll Link type incompatibility with React 18+
     <Link
       to={to}
       spy={true}

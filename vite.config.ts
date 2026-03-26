@@ -14,8 +14,7 @@ export default defineConfig({
           // Separate vendor chunks
           "react-vendor": ["react", "react-dom"],
           "framer-motion": ["framer-motion"],
-          "aws-amplify": ["aws-amplify", "@aws-amplify/api"],
-          "graphql": ["graphql"],
+          "firebase": ["firebase/app", "firebase/firestore", "firebase/analytics"],
         },
         // Optimize asset file names
         assetFileNames: (assetInfo) => {

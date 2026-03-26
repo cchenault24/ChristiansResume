@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useMemo, memo } from "react";
-import { listCertificates } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
-import client from "../lib/graphql";
+import { getCertificates } from "../lib/firestore";
 import { cardStyles, sectionStyles, sharedStyles } from "../styles/shared";
 import { Certificate } from "../types";
 import { animations } from "../utils/animations";
@@ -15,13 +14,7 @@ const Certificates: React.FC = memo(() => {
     data: certificates,
     loading,
     error,
-  } = useDataFetching<Certificate>(() =>
-    client
-      .graphql({
-        query: listCertificates,
-      })
-      .then((response) => response.data.listCertificates.items)
-  );
+  } = useDataFetching<Certificate>(getCertificates);
 
   const sortedCertificates = useMemo(() => {
     return [...certificates].sort(

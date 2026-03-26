@@ -1,0 +1,16 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow public read access to all collections (public portfolio)
+    match /{collection}/{document=**} {
+      allow read: if true;
+    }
+
+    // Block all write access from the frontend
+    // Data should only be updated via Firebase Console or Admin SDK
+    match /{collection}/{document=**} {
+      allow write: if false;
+    }
+  }
+}

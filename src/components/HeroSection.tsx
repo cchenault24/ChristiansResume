@@ -44,7 +44,7 @@ const HeroSection: React.FC = memo(() => {
             alt="Christian Chenault - Senior Front-End Engineer"
             width={256}
             height={256}
-            fetchPriority="high"
+            fetchpriority="high"
             className="w-64 h-64 rounded-full mx-auto border-4 border-accent shadow-lg"
           />
         </motion.div>
@@ -56,7 +56,6 @@ const HeroSection: React.FC = memo(() => {
         </p>
         <div className="flex gap-4 justify-center">
           <motion.div {...buttonHoverProps}>
-            {/* @ts-expect-error - react-scroll Link type incompatibility with React 18+ */}
             <Link
               to="projects"
               spy={true}
@@ -70,7 +69,6 @@ const HeroSection: React.FC = memo(() => {
             </Link>
           </motion.div>
           <motion.div {...buttonHoverProps}>
-            {/* @ts-expect-error - react-scroll Link type incompatibility with React 18+ */}
             <Link
               to="contact"
               spy={true}

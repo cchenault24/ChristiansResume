@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import React, { memo } from "react";
-import { listSkills } from "../graphql/queries";
 import { useDataFetching } from "../hooks/useDataFetching";
-import client from "../lib/graphql";
+import { getSkills } from "../lib/firestore";
 import { cardStyles, sectionStyles, sharedStyles } from "../styles/shared";
 import { Skill } from "../types";
 import { animations } from "../utils/animations";
@@ -11,17 +10,7 @@ import SectionWrapper from "./SectionWrapper";
 import SkeletonLoader from "./SkeletonLoader";
 
 const Skills: React.FC = memo(() => {
-  const {
-    data: skills,
-    loading,
-    error,
-  } = useDataFetching<Skill>(() =>
-    client
-      .graphql({
-        query: listSkills,
-      })
-      .then((response) => response.data.listSkills.items)
-  );
+  const { data: skills, loading, error } = useDataFetching<Skill>(getSkills);
 
   const orderedSkills = React.useMemo(() => {
     if (!skills.length) return {};
