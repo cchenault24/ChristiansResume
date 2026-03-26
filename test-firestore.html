@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firestore Test</title>
+</head>
+<body>
+  <h1>Firestore Connection Test</h1>
+  <div id="result">Loading...</div>
+  
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+    import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBVtZ8JZiZXJ_qZqZxZxZxZxZxZxZxZxZxZ", // Replace with yours
+      authDomain: "christiansresume-42c08.firebaseapp.com",
+      projectId: "christiansresume-42c08",
+      storageBucket: "christiansresume-42c08.firebasestorage.app",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const result = document.getElementById('result');
+
+    try {
+      console.log('Attempting to fetch jobHistory...');
+      const querySnapshot = await getDocs(collection(db, 'jobHistory'));
+      
+      if (querySnapshot.empty) {
+        result.innerHTML = '✅ Firestore connected! But jobHistory collection is empty.';
+      } else {
+        result.innerHTML = `✅ Firestore connected! Found ${querySnapshot.size} job history documents.`;
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, '=>', doc.data());
+        });
+      }
+    } catch (error) {
+      result.innerHTML = `❌ Error: ${error.code} - ${error.message}<br><br>
+        <strong>Solution:</strong> Update Firestore Security Rules to allow public reads.<br>
+        Go to: <a href="https://console.firebase.google.com/project/christiansresume-42c08/firestore/rules">Firebase Console → Firestore → Rules</a>`;
+      console.error('Firestore error:', error);
+    }
+  </script>
+</body>
+</html>
