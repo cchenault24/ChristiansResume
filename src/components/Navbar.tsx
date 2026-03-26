@@ -113,7 +113,7 @@ const Navbar: React.FC = memo(() => {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="w-full max-w-7xl mx-auto px-4">
+      <div className="w-full max-w-screen-2xl mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Desktop Navigation */}
           <div className="hidden md:flex flex-1 justify-center">

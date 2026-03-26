@@ -37,7 +37,7 @@ const HeroSection: React.FC = memo(() => {
       className="w-full min-h-screen bg-light dark:bg-gradient-to-br dark:from-dark dark:to-gray-900 text-dark-light dark:text-light flex items-center justify-center px-6 relative pt-20 md:pt-24"
       {...animations.fadeIn}
     >
-      <div className="w-full max-w-7xl text-center">
+      <div className="w-full max-w-screen-2xl text-center">
         <motion.div className="mb-8" {...animations.scaleIn}>
           <img
             src="/avatar.png"

@@ -104,7 +104,7 @@ const Skills: React.FC = memo(() => {
                 <h4 className="text-xl md:text-2xl font-semibold text-accent mb-6 border-b border-accent/30 pb-2">
                   {subcategory}
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {organizedSkills.technical[subcategory].map((skill) => (
                     <motion.div
                       key={skill.id}
@@ -128,7 +128,7 @@ const Skills: React.FC = memo(() => {
             <h3 className="text-2xl font-semibold text-accent mb-6 text-center">
               Soft Skills
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {organizedSkills.soft.map((skill) => (
                 <motion.div
                   key={skill.id}

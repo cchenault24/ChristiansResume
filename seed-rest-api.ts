@@ -234,11 +234,11 @@ const certificatesData = [
 
 const projectsData = [
   {
-    title: "Dynamic Portfolio Website",
-    description: "Built a single-page application (SPA) to showcase projects and achievements, utilizing dynamic routing and responsive design.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "NextUI", "Vite", "Firebase"],
-    link: "https://www.christianchenault.com",
-    github: "https://github.com/cchenault24",
+    title: "Momz & Dadz",
+    description: "iOS mobile social media platform designed to connect parents and facilitate knowledge sharing. MVP completed featuring hyper-local connections, verified parent communities, and trust-based interactions.",
+    technologies: ["React Native", "iOS", "TypeScript", "Mobile Development"],
+    link: "https://www.momzanddadz.com/",
+    github: "",
   },
   {
     title: "FlexC Box",
@@ -255,40 +255,40 @@ const projectsData = [
     github: "",
   },
   {
-    title: "Momz & Dadz",
-    description: "iOS mobile social media platform designed to connect parents and facilitate knowledge sharing. MVP completed featuring hyper-local connections, verified parent communities, and trust-based interactions.",
-    technologies: ["React Native", "iOS", "TypeScript", "Mobile Development"],
-    link: "https://www.momzanddadz.com/",
-    github: "",
+    title: "Dynamic Portfolio Website",
+    description: "Built a single-page application (SPA) to showcase projects and achievements, utilizing dynamic routing and responsive design.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "NextUI", "Vite", "Firebase"],
+    link: "https://www.christianchenault.com",
+    github: "https://github.com/cchenault24",
   },
 ];
 
 const skillsData = [
-  // Frontend Frameworks & Libraries
+  // Frontend Frameworks & Libraries (sorted by proficiency: Expert → Advanced → Proficient)
   { skill: "React.js", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.FrontendFrameworks },
-  { skill: "React Native", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.FrontendFrameworks },
   { skill: "Next.js", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.FrontendFrameworks },
+  { skill: "React Native", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.FrontendFrameworks },
 
-  // Languages
+  // Languages (sorted by proficiency: Expert → Advanced → Proficient)
+  { skill: "HTML", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.Languages },
   { skill: "TypeScript", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Languages },
   { skill: "JavaScript", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Languages },
-  { skill: "HTML", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.Languages },
   { skill: "CSS", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Languages },
 
-  // Backend
-  { skill: "Node.js", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Backend },
-  { skill: "Express", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Backend },
+  // Backend (sorted by proficiency: Expert → Advanced → Proficient)
   { skill: "REST APIs", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.Backend },
   { skill: "GraphQL", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Backend },
+  { skill: "Node.js", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Backend },
+  { skill: "Express", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Backend },
 
-  // State Management
+  // State Management (sorted by proficiency: Expert → Advanced → Proficient)
   { skill: "Redux", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.StateManagement },
   { skill: "React Context", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.StateManagement },
 
-  // Styling & Design
+  // Styling & Design (sorted by proficiency: Expert → Advanced → Proficient)
+  { skill: "Responsive Web Design", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
   { skill: "Tailwind CSS", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
   { skill: "Styled Components", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
-  { skill: "Responsive Web Design", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
   { skill: "Figma", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
 
   // Build Tools & Bundlers
@@ -301,8 +301,6 @@ const skillsData = [
   { skill: "Firebase", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
   { skill: "Vercel", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
   { skill: "Supabase", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
-  { skill: "PostgreSQL", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
-  { skill: "MongoDB", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
 
   // Testing
   { skill: "Jest", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Testing },
@@ -315,7 +313,8 @@ const skillsData = [
   { skill: "CI/CD Pipelines", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.VersionControlDevOps },
 
   // Performance & Optimization
-  { skill: "Performance Optimization", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.Performance },
+  { skill: "Performance Optimization", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Performance },
+  { skill: "Component Optimization", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Performance },
 
   // Soft Skills
   { skill: "Leadership & Mentorship", descriptor: "Experienced in guiding teams", category: "Soft" },

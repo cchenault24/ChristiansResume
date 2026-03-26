@@ -19,7 +19,7 @@ import SkeletonLoader from "./components/SkeletonLoader";
 // Loading component for Suspense fallback
 const SectionSkeleton: React.FC = () => (
   <div className="w-full py-12 md:py-16 px-4 md:px-6">
-    <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full max-w-screen-2xl mx-auto">
       <SkeletonLoader variant="text" className="h-10 w-1/3 mx-auto mb-8" />
       <div className="space-y-6">
         <SkeletonLoader variant="card" count={3} />

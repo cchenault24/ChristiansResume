@@ -9,7 +9,7 @@ export const sharedStyles = {
     "py-3 px-4 rounded-lg bg-gray-900/80 text-light border border-gray-700 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all",
   buttonBase:
     "bg-gradient-to-r from-accent to-secondary text-white py-3 px-6 rounded-lg font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl",
-  container: "w-full max-w-7xl mx-auto",
+  container: "w-full max-w-screen-2xl mx-auto",
   skillTag:
     "text-xs bg-gradient-to-r from-gray-800 to-gray-700 text-accent px-3 py-1.5 rounded-full border border-gray-700/50 shadow-sm",
   link: "text-accent hover:text-secondary transition-all duration-300 hover:underline underline-offset-4",
