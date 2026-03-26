@@ -101,7 +101,7 @@ const Skills: React.FC = memo(() => {
           </h3>
           {organizedSkills.orderedSubcategories.map((subcategory) => (
               <div key={subcategory} className="mb-8">
-                <h4 className="text-lg font-medium text-gray-300 mb-4">
+                <h4 className="text-xl md:text-2xl font-semibold text-accent mb-6 border-b border-accent/30 pb-2">
                   {subcategory}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

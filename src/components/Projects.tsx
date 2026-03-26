@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import { useDataFetching } from "../hooks/useDataFetching";
 import { getProjects } from "../lib/firestore";
 import { cardStyles, sectionStyles, sharedStyles } from "../styles/shared";
 import { Project } from "../types";
 import { animations } from "../utils/animations";
-import { clearCache } from "../utils/cache";
 import Card from "./Card";
 import SectionWrapper from "./SectionWrapper";
 import SkeletonLoader from "./SkeletonLoader";
@@ -30,10 +29,6 @@ const parseDescription = (description: string) => {
 };
 
 const Projects: React.FC = memo(() => {
-  useEffect(() => {
-    clearCache();
-  }, []);
-
   const {
     data: projects,
     loading,
@@ -83,7 +78,7 @@ const Projects: React.FC = memo(() => {
               whileHover={animations.cardHover}
             >
               <Card
-                className={`${cardStyles.project} ${cardStyles.glass} flex flex-col w-full`}
+                className={`${cardStyles.project} ${cardStyles.glass} flex flex-col w-full min-h-[500px]`}
               >
                 <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
 
