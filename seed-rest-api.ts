@@ -234,6 +234,13 @@ const certificatesData = [
 
 const projectsData = [
   {
+    title: "ParlAId",
+    description: "AI-powered NFL parlay builder that generates intelligent 3-leg parlays using machine learning and real-time data. Features include algorithmic analysis of player performance, live injury reports, betting odds integration, secure user authentication, and parlay history tracking.",
+    technologies: ["React", "TypeScript", "Firebase", "AI/ML", "Real-time APIs"],
+    link: "https://nfl-parlay-builder.web.app/",
+    github: "",
+  },
+  {
     title: "Momz & Dadz",
     description: "iOS mobile social media platform designed to connect parents and facilitate knowledge sharing. MVP completed featuring hyper-local connections, verified parent communities, and trust-based interactions.",
     technologies: ["React Native", "iOS", "TypeScript", "Mobile Development"],
