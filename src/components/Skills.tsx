@@ -96,7 +96,7 @@ const Skills: React.FC = memo(() => {
       >
         {/* Technical Skills with Subcategories */}
         <motion.div variants={animations.itemVariants} className="mb-12">
-          <h3 className="text-2xl font-semibold text-accent mb-6">
+          <h3 className="text-2xl font-semibold text-accent mb-6 text-center">
             Technical Skills
           </h3>
           {organizedSkills.orderedSubcategories.map((subcategory) => (
@@ -125,7 +125,7 @@ const Skills: React.FC = memo(() => {
         {/* Soft Skills */}
         {organizedSkills.soft.length > 0 && (
           <motion.div variants={animations.itemVariants}>
-            <h3 className="text-2xl font-semibold text-accent mb-6">
+            <h3 className="text-2xl font-semibold text-accent mb-6 text-center">
               Soft Skills
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
