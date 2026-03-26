@@ -234,17 +234,17 @@ const certificatesData = [
 
 const projectsData = [
   {
-    title: "ParlAId",
-    description: "AI-powered NFL parlay builder that generates intelligent 3-leg parlays using machine learning and real-time data. Features include algorithmic analysis of player performance, live injury reports, betting odds integration, secure user authentication, and parlay history tracking.",
-    technologies: ["React", "TypeScript", "Firebase", "AI/ML", "Real-time APIs"],
-    link: "https://nfl-parlay-builder.web.app/",
-    github: "",
-  },
-  {
     title: "Momz & Dadz",
     description: "iOS mobile social media platform designed to connect parents and facilitate knowledge sharing. MVP completed featuring hyper-local connections, verified parent communities, and trust-based interactions.",
     technologies: ["React Native", "iOS", "TypeScript", "Mobile Development"],
     link: "https://www.momzanddadz.com/",
+    github: "",
+  },
+  {
+    title: "ParlAId",
+    description: "AI-powered NFL parlay builder that generates intelligent 3-leg parlays using machine learning and real-time data. Features include algorithmic analysis of player performance, live injury reports, betting odds integration, secure user authentication, and parlay history tracking.",
+    technologies: ["React", "TypeScript", "Firebase", "AI/ML", "Real-time APIs"],
+    link: "https://nfl-parlay-builder.web.app/",
     github: "",
   },
   {
@@ -260,13 +260,6 @@ const projectsData = [
     technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Responsive Design"],
     link: "https://www.reliableelevatorcompany.com/",
     github: "",
-  },
-  {
-    title: "Dynamic Portfolio Website",
-    description: "Built a single-page application (SPA) to showcase projects and achievements, utilizing dynamic routing and responsive design.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "NextUI", "Vite", "Firebase"],
-    link: "https://www.christianchenault.com",
-    github: "https://github.com/cchenault24",
   },
 ];
 
