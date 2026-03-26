@@ -27,6 +27,7 @@ enum TechnicalSubcategory {
   Testing = "Testing",
   VersionControlDevOps = "Version Control & DevOps",
   Performance = "Performance",
+  AIMachineLearning = "AI & Machine Learning",
 }
 
 const auth = new GoogleAuth({
@@ -315,6 +316,12 @@ const skillsData = [
   // Performance & Optimization
   { skill: "Performance Optimization", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Performance },
   { skill: "Component Optimization", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Performance },
+
+  // AI & Machine Learning
+  { skill: "Prompt Engineering", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.AIMachineLearning },
+  { skill: "AI Model Integration", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.AIMachineLearning },
+  { skill: "Claude API / Anthropic SDK", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.AIMachineLearning },
+  { skill: "OpenAI API / GPT Models", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.AIMachineLearning },
 
   // Soft Skills
   { skill: "Leadership & Mentorship", descriptor: "Experienced in guiding teams", category: "Soft" },

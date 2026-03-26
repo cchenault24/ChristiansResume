@@ -34,6 +34,7 @@ const Skills: React.FC = memo(() => {
       "Testing",
       "Version Control & DevOps",
       "Performance",
+      "AI & Machine Learning",
     ];
 
     skills.forEach(skill => {
