@@ -48,7 +48,7 @@ const Navbar: React.FC = memo(() => {
     };
   }, []);
 
-  // Close mobile menu when clicking outside
+  // Close mobile menu when clicking outside or pressing Escape
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -57,8 +57,15 @@ const Navbar: React.FC = memo(() => {
       }
     };
 
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     if (isMobileMenuOpen) {
       document.addEventListener("click", handleClickOutside);
+      document.addEventListener("keydown", handleEscapeKey);
       // Prevent body scroll when menu is open
       document.body.style.overflow = "hidden";
     } else {
@@ -67,6 +74,7 @@ const Navbar: React.FC = memo(() => {
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("keydown", handleEscapeKey);
       document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);

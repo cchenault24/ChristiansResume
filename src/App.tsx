@@ -56,24 +56,26 @@ const App: React.FC = () => {
         </a>
         <ScrollProgress />
         <Navbar />
-        <HeroSection />
-        <AboutMe />
-        <Suspense fallback={<SectionSkeleton />}>
-          <WorkHistory />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <Skills />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <Projects />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <Education />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <Certificates />
-        </Suspense>
-        <Contact />
+        <main id="main-content">
+          <HeroSection />
+          <AboutMe />
+          <Suspense fallback={<SectionSkeleton />}>
+            <WorkHistory />
+          </Suspense>
+          <Suspense fallback={<SectionSkeleton />}>
+            <Skills />
+          </Suspense>
+          <Suspense fallback={<SectionSkeleton />}>
+            <Projects />
+          </Suspense>
+          <Suspense fallback={<SectionSkeleton />}>
+            <Education />
+          </Suspense>
+          <Suspense fallback={<SectionSkeleton />}>
+            <Certificates />
+          </Suspense>
+          <Contact />
+        </main>
         <ScrollNavigation />
       </div>
     </ErrorBoundary>

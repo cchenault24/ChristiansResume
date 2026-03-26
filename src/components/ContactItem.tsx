@@ -7,6 +7,7 @@ interface ContactItemProps {
   value: string;
   icon: React.ReactNode;
   className?: string;
+  isLink?: boolean;
 }
 
 const ContactItem: React.FC<ContactItemProps> = ({
@@ -15,6 +16,7 @@ const ContactItem: React.FC<ContactItemProps> = ({
   value,
   icon,
   className = "",
+  isLink = true,
 }) => (
   <motion.div
     className={`group ${className}`}
@@ -31,15 +33,21 @@ const ContactItem: React.FC<ContactItemProps> = ({
       </motion.span>
       <h3 className="text-lg font-medium text-gray-400">{title}</h3>
     </div>
-    <a
-      href={href}
-      target={href === "#" ? undefined : "_blank"}
-      rel={href === "#" ? undefined : "noopener noreferrer"}
-      className="text-light text-xl hover:text-accent transition-colors duration-300 ml-9 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 py-1 min-h-[44px]"
-      aria-label={`${title}: ${value}${href !== "#" ? " (opens in new tab)" : ""}`}
-    >
-      {value}
-    </a>
+    {isLink ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-light text-xl hover:text-accent transition-colors duration-300 ml-9 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 py-1 min-h-[44px]"
+        aria-label={`${title}: ${value} (opens in new tab)`}
+      >
+        {value}
+      </a>
+    ) : (
+      <span className="text-light text-xl ml-9 px-2 py-1 min-h-[44px] inline-block">
+        {value}
+      </span>
+    )}
   </motion.div>
 );
 

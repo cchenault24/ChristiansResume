@@ -15,7 +15,7 @@ export default {
         gray: {
           800: "#1F1F1F", // Dark gray for backgrounds
           700: "#2D2D2D", // Slightly lighter gray
-          400: "#A3A3A3", // Light gray for text
+          400: "#B8B8B8", // Light gray for text (WCAG AA compliant)
         },
       },
       boxShadow: {

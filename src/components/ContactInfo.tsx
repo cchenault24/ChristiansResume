@@ -15,30 +15,35 @@ const ContactInfo: React.FC = () => {
       href: "tel:+18042918744",
       value: "(804) 291-8744",
       icon: <BsTelephone className="w-6 h-6" />,
+      isLink: true,
     },
     {
       title: "Email",
       href: "mailto:cchenault24@yahoo.com",
       value: "cchenault24@yahoo.com",
       icon: <MdEmail className="w-6 h-6" />,
+      isLink: true,
     },
     {
       title: "LinkedIn",
       href: "https://www.linkedin.com/in/christianchenault",
       value: "Christian Chenault",
       icon: <FaLinkedin className="w-6 h-6" />,
+      isLink: true,
     },
     {
       title: "GitHub",
       href: "https://github.com/cchenault24",
       value: "cchenault24",
       icon: <FaGithub className="w-6 h-6" />,
+      isLink: true,
     },
     {
       title: "Location",
-      href: "#",
+      href: "",
       value: "Richmond, VA",
       icon: <MdLocationOn className="w-6 h-6" />,
+      isLink: false,
     },
   ];
 
