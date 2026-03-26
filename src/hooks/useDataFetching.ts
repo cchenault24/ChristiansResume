@@ -25,18 +25,24 @@ export function useDataFetching<T>(
     let mounted = true;
 
     const fetchData = async () => {
+      console.log(`[useDataFetching] Starting fetch for: ${cacheKeyRef.current}`);
+
       // Check cache first
       const cachedData = getCachedData<T[]>(cacheKeyRef.current);
       if (cachedData) {
+        console.log(`[useDataFetching] Cache hit for: ${cacheKeyRef.current}, data:`, cachedData);
         if (mounted) {
           setState({ data: cachedData, loading: false, error: null });
         }
         return;
       }
 
+      console.log(`[useDataFetching] Cache miss for: ${cacheKeyRef.current}, fetching...`);
+
       try {
         setState((prev) => ({ ...prev, loading: true }));
         const result = await fetchFnRef.current();
+        console.log(`[useDataFetching] Fetch success for: ${cacheKeyRef.current}, items:`, result.length);
 
         // Cache the result
         setCachedData(cacheKeyRef.current, result);
@@ -45,6 +51,7 @@ export function useDataFetching<T>(
           setState({ data: result, loading: false, error: null });
         }
       } catch (err) {
+        console.error(`[useDataFetching] Fetch error for: ${cacheKeyRef.current}`, err);
         if (mounted) {
           setState({
             data: [],
