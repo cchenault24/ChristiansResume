@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/test/vitest-setup.d.ts"],
+  "include": ["src", "src/test/vitest-setup.d.ts", "seed-rest-api.ts"],
   "exclude": ["node_modules", "vite.config.ts"]
 }

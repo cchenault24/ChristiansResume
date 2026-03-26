@@ -38,7 +38,8 @@ async function deleteCollection(collectionName: string, token: string) {
 
   // Delete each document
   for (const doc of documents) {
-    await fetch(doc.name, {
+    const deleteUrl = `https://firestore.googleapis.com/v1/${doc.name}`;
+    await fetch(deleteUrl, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
