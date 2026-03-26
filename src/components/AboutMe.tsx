@@ -24,7 +24,7 @@ const AboutMe: React.FC = memo(() => {
               libraries to optimizing application performance and ensuring
               accessibility compliance, I'm committed to delivering exceptional
               results. I've led design system initiatives, built countless
-              reusable components, and established team wide coding standards
+              reusable components, and established team-wide coding standards
               that improve collaboration and development velocity.
             </p>
             <p className="text-lg leading-relaxed">

@@ -124,7 +124,7 @@ async function addDocument(collectionName: string, data: DocumentData, token: st
 // Data
 const jobHistoryData = [
   {
-    title: "Senior Front End Engineer",
+    title: "Senior Front-End Engineer",
     company: "Solidus Technical Solutions",
     location: "Remote",
     startDate: "02/2025",
@@ -152,7 +152,7 @@ const jobHistoryData = [
     ],
   },
   {
-    title: "Front End Engineer",
+    title: "Front-End Engineer",
     company: "Amazon",
     location: "Arlington, VA",
     startDate: "06/2022",
@@ -256,7 +256,7 @@ const projectsData = [
   },
   {
     title: "Momz & Dadz",
-    description: "iOS mobile social media platform designed to connect parents and facilitate knowledge sharing. Features hyper-local connections, verified parent communities, and trust-based interactions. Note: Project currently on hold due to time constraints.",
+    description: "iOS mobile social media platform designed to connect parents and facilitate knowledge sharing. MVP completed featuring hyper-local connections, verified parent communities, and trust-based interactions.",
     technologies: ["React Native", "iOS", "TypeScript", "Mobile Development"],
     link: "https://www.momzanddadz.com/",
     github: "",
