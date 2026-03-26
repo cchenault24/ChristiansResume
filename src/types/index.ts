@@ -14,6 +14,7 @@ export interface Skill {
   skill: string;
   descriptor: string;
   category: string;
+  subcategory?: string;
 }
 
 export interface Certificate {

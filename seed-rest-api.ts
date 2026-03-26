@@ -7,6 +7,28 @@ const FIRESTORE_API_URL = `https://firestore.googleapis.com/v1/projects/${FIREBA
 import serviceAccount from "./serviceAccountKey.json";
 import { GoogleAuth } from "google-auth-library";
 
+// Skill proficiency levels
+enum TechnicalProficiency {
+  Expert = "Expert level",
+  Advanced = "Advanced proficiency",
+  Proficient = "Proficient",
+  Intermediate = "Intermediate",
+}
+
+// Technical skill subcategories
+enum TechnicalSubcategory {
+  FrontendFrameworks = "Frontend Frameworks",
+  Languages = "Languages",
+  Backend = "Backend",
+  StateManagement = "State Management",
+  StylingDesign = "Styling & Design",
+  BuildTools = "Build Tools",
+  CloudDatabases = "Cloud & Databases",
+  Testing = "Testing",
+  VersionControlDevOps = "Version Control & DevOps",
+  Performance = "Performance",
+}
+
 const auth = new GoogleAuth({
   credentials: serviceAccount,
   scopes: ["https://www.googleapis.com/auth/datastore"],
@@ -213,37 +235,101 @@ const certificatesData = [
 const projectsData = [
   {
     title: "Dynamic Portfolio Website",
-    description: "Built a single-page application (SPA) to showcase projects and achievements, utilizing dynamic routing and responsive design. Note: Migrated from AWS Amplify to Firebase for improved scalability.",
+    description: "Built a single-page application (SPA) to showcase projects and achievements, utilizing dynamic routing and responsive design.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "NextUI", "Vite", "Firebase"],
     link: "https://www.christianchenault.com",
     github: "https://github.com/cchenault24",
   },
+  {
+    title: "FlexC Box",
+    description: "Interactive educational tool designed to teach developers CSS Flexbox properties through hands-on experimentation. Features real-time visualization of flex properties and their effects on layout.",
+    technologies: ["React", "TypeScript", "CSS3", "AWS Amplify"],
+    link: "https://master.d324ql5qcgcpj0.amplifyapp.com/",
+    github: "",
+  },
+  {
+    title: "Reliable Elevator Company Website",
+    description: "Professional business website for a family-owned elevator service company. Designed and developed a modern, responsive website to showcase services, enhance online presence, and generate client leads.",
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Responsive Design"],
+    link: "https://www.reliableelevatorcompany.com/",
+    github: "",
+  },
+  {
+    title: "Momz & Dadz",
+    description: "iOS mobile social media platform designed to connect parents and facilitate knowledge sharing. Features hyper-local connections, verified parent communities, and trust-based interactions. Note: Project currently on hold due to time constraints.",
+    technologies: ["React Native", "iOS", "TypeScript", "Mobile Development"],
+    link: "https://www.momzanddadz.com/",
+    github: "",
+  },
 ];
 
 const skillsData = [
-  { skill: "TypeScript", descriptor: "Advanced proficiency", category: "Technical" },
-  { skill: "JavaScript", descriptor: "Advanced proficiency", category: "Technical" },
-  { skill: "React.js", descriptor: "Expert level", category: "Technical" },
-  { skill: "Next.js", descriptor: "Advanced proficiency", category: "Technical" },
-  { skill: "AWS (Amplify, S3, Lambda, CloudWatch)", descriptor: "Experienced", category: "Technical" },
-  { skill: "CI/CD Pipelines", descriptor: "Skilled", category: "Technical" },
-  { skill: "Responsive Web Design", descriptor: "Expert level", category: "Technical" },
-  { skill: "Figma", descriptor: "Proficient", category: "Technical" },
-  { skill: "CSS", descriptor: "Advanced proficiency", category: "Technical" },
-  { skill: "Tailwind CSS", descriptor: "Advanced proficiency", category: "Technical" },
-  { skill: "Styled Components", descriptor: "Proficient", category: "Technical" },
-  { skill: "Redux", descriptor: "Deep experience", category: "Technical" },
-  { skill: "React Context", descriptor: "Expert level", category: "Technical" },
-  { skill: "GraphQL", descriptor: "Advanced proficiency", category: "Technical" },
-  { skill: "REST APIs", descriptor: "Expert level", category: "Technical" },
-  { skill: "Performance Optimization", descriptor: "Expert level", category: "Technical" },
-  { skill: "Jest", descriptor: "Proficient", category: "Technical" },
-  { skill: "React Testing Library", descriptor: "Proficient", category: "Technical" },
-  { skill: "Cypress", descriptor: "Experienced", category: "Technical" },
+  // Frontend Frameworks & Libraries
+  { skill: "React.js", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.FrontendFrameworks },
+  { skill: "React Native", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.FrontendFrameworks },
+  { skill: "Next.js", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.FrontendFrameworks },
+
+  // Languages
+  { skill: "TypeScript", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Languages },
+  { skill: "JavaScript", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Languages },
+  { skill: "HTML", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.Languages },
+  { skill: "CSS", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Languages },
+
+  // Backend
+  { skill: "Node.js", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Backend },
+  { skill: "Express", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Backend },
+  { skill: "REST APIs", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.Backend },
+  { skill: "GraphQL", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.Backend },
+
+  // State Management
+  { skill: "Redux", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.StateManagement },
+  { skill: "React Context", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.StateManagement },
+
+  // Styling & Design
+  { skill: "Tailwind CSS", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
+  { skill: "Styled Components", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
+  { skill: "Responsive Web Design", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
+  { skill: "Figma", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.StylingDesign },
+
+  // Build Tools & Bundlers
+  { skill: "Vite", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.BuildTools },
+  { skill: "Webpack", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.BuildTools },
+  { skill: "Turbopack", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.BuildTools },
+
+  // Cloud & Databases
+  { skill: "AWS (Amplify, S3, Lambda, CloudWatch)", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
+  { skill: "Firebase", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
+  { skill: "Vercel", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
+  { skill: "Supabase", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
+  { skill: "PostgreSQL", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
+  { skill: "MongoDB", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.CloudDatabases },
+
+  // Testing
+  { skill: "Jest", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Testing },
+  { skill: "React Testing Library", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Testing },
+  { skill: "Cypress", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.Testing },
+
+  // Version Control & DevOps
+  { skill: "Git", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.VersionControlDevOps },
+  { skill: "GitHub/GitLab/Bitbucket", descriptor: TechnicalProficiency.Advanced, category: "Technical", subcategory: TechnicalSubcategory.VersionControlDevOps },
+  { skill: "CI/CD Pipelines", descriptor: TechnicalProficiency.Proficient, category: "Technical", subcategory: TechnicalSubcategory.VersionControlDevOps },
+
+  // Performance & Optimization
+  { skill: "Performance Optimization", descriptor: TechnicalProficiency.Expert, category: "Technical", subcategory: TechnicalSubcategory.Performance },
+
+  // Soft Skills
   { skill: "Leadership & Mentorship", descriptor: "Experienced in guiding teams", category: "Soft" },
+  { skill: "Code Review", descriptor: "Conducted 300+ reviews, improving code quality", category: "Soft" },
   { skill: "Effective Communication", descriptor: "Adept at translating complex concepts", category: "Soft" },
   { skill: "Problem-Solving", descriptor: "Innovative solutions to challenges", category: "Soft" },
+  { skill: "Critical Thinking", descriptor: "Systematic analysis of complex problems", category: "Soft" },
   { skill: "Collaboration", descriptor: "Cross-functional team experience", category: "Soft" },
+  { skill: "Stakeholder Management", descriptor: "Partnering with product, UX, and business teams", category: "Soft" },
+  { skill: "Agile/Scrum Methodologies", descriptor: "Experienced with sprint planning and agile workflows", category: "Soft" },
+  { skill: "Technical Writing", descriptor: "Authored comprehensive technical plans and documentation", category: "Soft" },
+  { skill: "Time Management", descriptor: "Managing multiple priorities and deadlines effectively", category: "Soft" },
+  { skill: "Adaptability", descriptor: "Quick to learn new technologies and adjust to change", category: "Soft" },
+  { skill: "Attention to Detail", descriptor: "Quality-focused development practices", category: "Soft" },
 ];
 
 async function seed() {
