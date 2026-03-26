@@ -42,16 +42,3 @@ export function setCachedData<T>(key: string, data: T): void {
 export function clearCache(): void {
   cache.clear();
 }
-
-/**
- * Generate a cache key from a function
- */
-export function generateCacheKey(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fn: (...args: any[]) => any,
-  args?: string
-): string {
-  const fnString = fn.toString();
-  const argsString = args || "";
-  return `${fnString}-${argsString}`;
-}

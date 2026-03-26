@@ -38,7 +38,7 @@ const Projects: React.FC = memo(() => {
     data: projects,
     loading,
     error,
-  } = useDataFetching<Project>(getProjects);
+  } = useDataFetching<Project>(getProjects, "projects");
 
   if (loading)
     return (

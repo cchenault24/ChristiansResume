@@ -27,11 +27,9 @@ export interface Certificate {
   icon: string;
   createdAt: string;
   updatedAt: string;
-  __typename: "Certificate";
 }
 
 export interface EducationEntry {
-  __typename: "Education";
   id: string;
   university: string;
   degree: string;

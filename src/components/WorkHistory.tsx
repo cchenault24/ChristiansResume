@@ -24,7 +24,7 @@ const JobExperience: React.FC = memo(() => {
     data: jobs,
     loading,
     error,
-  } = useDataFetching<JobExperience>(getJobHistories);
+  } = useDataFetching<JobExperience>(getJobHistories, "work-history");
 
   const sortedJobs = useMemo(() => {
     if (!jobs.length) return [];

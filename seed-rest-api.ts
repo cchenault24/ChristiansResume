@@ -47,11 +47,26 @@ async function deleteCollection(collectionName: string, token: string) {
   console.log(`✅ Cleared ${collectionName} collection (${documents.length} documents)`);
 }
 
-async function addDocument(collectionName: string, data: any, token: string) {
+// Define types for Firestore field values
+interface FirestoreFieldValue {
+  stringValue?: string;
+  integerValue?: string;
+  booleanValue?: boolean;
+  arrayValue?: {
+    values: { stringValue: string }[];
+  };
+}
+
+type FirestoreFields = Record<string, FirestoreFieldValue>;
+
+// Define a type for document data that can have various primitive values
+type DocumentData = Record<string, string | number | boolean | string[]>;
+
+async function addDocument(collectionName: string, data: DocumentData, token: string) {
   const url = `${FIRESTORE_API_URL}/${collectionName}`;
 
   // Convert data to Firestore format
-  const fields: any = {};
+  const fields: FirestoreFields = {};
   for (const [key, value] of Object.entries(data)) {
     if (Array.isArray(value)) {
       fields[key] = {

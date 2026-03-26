@@ -14,7 +14,7 @@ const Certificates: React.FC = memo(() => {
     data: certificates,
     loading,
     error,
-  } = useDataFetching<Certificate>(getCertificates);
+  } = useDataFetching<Certificate>(getCertificates, "certificates");
 
   const sortedCertificates = useMemo(() => {
     return [...certificates].sort(

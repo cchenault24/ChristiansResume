@@ -54,21 +54,8 @@ export default {
         body: "400",
       },
     },
-    safelist: ["shadow-neon", "hover:shadow-neon"],
   },
+  safelist: ["shadow-neon", "hover:shadow-neon"],
   darkMode: "class",
   plugins: [nextui()],
-  // This will ensure unused styles are purged in production
-  purge: {
-    enabled: process.env.NODE_ENV === "production",
-    content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
-    options: {
-      safelist: [
-        // Add any classes that are dynamically created here
-        /^bg-/,
-        /^text-/,
-        /^hover:/,
-      ],
-    },
-  },
 };

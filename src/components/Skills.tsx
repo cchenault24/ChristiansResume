@@ -10,7 +10,11 @@ import SectionWrapper from "./SectionWrapper";
 import SkeletonLoader from "./SkeletonLoader";
 
 const Skills: React.FC = memo(() => {
-  const { data: skills, loading, error } = useDataFetching<Skill>(getSkills);
+  const {
+    data: skills,
+    loading,
+    error,
+  } = useDataFetching<Skill>(getSkills, "skills");
 
   const orderedSkills = React.useMemo(() => {
     if (!skills.length) return {};

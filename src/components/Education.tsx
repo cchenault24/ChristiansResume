@@ -12,7 +12,7 @@ const Education: React.FC = memo(() => {
     data: educations,
     loading,
     error,
-  } = useDataFetching<EducationEntry>(getEducation);
+  } = useDataFetching<EducationEntry>(getEducation, "education");
 
   const education = educations[0];
 
